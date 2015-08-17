@@ -1,7 +1,11 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'loshine';
+	if (localhost) {
+	    var disqus_shortname = 'test';
+	} else {
+	    var disqus_shortname = 'loshine';
+	}
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
