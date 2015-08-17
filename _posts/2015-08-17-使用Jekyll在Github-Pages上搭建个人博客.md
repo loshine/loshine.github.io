@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "使用Jekyll在Github-Pages上搭建个人博客"
 date:   2015-08-17 10:12:30
 categories: jekyll github github-page
 ---
@@ -18,7 +18,7 @@ categories: jekyll github github-page
 #目录
 
 * [开始](#begin)
-	* 新建一个仓库
+	* [新建一个仓库](#new respontory)
 	* clone到本地
 * 建造
 	* 搭建本地环境
@@ -28,4 +28,20 @@ categories: jekyll github github-page
 	* 自定义样式
 * 定制
 	* 使用独立域名
-	* 添加评论功能
+	* 添加			
+
+
+<h1 id="begin">开始</h1>
+
+<h2 id="new respontory">新建一个仓库</h2>
+
+* 如果没有Github帐号，首先[注册一个][register]。
+* 接下来新建一个仓库
+
+**注：**Repository name(仓库名)必须是 `yourusername.github.io`
+
+比如我的用户名是loshine，那么我的这个仓库名就是`loshine.github.io`
+
+* 再之后使用Github客户端或者Git命令行工具将这个项目clone到本地。
+
+[register]: https://github.com/
