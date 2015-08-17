@@ -27,9 +27,10 @@ categories: jekyll github github-page
 	* [搭建本地环境](#build environment)
 	* [Jekyll的使用](#use jekyll)
 	* [Jekyll目录解析](#jekyll dictionary)
+* [写博客](#write blog) 
 * [装修](#decoration)
-	* 使用模板
-	* 自定义样式
+	* [使用模板](#use template)
+	* [自定义样式](#stylish)
 * [定制](#customize)
 	* 使用独立域名
 	* 添加评论功能
@@ -98,6 +99,79 @@ categories: jekyll github github-page
 	    |—— 2015-04-09-welcome-to-jekyll.md
 	    |—— 2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md
 	|—— _site
+	|—— css
+	    |—— *.css
+	|—— script
+	    |—— *.js
 	|—— Gemfile
 	|—— Gemfile.lock
 	|—— index.html
+
+接下来按顺序介绍一下以上文件目录树的每一个文件夹以及文件的作用。
+
+* _config.yml - 配置文件，你可以在里面配置你博客会用到的常量，比如博客名，邮件
+* _includes - 文章各个部分的html文件，可以在布局中包含这些文件
+* _layouts - 存放模板。就是你网页的布局，主页布局，文章布局。当然不是指CSS那样的布局，是指，你包含哪些基本的内容到页面上。包含的内容就是includes里面的文件。
+* _posts - 存放博客文章
+* CNAME文件 - 域名地址
+* css - 存放博客所用css
+* script - 存放博客所用JavaScript
+* index - 博客主页
+
+<br>
+
+<h2 id="write blog">写博客</h2>
+
+博客文章都是用[markdown格式][markdown]书写，命名格式为*时间加标题*，形如：2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md
+
+文章需要在开头位置加入一段特殊的文字，其中定义了使用到的**样式**、**文章标题**、**时间**、**分类**。
+
+	---
+	layout: post
+	title: "Welcome to Jekyll!"
+	date: 2014-01-27 21:57:11
+	categories: Blog
+	---
+
+完成了以上的步骤，就可以开始撰写博客了。写完之后记得把它放入`_post`文件夹中，并同步到Github上哦。
+
+[markdown]: http://wowubuntu.com/markdown/
+
+<br>
+
+<h2 id="decoration">装修</h2>
+
+<h3 id="use template">使用模板</h3>
+
+之前在[Jekyll目录解析](#jekyll dictionary)中我们大致了解了各个目录的结构。如果您是一名资深的前端工程师，那么就可以直接开始编写自己喜欢的样式的博客了。如果您对于前端并不是那么擅长，那么您可以直接在[Jekyll 主题][theme]中选择自己喜欢的主题并放入到自己的项目中去。
+
+以我的博客为例，我选择了[Pithy][theme-pithy]主题，将其下载了下来，然后放入了自己的项目中，覆盖已有的文件，然后在终端中输入`bundle exec jekyll serve`运行jekyll服务器，打开`http://localhost:4000`就可以查看到效果了。
+
+[theme]: http://jekyllthemes.org/
+[theme-pithy]: http://jekyllthemes.org/themes/pithy/
+
+<h3 id="stylish">自定义样式</h3>
+
+如果您不是一名资深的前端工程师但是还是想要自己定义自己博客的样式。那么我推荐您[Run Noob][run noob]、[w3cschool][w3cschool]这两个地方学习前端知识。之后您就可以根据自己的需求装点自己的博客了。
+
+[run noob]: http://www.runoob.com/
+[w3cschool]: http://www.w3school.com.cn/
+
+<br>
+
+<h2 id="customize">定制</h2>
+
+待续...
+
+<br>
+
+<h2 id="reference">参考</h2>
+
+* [《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]
+* [官方文档][official documents]
+
+[official documents]: https://help.github.com/categories/github-pages-basics/
+
+
+
+
