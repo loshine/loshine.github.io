@@ -115,10 +115,10 @@ categories: jekyll github github-page
 * `_includes` 文章各个部分的html文件，可以在布局中包含这些文件
 * `_layouts` 存放模板。就是你网页的布局，主页布局，文章布局。当然不是指CSS那样的布局，是指，你包含哪些基本的内容到页面上。包含的内容就是includes里面的文件。
 * `_posts` 存放博客文章
-* `CNAME` - 域名地址
-* `css` - 存放博客所用css
-* `script` - 存放博客所用JavaScript
-* `index.html` - 博客主页
+* `CNAME` 域名地址
+* `css` 存放博客所用css
+* `script` 存放博客所用JavaScript
+* `index.html`ins 博客主页
 
 <br>
 
