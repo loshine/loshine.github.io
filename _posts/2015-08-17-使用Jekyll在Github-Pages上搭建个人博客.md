@@ -32,8 +32,10 @@ categories: jekyll github github-page
 	* [使用模板](#use template)
 	* [自定义样式](#stylish)
 * [定制](#customize)
-	* 使用独立域名
-	* 添加评论功能
+	* [使用独立域名](#cname)
+	* [添加评论功能](#add comment)
+		* [多说](#ds)
+	    * [Disqus](#disqus)
 * [参考](#reference)
 
 <br>
@@ -109,20 +111,20 @@ categories: jekyll github github-page
 
 接下来按顺序介绍一下以上文件目录树的每一个文件夹以及文件的作用。
 
-* _config.yml - 配置文件，你可以在里面配置你博客会用到的常量，比如博客名，邮件
-* _includes - 文章各个部分的html文件，可以在布局中包含这些文件
-* _layouts - 存放模板。就是你网页的布局，主页布局，文章布局。当然不是指CSS那样的布局，是指，你包含哪些基本的内容到页面上。包含的内容就是includes里面的文件。
-* _posts - 存放博客文章
-* CNAME文件 - 域名地址
-* css - 存放博客所用css
-* script - 存放博客所用JavaScript
-* index - 博客主页
+* `_config.yml` 配置文件，你可以在里面配置你博客会用到的常量，比如博客名，邮件
+* `_includes` 文章各个部分的html文件，可以在布局中包含这些文件
+* `_layouts` 存放模板。就是你网页的布局，主页布局，文章布局。当然不是指CSS那样的布局，是指，你包含哪些基本的内容到页面上。包含的内容就是includes里面的文件。
+* `_posts` 存放博客文章
+* `CNAME` - 域名地址
+* `css` - 存放博客所用css
+* `script` - 存放博客所用JavaScript
+* `index.html` - 博客主页
 
 <br>
 
 <h2 id="write blog">写博客</h2>
 
-博客文章都是用[markdown格式][markdown]书写，命名格式为*时间加标题*，形如：2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md
+博客文章都是用[markdown格式][markdown]书写，命名格式为*时间加标题*，形如：`2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md`
 
 文章需要在开头位置加入一段特殊的文字，其中定义了使用到的**样式**、**文章标题**、**时间**、**分类**。
 
@@ -161,7 +163,49 @@ categories: jekyll github github-page
 
 <h2 id="customize">定制</h2>
 
-待续...
+<h3 id="cname">使用独立域名</h3>
+
+* 新建一个文件，命名为**CNAME**，然后在里面写入你需要绑定的独立域名就可以了。
+* 在你的域名服务商处添加解析地址。
+
+完成以上步骤你就可以使用自己的独立域名了。
+
+<h3 id="add comment">添加评论功能</h3>
+
+<h4 id="ds">多说</h4>
+
+多说评论对国内的社交帐号支持不错，自定义性也很强，是一个不错的选择。
+
+* 登录[多说][ds]，创建一个项目，拷贝你的**通用代码**。
+* 在`_include`文件夹里新建一个`comment.html`文件，将通用代码粘贴进去。
+* 修改**通用代码**中需要配置的地方
+
+        <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
+         data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+        
+    修改为
+    
+        <div class="ds-thread" data-thread-key="【 page.id 】"
+         data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
+         
+    注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
+* 在`_layout`中的`post.html`中的底部加入`【% include comment.html %】`（【】须替换为{}）
+* 在**多说**的控制台里你可以设置很多自定义项，如：评论审核、评论显示方式、关键词过滤、主题、自定义CSS等
+
+[ds]: http://duoshuo.com/
+
+<h4 id="disqus">Disqus</h4>
+
+Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果你的博客不是主要面向国内普通用户的话，可以考虑使用Disqus。
+
+* [注册Disqus][disqus]
+* 右上角设置项中选择`Add Disqus To Site`，按步骤走，最后复制生成的**Universal Code**
+* 其它部分类似如上的集成多说操作，*但不需要自己修改代码了*
+* Disqus也有控制台可以对评论进行操作
+
+**注意**：Disqus在国内的访问速度可能比较慢，可能需要慎重考虑使用。
+
+[disqus]: https://disqus.com/
 
 <br>
 
