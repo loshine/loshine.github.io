@@ -13,3 +13,5 @@ github_username:  loshine
 
 # Build settings
 markdown: kramdown
+gems:
+  - jekyll-sitemap
