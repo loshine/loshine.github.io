@@ -181,15 +181,19 @@ tags: [jekyll, github, github-page]
 * 在`_include`文件夹里新建一个`comment.html`文件，将通用代码粘贴进去。
 * 修改**通用代码**中需要配置的地方
 
-        <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
-         data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
-        
-    修改为
+	{% highlight html %}
+	<div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
+		data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+	{% endhighlight %}
+  修改为
+
+	{% highlight html %}  
+    <div class="ds-thread" data-thread-key="【 page.id 】"
+		data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
+	{% endhighlight %}    
     
-        <div class="ds-thread" data-thread-key="【 page.id 】"
-         data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
-         
-    注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
+注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
+
 * 在`_layout`中的`post.html`中的底部加入`【% include comment.html %】`（【】须替换为{}）
 * 在**多说**的控制台里你可以设置很多自定义项，如：评论审核、评论显示方式、关键词过滤、主题、自定义CSS等
 
