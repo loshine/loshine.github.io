@@ -1,17 +1,38 @@
-# Site settings
-title: 饭饭的小窝
-motto: PHP是最好的编程语言！233
-email: loshine1992@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username:  loshine
-
-# Build settings
+# This is the default format.
+# For more see: http://jekyllrb.com/docs/permalinks/
+# permalink: /:title
+# https://help.github.com/articles/migrating-your-pages-site-from-maruku
 markdown: kramdown
+
+highlighter: pygments
+paginate: 20 # pagination based on number of posts
+paginate_path: "page/:num"
+
+# These paths are to the main pages Jekyll-Bootstrap ships with.
+# Some JB helpers refer to these paths; change them here if needed.
+#
+categories_path : categories.html
+tags_path : tags.html
+
+BASE_PATH : http://loshine.github.io
+#BASE_PATH : http://localhost:4000
+
+title : 饭饭的小窝
+
+
+
+author:
+  name: talk2ankan
+  role: Loshine
+  email: loshine1992@gmail.com
+  github: Loshine
+  #twitter: talk2ankan
+  #facebook: talk2ankan
+  #googleplus: +AnkanBiswasWorkspace
+  bio: "PHP是最好的编程语言！233"
+  #uno-dbyll: https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png
+  uno-dbyll: http://7xl94a.com1.z0.glb.clouddn.com/20140122112618_ZXznW.thumb.700_0.jpeg
+
+
 gems:
   - jekyll-sitemap

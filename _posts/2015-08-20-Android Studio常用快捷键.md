@@ -2,7 +2,8 @@
 layout: post
 title:  "Android Studio常用快捷键"
 date:   2015-08-20 22:31:30
-categories: AndroidStudio Android
+categories: [Android Studio]
+tags: [Android Studio, Android]
 ---
 > 之前直接把Android Studio的keymap改为了Eclipse模式，但毕竟这样不利于Android Studio的学习，所以这里也记录一下Android Studio的快捷键，便于以后查看。
 

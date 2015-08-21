@@ -1,156 +1,303 @@
 <!DOCTYPE html>
-<html>    
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width initial-scale=1">
+<html>
+	<head>
 
-  <title>饭饭的小窝</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+		<title>饭饭的小窝</title>
+
+	
+
+	<meta name="author" content="talk2ankan">
+
+		<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="baidu-site-verification" content="Ivbbz5JY91" />
   <meta name="google-site-verification" content="WUJ3Qt0vMQHWGJNBMj2VwfPAxIA2fGArdinH3FhiyLo" />
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/">
-  <link rel="alternate" type="application/atom+xml" title="饭饭的小窝" href="/feed.xml" />
-  <script src="/scripts/jquery-1.11.2.min.js"></script>
-  <script src="/scripts/pithy.js"></script>
-</head>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/syntax/syntax.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+<link rel="icon" href="https://raw.githubusercontent.com/talk2ankan/uno-dbyll/gh-pages/uno-dbyll.png">
 
-  <body>
-    <header class="header">
-	<div class="header-container">
-		<div class="nav">
-			
-			<span class="title">
-				<li>
-					<a href="/index.html">home</a>
-				</li>
-			</span>			
-			
-			
-				<li>
-					<a href="/archive.html">archive</a>
-				</li>			
-			
-			
-				<li>
-					<a href="/category.html">category</a>
-				</li>			
-			
-			
-				<li>
-					<a href="/about.html">about</a>
-				</li>			
-			
-		</div>
-		<div class="description"> PHP是最好的编程语言！233 </div>		
-		<ul class="social-links">
-			<li>
-				<a href="https://github.com/loshine" title="Github">
-					<img width="19px" height="19px" src="/images/github.png"/>
-				</a>
-			</li>
-			<li>
-				<a href="/feed.xml" title="RSS">
-					<img width="19px" height="19px" src="/images/rss.png"/>
-				</a>
-			</li>
-			<li>
-				<a href="https://twitter.com" title="RSS">
-					<img width="19px" height="19px" src="/images/twitter.png"/>
-				</a>
-			</li>
-		</ul>		
-	</div>
+<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+if(window.location.href=="http://blog.ankanbiswas.in/uno-dbyll/")
+{
+$("#sidebar").css({width:'100%'});
+$("#btnblog").click(function(){
+$("#sidebar").animate({width:'33.3333%'},'slow');
+});
+}
+});
+	
+</script>
+	</head>
+<body>
+
+<nav class="navbar navbar-default visible-xs" role="navigation">
+
+
+ <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarHeaderCollapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a type="button" class="navbar-toggle nav-link" href="http://github.com/Loshine">
+        <i class="fa fa-github"></i>
+      </a>
+      
+      
+       
+      <a type="button" class="navbar-toggle nav-link" href="mailto:loshine1992@gmail.com">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+     
+
+     
+      <a class="navbar-brand" href="http://localhost:4000">
+        <img src="http://7xl94a.com1.z0.glb.clouddn.com/20140122112618_ZXznW.thumb.700_0.jpeg" class="img-circle" style="height:35px;width:35px"/>
+        饭饭的小窝
+      </a>
+    </div>
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbarHeaderCollapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:4000">Home</a></li>
+        <li><a href="http://localhost:4000/categories.html">Categories</a></li>
+        <li><a href="http://localhost:4000/tags.html">Tags</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+</nav>
+
+  <!-- nav-menu-dropdown -->
+  <div class="btn-group hidden-xs" id="nav-menu">
+   <button type="button" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown">
+     <i class="fa fa-bars"></i>
+   </button>
+   <ul class="dropdown-menu pull-right" role="menu">
+     <li><a href="http://localhost:4000"><i class="fa fa-home"></i> Home</a></li>
+     <li><a href="http://localhost:4000/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+     <li><a href="http://localhost:4000/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+     <li class="divider"></li>
+     <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+   </ul>
+ </div>
+
+<div class="col-sm-4 sidebar hidden-xs" id="sidebar">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="http://localhost:4000">
+		<img src="http://7xl94a.com1.z0.glb.clouddn.com/20140122112618_ZXznW.thumb.700_0.jpeg" class="img-circle" style="border-radius: 50%;
+border: 3px solid #FFF; height:150px;width:150px" />
+	</a>
+	<h3 class="title">
+        <a href="http://localhost:4000">饭饭的小窝</a>
+         <p style="font-size:20px;">Loshine</p>
+    </h3>
+    
+    <hr class="hr-line">
+<h3 class="title">
+         <p style="font-size:18px">PHP是最好的编程语言！233</p>
+    </h3>
+
+    <hr class="hr-line1">
+ <h3 class="title" style="font-size:30px;">
+ 
+       
+      <a type="button" class="social1" href="http://github.com/Loshine">
+        <i class="fa fa-github"></i>
+      </a>
+      
+       
+     
+      
+      <a type="button" class="social3" href="mailto:loshine1992@gmail.com">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+       <hr class="hr-line1">
+       <a type="button"  style="font-size:20px; padding:7px; padding-left:13px;padding-right:13px;margin-right: 10px;" class="social3 " id="btnblog" href="http://localhost:4000/#blog">
+        <i class="fa" style="font-weight:bold;letter-spacing:0; font-family:arial,sans-serif">Blog</i>
+      </a>
+      </h3>
+
 </header>
 
-    <br>
-    <div class="page-content">
-      <div class="wrapper">
-        <div class="home">
-  <ul class="post-list">
+
+
+<! -- sidebar.html end -->
+
+	</div>
+
+<div class="col-sm-8 col-sm-offset-4" id="container">
+  <br/>
+
+
+<article class="home">
+
+  <h2>
+ <p class="post-date">
     
-      <li>
-        <br>
-        <h3>
-          <a class="post-link" href="/androidstudio/android/2015/08/21/Android%20Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.html">Android Studio常用快捷键</a>
-        </h3>
-        <span class="post-meta">Aug 21, 2015 06:08</span>
-        <hr id="line">
-		<div class="content">
-		<blockquote>
+    August
+    21st,
+    
+    2015
+  </p>
+    <a href="http://localhost:4000/android%20studio/2015/08/21/Android%20Studio%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE.html" style="font-family: ubuntu">Android Studio常用快捷键</a>
+  </h2>
+
+  <div style="font-family: 'Raleway', sans-serif;font-size:large">
+    
+    
+    <blockquote>
   <p>之前直接把Android Studio的keymap改为了Eclipse模式，但毕竟这样不利于Android Studio的学习，所以这里也记录一下Android Studio的快捷键，便于以后查看。</p>
 </blockquote>
 
 
-        </div>
-		<br>
-      </li>
     
-      <li>
-        <br>
-        <h3>
-          <a class="post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/java/2015/08/18/Java%E4%B8%AD%E7%9A%84%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html">Java中的单例设计模式</a>
-        </h3>
-        <span class="post-meta">Aug 18, 2015 19:08</span>
-        <hr id="line">
-		<div class="content">
-		<blockquote>
+    
+    <hr class="hr-line1 " style="background-color:#D8D8D8;width:25%;" align="left">
+  </div>
+</article>
+
+
+<article class="home">
+
+  <h2>
+ <p class="post-date">
+    
+    August
+    18th,
+    
+    2015
+  </p>
+    <a href="http://localhost:4000/java/2015/08/18/Java%E4%B8%AD%E7%9A%84%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html" style="font-family: ubuntu">Java中的单例设计模式</a>
+  </h2>
+
+  <div style="font-family: 'Raleway', sans-serif;font-size:large">
+    
+    
+    <blockquote>
   <p>单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
 </blockquote>
 
 
-        </div>
-		<br>
-      </li>
     
-      <li>
-        <br>
-        <h3>
-          <a class="post-link" href="/jekyll/github/github-page/2015/08/17/%E4%BD%BF%E7%94%A8Jekyll%E5%9C%A8Github-Pages%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html">使用Jekyll在Github-Pages上搭建个人博客</a>
-        </h3>
-        <span class="post-meta">Aug 17, 2015 18:08</span>
-        <hr id="line">
-		<div class="content">
-		<blockquote>
+    
+    <hr class="hr-line1 " style="background-color:#D8D8D8;width:25%;" align="left">
+  </div>
+</article>
+
+
+<article class="home">
+
+  <h2>
+ <p class="post-date">
+    
+    August
+    17th,
+    
+    2015
+  </p>
+    <a href="http://localhost:4000/jekyll/2015/08/17/%E4%BD%BF%E7%94%A8Jekyll%E5%9C%A8Github-Pages%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html" style="font-family: ubuntu">使用Jekyll在Github-Pages上搭建个人博客</a>
+  </h2>
+
+  <div style="font-family: 'Raleway', sans-serif;font-size:large">
+    
+    
+    <blockquote>
   <p>我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了<a href="http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html">《“授人以渔”的教你搭建个人独立博客》——Azure Yu</a>、<a href="https://help.github.com/articles/using-jekyll-with-pages/">《Using Jekyll with Pages》</a>。鄙人于此也作一下<strong>使用Jekyll在Github-Pages上搭建个人博客</strong>的总结，也可以给其他后来者做一些参考。</p>
 </blockquote>
 
 
-        </div>
-		<br>
-      </li>
     
-      <li>
-        <br>
-        <h3>
-          <a class="post-link" href="/jekyll/update/2015/04/09/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h3>
-        <span class="post-meta">Apr 9, 2015 19:04</span>
-        <hr id="line">
-		<div class="content">
-		<p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    
+    <hr class="hr-line1 " style="background-color:#D8D8D8;width:25%;" align="left">
+  </div>
+</article>
 
 
-        </div>
-		<br>
-      </li>
+<article class="home">
+
+  <h2>
+ <p class="post-date">
     
-  </ul>
+    April
+    9th,
+    
+    2015
+  </p>
+    <a href="http://localhost:4000/jekyll/2015/04/09/welcome-to-jekyll.html" style="font-family: ubuntu">Welcome to Jekyll!</a>
+  </h2>
+
+  <div style="font-family: 'Raleway', sans-serif;font-size:large">
+    
+    
+    <p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+
+    
+    
+    <hr class="hr-line1 " style="background-color:#D8D8D8;width:25%;" align="left">
+  </div>
+</article>
+
+<hr/>
+
+<ul class="pager"> 
+
+  
+  <li class="previous disabled">
+    <a>&larr; Newer</a>
+  </li>
+  
+  
+  <li>
+    <span class="page_number">Page: 1 of 1</span>
+  </li>
+
+  
+  <li class="next disabled">
+    <a>Older &rarr;</a>        
+  </li>
+  
+
+</ul>
+
+
+<footer class="navbar navbar-default">
+    <div class="container">
+      <p class="navbar-text pull-left">Some rights reserved &copy; 2015 talk2ankan. </br>
+      Created using <a class="navbar-button" href="https://github.com/twbs/bootstrap">Bootstrap3</a> and <a class="navbar-button" href="https://github.com/jekyll/jekyll">Jekyll</a>. Theme : <a class="navbar-button" href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a> by talk2ankan.
+ </p>
+ </div>
+  </footer>
 </div>
 
-      </div>
-    </div>
-    
-    <footer class="footer">
-  <div id="gotop">^</div>
-  <br>
-  <h3>友情链接<h3>
-  <a href="https://www.upyun.com/"><img src="http://upfiles.b0.upaiyun.com/logo/90x45.png" alt="UPYUN"></a>
-</footer>
-    
-  </body>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'talk2ankan'; // required: replace example with your forum shortname
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
+</body>
 </html>
