@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<head>
+  <head>
 
-		<title>{{ page.title }}</title>
+    <title>{{ page.title }}</title>
 
-	{% if page.description %}
-	<meta name="description" content="{{ page.description }}">
-	{% endif %}
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% endif %}
 
-	<meta name="author" content="{{ site.author.name }}">
+  <meta name="author" content="{{ site.author.name }}">
 
-		<!-- Enable responsive viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enable responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="baidu-site-verification" content="Ivbbz5JY91" />
   <meta name="google-site-verification" content="WUJ3Qt0vMQHWGJNBMj2VwfPAxIA2fGArdinH3FhiyLo" />
 
@@ -24,8 +24,8 @@
 <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
-	
+  <script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
+  
 <script type="text/javascript">
 $(document).ready(function(){
 if(window.location.href=="http://blog.ankanbiswas.in/uno-dbyll/")
@@ -36,9 +36,9 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
 });
 }
 });
-	
+  
 </script>
-	</head>
+  </head>
 <body>
 
 <nav class="navbar navbar-default visible-xs" role="navigation">
@@ -102,13 +102,11 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
  </div>
 
 <div class="col-sm-4 sidebar hidden-xs" id="sidebar">
-		{% include sidebar.html %}
-	</div>
+    {% include sidebar.html %}
+  </div>
 
 <div class="col-sm-8 col-sm-offset-4" id="container">
   {{ content }}
-
-<div id="disqus_thread"></div>
 
 <footer class="navbar navbar-default">
     <div class="container">
@@ -118,22 +116,5 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
  </div>
   </footer>
 </div>
-    
 </body>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    if (location.hostname == 'localhost') {
-      var disqus_shortname = 'test';
-    } else {
-      var disqus_shortname = 'loshine';
-    }
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </html>
