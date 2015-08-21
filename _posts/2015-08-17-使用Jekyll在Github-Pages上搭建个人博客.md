@@ -181,16 +181,16 @@ tags: [jekyll, github, github-page]
 * 在`_include`文件夹里新建一个`comment.html`文件，将通用代码粘贴进去。
 * 修改**通用代码**中需要配置的地方
 
-	{% highlight html %}
-	<div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
-		data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
-	{% endhighlight %}
-  修改为
+{% highlight html %}
+<div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
+    data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+{% endhighlight %}
+修改为
 
-	{% highlight html %}  
-    <div class="ds-thread" data-thread-key="【 page.id 】"
-		data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
-	{% endhighlight %}    
+{% highlight html %}  
+<div class="ds-thread" data-thread-key="【 page.id 】" 
+    data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
+{% endhighlight %}    
     
 注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
 
