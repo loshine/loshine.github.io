@@ -108,23 +108,7 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
 <div class="col-sm-8 col-sm-offset-4" id="container">
   {{ content }}
 
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES * * */
-      if (location.hostname == 'localhost') {
-        var disqus_shortname = 'test';
-      } else {
-        var disqus_shortname = 'loshine';
-      }
-      
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<div id="disqus_thread"></div>
 
 <footer class="navbar navbar-default">
     <div class="container">
@@ -136,4 +120,20 @@ $("#sidebar").animate({width:'33.3333%'},'slow');
 </div>
     
 </body>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    if (location.hostname == 'localhost') {
+      var disqus_shortname = 'test';
+    } else {
+      var disqus_shortname = 'loshine';
+    }
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </html>
