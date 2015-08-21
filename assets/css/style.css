@@ -47,6 +47,7 @@ table > thead > tr > td {
 .author .author-image {
   float: left;
   margin-right: 20px;
+  border-radius: 500px;
 }
 
 .author-bio{
