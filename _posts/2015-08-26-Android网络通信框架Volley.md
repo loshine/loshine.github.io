@@ -57,16 +57,16 @@ Volley 提供了如下的便捷功能：
 
 * Gradle构建（非官方渠道，推荐）
     {% highlight groovy %}
-    compile 'com.mcxiaoke.volley:library:1.0.18'
+compile 'com.mcxiaoke.volley:library:1.0.18'
     {% endhighlight %}
 
 * Maven构建（非官方渠道）
     {% highlight xml %}
-    <dependency>
-        <groupId>com.mcxiaoke.volley</groupId>
-        <artifactId>library</artifactId>
-        <version>{latest-version}</version>
-    </dependency>
+<dependency>
+    <groupId>com.mcxiaoke.volley</groupId>
+    <artifactId>library</artifactId>
+    <version>{latest-version}</version>
+</dependency>
     {% endhighlight %}
 
 <h3 id="use">使用</h3>
@@ -201,29 +201,30 @@ public class XMLRequest extends Request<XmlPullParser> {
 
 1. 可以针对某些个request做取消操作
     {% highlight java %}
-    @Override  
-    public void onStop() {  
-        for (Request <?> req : mRequestQueue) {  
-            req.cancel();  
-        }  
+@Override  
+public void onStop() {  
+    for (Request <?> req : mRequestQueue) {  
+        req.cancel();  
     }  
+}  
     {% endhighlight %}
 2. 取消这个队列里的所有请求
     {% highlight java %}
-    @Override  
-    protected void onStop() {  
-        super.onStop();  
-        mRequestQueue.cancelAll(this);  
-    }  
+@Override  
+protected void onStop() {  
+    super.onStop();  
+    mRequestQueue.cancelAll(this);  
+}  
     {% endhighlight %}
 3. 可以根据 RequestFilter 或者 Tag 来终止某些请求
     {% highlight java %}
-    @Override  
-    protected void onStop() {  
-        super.onStop();  
-  
+@Override  
+protected void onStop() {  
+    super.onStop();  
+
     // 根据 RequestFilter
-    mRequestQueue.cancelAll(new RequestFilter() {});  
+    mRequestQueue.cancelAll(new RequestFilter() {});
     // 根据 Tag  
-    mRequestQueue.cancelAll(new Object());  
+    mRequestQueue.cancelAll(new Object());
+}
     {% endhighlight %}
