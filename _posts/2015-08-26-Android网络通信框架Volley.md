@@ -56,18 +56,18 @@ Volley 提供了如下的便捷功能：
     3. 导入项目
 
 * Gradle构建（非官方渠道，推荐）
-    <% highlight groovy %>
+    {% highlight groovy %}
     compile 'com.mcxiaoke.volley:library:1.0.18'
-    <% endhighlight %>
+    {% endhighlight %}
 
 * Maven构建（非官方渠道）
-    <% highlight xml %>
+    {% highlight xml %}
     <dependency>
         <groupId>com.mcxiaoke.volley</groupId>
         <artifactId>library</artifactId>
         <version>{latest-version}</version>
     </dependency>
-    <% endhighlight %>
+    {% endhighlight %}
 
 <h3 id="use">使用</h3>
 
@@ -107,7 +107,7 @@ JsonObjectRequest 允许上传 JsonObject 数据，并根据请求返回数据�
 
 StringRequest 是最为常用也是最灵活的 Request 实现。一个简单的 Get 请求获取百度首页的例子：
 
-<% highlight java %>
+{% highlight java %}
 public class StringRequestActivity extends AppCompatActivity {
 
     /**
@@ -146,13 +146,13 @@ public class StringRequestActivity extends AppCompatActivity {
         mRequestQueue.cancelAll(this);
     }
 }
-<% endhighlight %>
+{% endhighlight %}
 
 ####自定义Request
 
 一个简单的使用 Pull 解析的 XMLRequest
 
-<% highlight java %>
+{% highlight java %}
 public class XMLRequest extends Request<XmlPullParser> {  
   
     private final Listener<XmlPullParser> mListener;
@@ -189,7 +189,7 @@ public class XMLRequest extends Request<XmlPullParser> {
     }  
   
 }  
-<% endhighlight %>
+{% endhighlight %}
 
 在`parseNetworkResponse()`方法中将服务器响应的数据解析成一个字符串，然后设置到XmlPullParser对象中。在`deliverResponse()`方法中则是将XmlPullParser对象进行回调。
 
@@ -200,24 +200,24 @@ public class XMLRequest extends Request<XmlPullParser> {
 所以在使用 Volley 时，我们应该在 Activity 停止的时候，同时取消所有或部分未完成的网络请求。Volley 里所有的请求结果会返回给主进程，如果在主进程里取消了某些请求，则这些请求将不会被返回给主线程。Volley 支持多种 Request 取消方式。
 
 1. 可以针对某些个request做取消操作
-    <% highlight java %>
+    {% highlight java %}
     @Override  
     public void onStop() {  
         for (Request <?> req : mRequestQueue) {  
             req.cancel();  
         }  
     }  
-    <% endhighlight %>
+    {% endhighlight %}
 2. 取消这个队列里的所有请求
-    <% highlight java %>
+    {% highlight java %}
     @Override  
     protected void onStop() {  
         super.onStop();  
         mRequestQueue.cancelAll(this);  
     }  
-    <% endhighlight %>
+    {% endhighlight %}
 3. 可以根据 RequestFilter 或者 Tag 来终止某些请求
-    <% highlight java %>
+    {% highlight java %}
     @Override  
     protected void onStop() {  
         super.onStop();  
@@ -226,4 +226,4 @@ public class XMLRequest extends Request<XmlPullParser> {
     mRequestQueue.cancelAll(new RequestFilter() {});  
     // 根据 Tag  
     mRequestQueue.cancelAll(new Object());  
-    <% endhighlight %>
+    {% endhighlight %}
