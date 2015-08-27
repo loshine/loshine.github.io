@@ -1,0 +1,229 @@
+---
+layout: post
+title:  "Android网络通信框架Volley"
+date:   2015-08-27 23:37:30
+categories: [Android]
+tags: [Android, Volley]
+---
+> 之前我们在Android应用中的网络通信，一般都是使用AsyncTaskLoader，HttpURLConnection，AsyncTask，HTTPClient（Apache）等。但在Google I/O 2013上，Google发布了一个新的网络通信框架——Volley。
+> 
+> Volley适合数据量不大但通信十分频繁的场景，它使得Http通信操作相比以前更加简单、快捷、健壮。
+
+##目录
+
+* [Why](#why)
+* [How](#how)
+    * [集成](#compile)
+    * [使用](#use)
+    * [与生命周期的联动](#lifecircle)
+
+<br>
+
+<h2 id="why">Why</h2>
+
+之前从网络下载图片可能要这样：
+
+1. 在 ListAdapter#getView() 里开始图像的读取
+2. 通过 AsyncTask 等机制使用 HttpURLConnection 从服务器去的图片资源
+3. 在 AsyncTask#onPostExecute() 里设置相应 ImageView 的属性
+
+再有，屏幕旋转的时候，有时候*会导致再次从网络取得数据*。为了防止不必要的网络访问，可能我们要自己实现 cache。
+
+还有ListView滚动过快时，可能会导致有些网络请求返回数据时早已不需要显示了。
+
+**这些问题使用 Volley 都可以很简单地解决**。
+
+Volley 提供了如下的便捷功能：
+
+* JSON，图像的异步下载
+* 网络请求序列
+* 网络请求优先级处理
+* 缓存
+* 多级别取消请求
+* 和 Activity 生命周期的联动
+
+**人生苦短，快用 Volley！**
+
+<h2 id="how">How</h2>
+
+<h3 id="compile">集成</h3>
+
+三种集成方法，其中后两种都是非官方渠道：
+
+* 编译源码导入项目
+    1. 从 Git 库 clone 最新版 `git clone https://android.googlesource.com/platform/frameworks/volley`
+    2. 编译为 jar 包
+    3. 导入项目
+
+* Gradle构建（非官方渠道，推荐）
+    <% highlight groovy %>
+    compile 'com.mcxiaoke.volley:library:1.0.18'
+    <% endhighlight %>
+
+* Maven构建（非官方渠道）
+    <% highlight xml %>
+    <dependency>
+        <groupId>com.mcxiaoke.volley</groupId>
+        <artifactId>library</artifactId>
+        <version>{latest-version}</version>
+    </dependency>
+    <% endhighlight %>
+
+<h3 id="use">使用</h3>
+
+具体使用流程如下：
+
+1. 在 Activity 中构造一个（一个就够了） RequestQueue 请求序列对象
+2. 创建一个 Request 对象（子类实现）
+3. 添加到序列
+4. 开始序列
+
+在这四步中，我们着重要关注的是第二步，Request 是一个抽象类，我们所以我们要用到它的子类实现，Volley中已经实现了以下几个子类：
+
+* ClearCacheRequest
+* ImageRequest
+* JSONRequest
+* StringRequest
+
+下面我们就对这几个子类进行介绍以及给出示例
+
+####ClearCacheRequest
+
+虚构的请求，用于清空已有的缓存文件。
+
+ClearCacheRequest的优先级很高，为`Priority.IMMEDIATE`，所以在被添加到 RequestQueue 后能很快执行。并且清空缓存的方法`mCache.clear()`写在了`isCanceled()`方法体中，能最早的得到执行。
+
+####ImageRequest
+
+待完成
+
+####JSONRequest
+
+JSONRequest 也是一个抽象类，所以我们在使用时要用到它的两个实现子类——JsonObjectRequest 和 JsonArrayRequest。
+
+JsonObjectRequest 允许上传 JsonObject 数据，并根据请求返回数据。但JsonArrayRequest 的实现过于简单，不能携带上传 json 数据，只能使用 GET 方式请求网络。
+
+####StringRequest
+
+StringRequest 是最为常用也是最灵活的 Request 实现。一个简单的 Get 请求获取百度首页的例子：
+
+<% highlight java %>
+public class StringRequestActivity extends AppCompatActivity {
+
+    /**
+     * Volley 请求队列对象
+     */
+    private RequestQueue mRequestQueue;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_string_request);
+        
+        // 构造请求队列
+        mRequestQueue = Volley.newRequestQueue(context);
+        
+        StringRequest request = new StringRequest("http://www.baidu.com",
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    JSONObject jsonObject = JSON.parseObject(response, JSONObject.class);
+                }
+            },
+             new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.i("net error", error.getLocalizedMessage());
+                }
+            });
+        mRequestQueue.add(request);
+    }
+    
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // 退出时取消所有网络请求
+        mRequestQueue.cancelAll(this);
+    }
+}
+<% endhighlight %>
+
+####自定义Request
+
+一个简单的使用 Pull 解析的 XMLRequest
+
+<% highlight java %>
+public class XMLRequest extends Request<XmlPullParser> {  
+  
+    private final Listener<XmlPullParser> mListener;
+
+    public XMLRequest(int method, String url, Listener<XmlPullParser> listener,  
+            ErrorListener errorListener) {  
+        super(method, url, errorListener);  
+        mListener = listener;  
+    }  
+  
+    public XMLRequest(String url, Listener<XmlPullParser> listener, ErrorListener errorListener) {  
+        this(Method.GET, url, listener, errorListener);  
+    }  
+  
+    @Override  
+    protected Response<XmlPullParser> parseNetworkResponse(NetworkResponse response) {  
+        try {  
+            String xmlString = new String(response.data,  
+                    HttpHeaderParser.parseCharset(response.headers));  
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();  
+            XmlPullParser xmlPullParser = factory.newPullParser();  
+            xmlPullParser.setInput(new StringReader(xmlString));  
+            return Response.success(xmlPullParser, HttpHeaderParser.parseCacheHeaders(response));  
+        } catch (UnsupportedEncodingException e) {  
+            return Response.error(new ParseError(e));  
+        } catch (XmlPullParserException e) {  
+            return Response.error(new ParseError(e));  
+        }  
+    }  
+  
+    @Override  
+    protected void deliverResponse(XmlPullParser response) {  
+        mListener.onResponse(response);  
+    }  
+  
+}  
+<% endhighlight %>
+
+在`parseNetworkResponse()`方法中将服务器响应的数据解析成一个字符串，然后设置到XmlPullParser对象中。在`deliverResponse()`方法中则是将XmlPullParser对象进行回调。
+
+<h3 id="lifecircle">与生命周期的联动</h3>
+
+当 Activity 里面启动了网络请求，如果这个网络请求还没返回结果的时候，Activity 就被结束了。此时如果继续使用其中的 Context 等会消耗没有必要的系统资源，而且还有可能会导致程序 crash。
+
+所以在使用 Volley 时，我们应该在 Activity 停止的时候，同时取消所有或部分未完成的网络请求。Volley 里所有的请求结果会返回给主进程，如果在主进程里取消了某些请求，则这些请求将不会被返回给主线程。Volley 支持多种 Request 取消方式。
+
+1. 可以针对某些个request做取消操作
+    <% highlight java %>
+    @Override  
+    public void onStop() {  
+        for (Request <?> req : mRequestQueue) {  
+            req.cancel();  
+        }  
+    }  
+    <% endhighlight %>
+2. 取消这个队列里的所有请求
+    <% highlight java %>
+    @Override  
+    protected void onStop() {  
+        super.onStop();  
+        mRequestQueue.cancelAll(this);  
+    }  
+    <% endhighlight %>
+3. 可以根据 RequestFilter 或者 Tag 来终止某些请求
+    <% highlight java %>
+    @Override  
+    protected void onStop() {  
+        super.onStop();  
+  
+    // 根据 RequestFilter
+    mRequestQueue.cancelAll(new RequestFilter() {});  
+    // 根据 Tag  
+    mRequestQueue.cancelAll(new Object());  
+    <% endhighlight %>
