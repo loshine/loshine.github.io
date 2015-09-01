@@ -154,10 +154,10 @@ public class StringRequestActivity extends AppCompatActivity {
 
 {% highlight java %}
 public class XMLRequest extends Request<XmlPullParser> {  
-  
+
     private final Listener<XmlPullParser> mListener;
 
-    public XMLRequest(int method, String url, Listener<XmlPullParser> listener,  
+    public XMLRequest(int method, String url, Listener<XmlPullParser> listener,
             ErrorListener errorListener) {  
         super(method, url, errorListener);  
         mListener = listener;  
@@ -172,21 +172,21 @@ public class XMLRequest extends Request<XmlPullParser> {
         try {  
             String xmlString = new String(response.data,  
                     HttpHeaderParser.parseCharset(response.headers));  
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();  
-            XmlPullParser xmlPullParser = factory.newPullParser();  
-            xmlPullParser.setInput(new StringReader(xmlString));  
-            return Response.success(xmlPullParser, HttpHeaderParser.parseCacheHeaders(response));  
-        } catch (UnsupportedEncodingException e) {  
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser xmlPullParser = factory.newPullParser();
+            xmlPullParser.setInput(new StringReader(xmlString));
+            return Response.success(xmlPullParser, HttpHeaderParser.parseCacheHeaders(response));
+        } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));  
-        } catch (XmlPullParserException e) {  
+        } catch (XmlPullParserException e) {
             return Response.error(new ParseError(e));  
-        }  
-    }  
+        }
+    }
   
-    @Override  
+    @Override
     protected void deliverResponse(XmlPullParser response) {  
-        mListener.onResponse(response);  
-    }  
+        mListener.onResponse(response);
+    }
   
 }  
 {% endhighlight %}
@@ -199,32 +199,32 @@ public class XMLRequest extends Request<XmlPullParser> {
 
 所以在使用 Volley 时，我们应该在 Activity 停止的时候，同时取消所有或部分未完成的网络请求。Volley 里所有的请求结果会返回给主进程，如果在主进程里取消了某些请求，则这些请求将不会被返回给主线程。Volley 支持多种 Request 取消方式。
 
-1. 可以针对某些个request做取消操作
+* 可以针对某些个request做取消操作
     {% highlight java %}
-@Override  
-public void onStop() {  
-    for (Request <?> req : mRequestQueue) {  
-        req.cancel();  
-    }  
+@Override
+public void onStop() {
+    for (Request <?> req : mRequestQueue) {
+        req.cancel();
+    }
+}
+    {% endhighlight %}
+* 取消这个队列里的所有请求
+    {% highlight java %}
+@Override
+protected void onStop() {
+    super.onStop();
+    mRequestQueue.cancelAll(this);
 }  
     {% endhighlight %}
-2. 取消这个队列里的所有请求
+* 可以根据 RequestFilter 或者 Tag 来终止某些请求
     {% highlight java %}
 @Override  
-protected void onStop() {  
-    super.onStop();  
-    mRequestQueue.cancelAll(this);  
-}  
-    {% endhighlight %}
-3. 可以根据 RequestFilter 或者 Tag 来终止某些请求
-    {% highlight java %}
-@Override  
-protected void onStop() {  
-    super.onStop();  
+protected void onStop() {
+    super.onStop();
 
     // 根据 RequestFilter
     mRequestQueue.cancelAll(new RequestFilter() {});
-    // 根据 Tag  
+    // 根据 Tag
     mRequestQueue.cancelAll(new Object());
 }
     {% endhighlight %}
