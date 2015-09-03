@@ -28,7 +28,7 @@ tags: [jekyll, github, github-page]
 	* [搭建本地环境](#build environment)
 	* [Jekyll的使用](#use jekyll)
 	* [Jekyll目录解析](#jekyll dictionary)
-* [写博客](#write blog) 
+* [写博客](#write blog)
 * [装修](#decoration)
 	* [使用模板](#use template)
 	* [自定义样式](#stylish)
@@ -119,7 +119,7 @@ tags: [jekyll, github, github-page]
 * `CNAME` 域名地址
 * `css` 存放博客所用css
 * `script` 存放博客所用JavaScript
-* `index.html`ins 博客主页
+* `index.html` 博客主页
 
 <br>
 
@@ -188,10 +188,10 @@ tags: [jekyll, github, github-page]
 修改为
 
 {% highlight html %}  
-<div class="ds-thread" data-thread-key="【 page.id 】" 
+<div class="ds-thread" data-thread-key="【 page.id 】"
     data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
-{% endhighlight %}    
-    
+{% endhighlight %}
+
 注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
 
 * 在`_layout`中的`post.html`中的底部加入`【% include comment.html %】`（【】须替换为{}）
@@ -220,7 +220,3 @@ Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果�
 * [官方文档][official documents]
 
 [official documents]: https://help.github.com/categories/github-pages-basics/
-
-
-
-

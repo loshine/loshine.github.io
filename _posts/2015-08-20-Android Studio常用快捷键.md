@@ -30,6 +30,6 @@ tags: [Android Studio, Android]
 | 大小写转换 | Cmd + Shift + U | Ctrl + Shift + U |
 | 编译项目 | Cmd + F9 | Ctrl + F9 |
 | 运行项目 | Ctrl + R | Ctrl + R |
-| 代码提示 | Cmd + Space | Ctrl + Space |
+| 代码提示 | Option + Space | Alt + Space |
 
 (PS: 以上快捷键没有在win平台尝试确认，如有错误可以在评论中反馈)
