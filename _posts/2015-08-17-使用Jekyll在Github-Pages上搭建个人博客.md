@@ -73,9 +73,9 @@ tags: [jekyll, github, github-page]
 由于我们使用Jekell来将markdown文件生成博客文章，所以我们需要搭建本地的Jekyll环境。
 
 1. **Ruby** - Mac已经自带了Ruby，所以无需再次安装。如果是其它系统且没有安装Ruby，请[安装Ruby环境][ruby]。
-2. **Bundler** - 打开终端输入`sudo gem install bundler`以安装。
-3. **github-pages** - 打开终端输入`sudo gem install github-pages`以安装。
-3. **Jekyll** - 打开终端输入`sudo gem install jekyll`以安装。
+2. **Bundler** - 打开终端输入`gem install bundler`以安装。
+3. **github-pages** - 打开终端输入`gem install github-pages`以安装。
+3. **Jekyll** - 打开终端输入`gem install jekyll`以安装。
 
 **注**: 如果你在墙内则可能会出现无法安装的问题，可以通过将Gem源更换为[淘宝镜像源][taobaoGem]解决。
 
