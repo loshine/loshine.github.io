@@ -2,5 +2,6 @@ _site
 .sass-cache
 node_modules/
 public/
+db.json
 .deploy_git/
 themes/maupassant/

@@ -1,19 +1,20 @@
 ---
 title: 使用Jekyll在Github-Pages上搭建个人博客
 date: 2015-08-17
-tags: [jekyll, github, github-pages]
+tags: jekyll, github, github-page
 ---
-我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
+> 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
 
-> 本文默认读者已经拥有了Github的帐号，并且对Git的使用较为熟练。如果对Git以及Github不是很了解，可以参考[《版本控制入门 – 搬进 Github》][site3]。
->
-> 在这个过程中可能需要使用到少许的Ruby知识，如果您需要学习，可以看[这里][site4]
+> * 本文默认读者已经拥有了Github的帐号，并且对Git的使用较为熟练。如果对Git以及Github不是很了解，可以参考[《版本控制入门 – 搬进 Github》][site3]。
+* 在这个过程中可能需要使用到少许的Ruby知识，如果您需要学习，可以看[这里][site4]
 
 
 [site1]: http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html
 [site2]: https://help.github.com/articles/using-jekyll-with-pages/
 [site3]: http://www.imooc.com/learn/390
 [site4]: http://saito.im/slide/ruby-new.html
+
+<br>
 
 # 目录
 
@@ -35,6 +36,8 @@ tags: [jekyll, github, github-pages]
 		* [多说](#ds)
 	    * [Disqus](#disqus)
 * [参考](#reference)
+
+<br>
 
 <h2 id="begin">开始</h2>
 
@@ -58,6 +61,8 @@ tags: [jekyll, github, github-pages]
 <h3 id="update index">上传页面</h3>
 
 之后，新建一个`index.html`文件，push到对应的**master**分支（推荐官网教程）。等一段时间之后（可以听首歌），网站生效，访问`yourusername.github.io`，就能看见完整的网页了。
+
+<br>
 
 <h2 id="build">建造</h2>
 
@@ -115,6 +120,8 @@ tags: [jekyll, github, github-pages]
 * `script` 存放博客所用JavaScript
 * `index.html` 博客主页
 
+<br>
+
 <h2 id="write blog">写博客</h2>
 
 博客文章都是用[markdown格式][markdown]书写，命名格式为*时间加标题*，形如：`2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md`
@@ -134,6 +141,8 @@ categories: Blog
 
 [markdown]: http://wowubuntu.com/markdown/
 
+<br>
+
 <h2 id="decoration">装修</h2>
 
 <h3 id="use template">使用模板</h3>
@@ -151,6 +160,8 @@ categories: Blog
 
 [run noob]: http://www.runoob.com/
 [w3cschool]: http://www.w3school.com.cn/
+
+<br>
 
 <h2 id="customize">定制</h2>
 
@@ -171,14 +182,14 @@ categories: Blog
 * 在`_include`文件夹里新建一个`comment.html`文件，将通用代码粘贴进去。
 * 修改**通用代码**中需要配置的地方
 
-```html
+```markup
 <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID"
     data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
 ```
 
 修改为
 
-```html
+```markup
 <div class="ds-thread" data-thread-key="【 page.id 】"
     data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
 ```
@@ -202,6 +213,8 @@ Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果�
 **注意**：Disqus在国内的访问速度可能比较慢，可能需要慎重考虑使用。
 
 [disqus]: https://disqus.com/
+
+<br>
 
 <h2 id="reference">参考</h2>
 
