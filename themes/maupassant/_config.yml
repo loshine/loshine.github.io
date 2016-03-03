@@ -1,6 +1,6 @@
-fancybox: true ## If you want to use fancybox please set the value to true.
+fancybox: false ## If you want to use fancybox please set the value to true.
 duoshuo: ## Your duoshuo_shortname, e.g. username
-disqus: ## Your disqus_shortname, e.g. username
+disqus: loshine ## Your disqus_shortname, e.g. username
 google_search: true ## Use Google search, true/false.
 baidu_search: ## Use Baidu search, true/false.
 swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
@@ -8,8 +8,8 @@ tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
 self_search: ## Use a jQuery-based local search engine, true/false.
 google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
 baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
-shareto: true ## If you want to use the share button please set the value to true.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+shareto: false ## If you want to use the share button please set the value to true.
+busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
 
 menu:
   - page: home
