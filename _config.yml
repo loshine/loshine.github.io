@@ -72,7 +72,7 @@ plugins:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/loshine/loshine.github.io.git
+  repo: http://github.com/loshine/loshine.github.io.git
   branch: master
 
 # indigo 设置
