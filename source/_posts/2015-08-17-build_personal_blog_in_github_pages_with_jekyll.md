@@ -1,6 +1,7 @@
 ---
 title: 使用Jekyll在Github-Pages上搭建个人博客
 date: 2015-08-17 10:12:30
+category: [github]
 tags: [jekyll, github, github-page]
 ---
 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
