@@ -1,6 +1,7 @@
 ---
 title: Android Design Support Library
 date: 2015-08-22 11:24:30
+category: [Android]
 tags: [Android]
 ---
 Google 在2015的 IO 大会上，给我们带来了更加详细的 Material Design 设计规范，同时，也给我们带来了全新的 Android Design Support Library，在这个 support 库里面，Google 给我们提供了更加规范的 Material design 设计风格的控件。本文将介绍MD设计风格的兼容库以及它们的用法，也是对自己的学习做一个记录。

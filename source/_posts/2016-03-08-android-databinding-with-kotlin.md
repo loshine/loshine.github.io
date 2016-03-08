@@ -1,17 +1,12 @@
 ---
-title: Kotlin中的委托属性
-date: 2016-03-01 09:29:34
+title: Kotlin与DataBinding协作
+date: 2016-03-08 21:23:10
 category: [Kotlin]
 tags: [Kotlin,Android]
 ---
-Kotlin 是 Jetbrain 推出的一门运行在 JVM 上的语言，它结合了面向对象以及函数式语言的特性，超甜的语法糖以及来自知名 IDE 大厂 Jetbrain 的出身让它初一面世就广受瞩目，特别是在 Android 开发社区中。它相比起 Java 拥有了许许多多的优秀特性，并且几乎每一个新特性都对应解决了 Java 开发时的痛苦之处，本篇文章主要讲解 Kotlin 中的**委托属性**这一特性。
+DataBinding 是 Google 爹地为我们这群苦逼的 Android 开发者推出的 MVVM 框架。本文解决 Kotlin 和 DataBindin 共用时报错的问题。
 
 # 目录
-
-* [委托属性(Delegated Properties)](#what)
-* [如何使用](#how)
-* [实例讲解](#example)
-* [小结](#summary)
 
 <h1 id="what">委托属性(Delegated Properties)</h1>
 
