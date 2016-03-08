@@ -1,12 +1,15 @@
 ---
 title: 使用Jekyll在Github-Pages上搭建个人博客
 date: 2015-08-17 10:12:30
-category: [github]
+category: [技术]
 tags: [jekyll, github, github-page]
+toc: true
+description: 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
 ---
-我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
-
+> 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
+> 
 > 本文默认读者已经拥有了Github的帐号，并且对Git的使用较为熟练。如果对Git以及Github不是很了解，可以参考[《版本控制入门 – 搬进 Github》][site3]。
+> 
 > 在这个过程中可能需要使用到少许的Ruby知识，如果您需要学习，可以看[这里][site4]
 
 [site1]: http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html
@@ -14,30 +17,9 @@ tags: [jekyll, github, github-page]
 [site3]: http://www.imooc.com/learn/390
 [site4]: http://saito.im/slide/ruby-new.html
 
-# 目录
+# 开始
 
-* [开始](#begin)
-	* [新建一个仓库](#new respontory)
-	* [clone到本地](#clone)
-	* [上传页面](#update index)
-* [建造](#build)
-	* [搭建本地环境](#build environment)
-	* [Jekyll的使用](#use jekyll)
-	* [Jekyll目录解析](#jekyll dictionary)
-* [写博客](#write blog)
-* [装修](#decoration)
-	* [使用模板](#use template)
-	* [自定义样式](#stylish)
-* [定制](#customize)
-	* [使用独立域名](#cname)
-	* [添加评论功能](#add comment)
-		* [多说](#ds)
-	    * [Disqus](#disqus)
-* [参考](#reference)
-
-<h1 id="begin">开始</h1>
-
-<h2 id="new respontory">新建一个仓库</h2>
+## 新建一个仓库
 
 * 如果没有Github帐号，首先[注册一个][register]。
 * 接下来新建一个仓库
@@ -48,16 +30,16 @@ tags: [jekyll, github, github-page]
 
 [register]: https://github.com/
 
-<h2 id="clone">clone到本地</h2>
+## clone到本地
 
 使用Github客户端或者Git命令行工具将这个项目clone到本地。
 
-<h2 id="update index">上传页面</h2>
+## 上传页面
 
 之后，新建一个`index.html`文件，push到对应的**master**分支（推荐官网教程）。等一段时间之后（可以听首歌），网站生效，访问`yourusername.github.io`，就能看见完整的网页了。
 <h1 id="build">建造</h1>
 
-<h2 id="build environment">搭建本地环境</h2>
+## 搭建本地环境
 
 由于我们使用Jekell来将markdown文件生成博客文章，所以我们需要搭建本地的Jekyll环境。
 
@@ -71,13 +53,13 @@ tags: [jekyll, github, github-page]
 [ruby]: https://www.ruby-lang.org/en/downloads/
 [taobaoGem]: http://ruby.taobao.org/
 
-<h2 id="use jekyll">Jekyll的使用</h2>
+## Jekyll的使用
 
 1. 在我们之前创建的仓库下新建一个文件，命名为**Gemfile**，并写入`gem 'github-pages'`。
 2. 在仓库目录下打开命令行工具，输入`bundle install`。
 3. 在命令行工具中输入`bundle exec jekyll serve`，按提示打开地址，就可以在本地进行查看和调试网站了。
 
-<h2 id="jekyll dictionary">Jekyll目录解析</h2>
+## Jekyll目录解析
 
 ```
 |—— _config.yml
@@ -129,9 +111,9 @@ categories: Blog
 
 [markdown]: http://wowubuntu.com/markdown/
 
-<h1 id="decoration">装修</h1>
+# 装修
 
-<h2 id="use template">使用模板</h2>
+## 使用模板
 
 之前在[Jekyll目录解析](#jekyll dictionary)中我们大致了解了各个目录的结构。如果您是一名资深的前端工程师，那么就可以直接开始编写自己喜欢的样式的博客了。如果您对于前端并不是那么擅长，那么您可以直接在[Jekyll 主题][theme]中选择自己喜欢的主题并放入到自己的项目中去。
 
@@ -140,25 +122,25 @@ categories: Blog
 [theme]: http://jekyllthemes.org/
 [theme-pithy]: http://jekyllthemes.org/themes/pithy/
 
-<h2 id="stylish">自定义样式</h2>
+## 自定义样式
 
 如果您不是一名资深的前端工程师但是还是想要自己定义自己博客的样式。那么我推荐您[Run Noob][run noob]、[w3cschool][w3cschool]这两个地方学习前端知识。之后您就可以根据自己的需求装点自己的博客了。
 
 [run noob]: http://www.runoob.com/
 [w3cschool]: http://www.w3school.com.cn/
 
-<h1 id="customize">定制</h1>
+# 定制
 
-<h2 id="cname">使用独立域名</h2>
+## 使用独立域名
 
 * 新建一个文件，命名为**CNAME**，然后在里面写入你需要绑定的独立域名就可以了。
 * 在你的域名服务商处添加解析地址。
 
 完成以上步骤你就可以使用自己的独立域名了。
 
-<h2 id="add comment">添加评论功能</h2>
+## 添加评论功能
 
-<h3 id="ds">多说</h3>
+### 多说
 
 多说评论对国内的社交帐号支持不错，自定义性也很强，是一个不错的选择。
 
@@ -185,7 +167,7 @@ categories: Blog
 
 [ds]: http://duoshuo.com/
 
-<h3 id="disqus">Disqus</h3>
+### Disqus
 
 Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果你的博客不是主要面向国内普通用户的话，可以考虑使用Disqus。
 
@@ -198,7 +180,7 @@ Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果�
 
 [disqus]: https://disqus.com/
 
-<h1 id="reference">参考</h1>
+# 参考
 
 * [《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]
 * [官方文档][official documents]

@@ -1,27 +1,14 @@
 ---
 title: Android Design Support Library
 date: 2015-08-22 11:24:30
-category: [Android]
+category: [技术]
 tags: [Android]
+toc: true
+description: Google 在2015的 IO 大会上，给我们带来了更加详细的 Material Design 设计规范，同时，也给我们带来了全新的 Android Design Support Library，在这个 support 库里面，Google 给我们提供了更加规范的 Material design 设计风格的控件。本文将介绍MD设计风格的兼容库以及它们的用法，也是对自己的学习做一个记录。
 ---
-Google 在2015的 IO 大会上，给我们带来了更加详细的 Material Design 设计规范，同时，也给我们带来了全新的 Android Design Support Library，在这个 support 库里面，Google 给我们提供了更加规范的 Material design 设计风格的控件。本文将介绍MD设计风格的兼容库以及它们的用法，也是对自己的学习做一个记录。
+> Google 在2015的 IO 大会上，给我们带来了更加详细的 Material Design 设计规范，同时，也给我们带来了全新的 Android Design Support Library，在这个 support 库里面，Google 给我们提供了更加规范的 Material design 设计风格的控件。本文将介绍MD设计风格的兼容库以及它们的用法，也是对自己的学习做一个记录。
 
-# 目录
-
-* [使用](#use)
-* [组件](#components)
-    * [Snackbar](#snackbar)
-    * [TextInputLayout](#textinputlayout)
-    * [Floating Action Button](#floatingactionbutton)
-    * [TabLayout](#tablayout)
-    * [NavigationView](#navigationview)
-    * [AppBarLayout](#appbarlayout)
-    * [CoordinatorLayout](#coordinatorlayout)
-    * [CollapsingToolbarLayout](#collapsingtoolbarlayout)
-* [总结](#summary)
-* [参考](#references)
-
-<h1 id="use">使用</h1>
+# 使用
 
 要使用非常简单，在Gradle中添加如下语句即可
 
@@ -29,9 +16,9 @@ Google 在2015的 IO 大会上，给我们带来了更加详细的 Material Desi
 compile 'com.android.support:design:23.0.0'
 ```
 
-<h1 id="components">组件</h1>
+# 组件
 
-<h2 id="snackbar">Snackbar</h2>
+## Snackbar
 
 Snackbar 提供了一个介于 Toast 和 AlertDialog 之间轻量级控件，它可以很方便的提供消息的提示和动作反馈。*其使用方式与Toast基本相同*。
 
@@ -56,7 +43,7 @@ Snackbar.make(view, "Snackbar comes out", Snackbar.LENGTH_LONG)
 
 官网API：[Snackbar API][snackbar api]
 
-<h2 id="textinputlayout">TextInputLayout</h2>
+## TextInputLayout
 
 通常，单独的 EditText 会在用户输入第一个字母之后隐藏hint提示信息，但是现在你可以使用 TextInputLayout 来将 EditText 包裹起来，提示信息会变成一个显示在 EditText 之上的 floating label，这样用户就始终知道他们现在输入的是什么。同时，如果给 EditText 增加监听，还可以给它增加更多的 floating label。
 
@@ -117,7 +104,7 @@ editText.addTextChangedListener(new TextWatcher() {
 
 官网API：[TextInputLayout API][textinputlayout api]
 
-<h2 id="floatingactionbutton">Floating Action Button</h2>
+## Floating Action Button
 
 FloatingActionButton 是一个浮动显示的圆形按钮，Design library 中的 FloatingActionButton 实现了一个默认颜色为主题中 colorAccent 的悬浮操作按钮，like this：
 
@@ -154,7 +141,7 @@ FloatingActionButton 的使用非常简单，一般将其放入 CoordinatorLayou
 
 官网API：[Floating Action Button][floatingactionbutton api]
 
-<h2 id="tablayout">TabLayout</h2>
+## TabLayout
 
 TabLayout既实现了**固定的选项卡** - view的宽度平均分配，也实现了**可滚动的选项卡** - view宽度不固定同时可以横向滚动。选项卡可以在程序中动态添加：
 
@@ -181,7 +168,7 @@ tabLayout.setupWithViewPager(mViewPager);
 
 官网API：[TabLayout API][tablayout api]
 
-<h2 id="navigationview">NavigationView</h2>
+## NavigationView
 
 NavigationView 主要用于实现滑动显示的导航抽屉，这在 Material Design 中是十分重要的。使用 NavigationView，我们可以这样写导航抽屉了：
 
@@ -303,7 +290,7 @@ private void setupDrawerContent(NavigationView navigationView) {
 
 官网API：[NavigationView API][navigationview api]
 
-<h2 id="appbarlayout">AppBarLayout</h2>
+## AppBarLayout
 
 AppBarLayout 是一个容器，会把所有放在里面的组件一起作为一个 AppBar。
 
@@ -335,7 +322,7 @@ AppBarLayout 是一个容器，会把所有放在里面的组件一起作为一�
 
 官网API：[AppBarLayout API][appbarlayout api]
 
-<h2 id="coordinatorlayout">CoordinatorLayout</h2>
+## CoordinatorLayout
 
 CoordinatorLayout 是这次新添加的一个增强型的 FrameLayout。在 CoordinatorLayout 中，我们可以在 FrameLayout 的基础上完成很多新的操作。
 
@@ -416,7 +403,7 @@ app:layout_scrollFlags="scroll|enterAlways"
 
 官网API：[CoordinatorLayout][coordinatorlayout]
 
-<h2 id="collapsingtoolbarlayout">CollapsingToolbarLayout</h2>
+## CollapsingToolbarLayout
 
 CollapsingToolbarLayout 提供了一个可以折叠的 Toolbar，这也是 Google+、photos 中的效果。Google 把它做成了一个标准控件，更加方便使用。
 
@@ -491,11 +478,11 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 官方API：[CollapsingToolbarLayout][collapsingtoolbarlayout]
 
-<h2 id="summary">总结</h2>
+# 总结
 
 研究了一整天的 Android Design Support Library，感觉还是非常强大的。虽然自定义性不是很强，但已经给开发者提供了很简单方便的 Material Design 的官方实现，也不用集成很多的第三方库了，还是很不错的，推荐大家在自己的项目中使用。
 
-<h2 id="references">参考</h2>
+# 参考
 
 Thanks to [《Android Design Support Library使用详解》][article]
 

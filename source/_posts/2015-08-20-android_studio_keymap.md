@@ -1,10 +1,13 @@
 ---
 title: Android Studio常用快捷键
 date:   2015-08-20 22:31:30
-category: [Android]
+category: [技术]
 tags: [Android Studio, Android]
+toc: true
+description: 之前直接把 Android Studio 的 keymap 改为了 Eclipse 模式，但毕竟这样不利于 Android Studio 的学习，所以这里也记录一下 Android Studio 的快捷键，便于以后查看。
 ---
-之前直接把 Android Studio 的 keymap 改为了 Eclipse 模式，但毕竟这样不利于 Android Studio 的学习，所以这里也记录一下 Android Studio 的快捷键，便于以后查看。
+
+> 之前直接把 Android Studio 的 keymap 改为了 Eclipse 模式，但毕竟这样不利于 Android Studio 的学习，所以这里也记录一下 Android Studio 的快捷键，便于以后查看。
 
 # 快捷键
 

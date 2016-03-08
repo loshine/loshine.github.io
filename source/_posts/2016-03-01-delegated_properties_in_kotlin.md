@@ -1,19 +1,14 @@
 ---
 title: Kotlin中的委托属性
 date: 2016-03-01 09:29:34
-category: [Kotlin]
+category: [技术]
 tags: [Kotlin,Android]
+toc: true
+description: Kotlin 是 Jetbrain 推出的一门运行在 JVM 上的语言，它结合了面向对象以及函数式语言的特性，超甜的语法糖以及来自知名 IDE 大厂 Jetbrain 的出身让它初一面世就广受瞩目，特别是在 Android 开发社区中。它相比起 Java 拥有了许许多多的优秀特性，并且几乎每一个新特性都对应解决了 Java 开发时的痛苦之处，本篇文章主要讲解 Kotlin 中的**委托属性**这一特性。
 ---
-Kotlin 是 Jetbrain 推出的一门运行在 JVM 上的语言，它结合了面向对象以及函数式语言的特性，超甜的语法糖以及来自知名 IDE 大厂 Jetbrain 的出身让它初一面世就广受瞩目，特别是在 Android 开发社区中。它相比起 Java 拥有了许许多多的优秀特性，并且几乎每一个新特性都对应解决了 Java 开发时的痛苦之处，本篇文章主要讲解 Kotlin 中的**委托属性**这一特性。
+> Kotlin 是 Jetbrain 推出的一门运行在 JVM 上的语言，它结合了面向对象以及函数式语言的特性，超甜的语法糖以及来自知名 IDE 大厂 Jetbrain 的出身让它初一面世就广受瞩目，特别是在 Android 开发社区中。它相比起 Java 拥有了许许多多的优秀特性，并且几乎每一个新特性都对应解决了 Java 开发时的痛苦之处，本篇文章主要讲解 Kotlin 中的**委托属性**这一特性。
 
-# 目录
-
-* [委托属性(Delegated Properties)](#what)
-* [如何使用](#how)
-* [实例讲解](#example)
-* [小结](#summary)
-
-<h1 id="what">委托属性(Delegated Properties)</h1>
+# 委托属性(Delegated Properties)
 
 我们先看看官网的定义：
 
@@ -27,7 +22,7 @@ Kotlin 是 Jetbrain 推出的一门运行在 JVM 上的语言，它结合了面�
 
 简言之就是*简化手动实现的属性，将其抽象出一个库*。
 
-<h1 id="how">如何使用</h1>
+# 如何使用
 
 ## 定义一个委托
 
@@ -77,7 +72,7 @@ NEW has been assigned to 'p' in Example@33a17727.
 
 如上可知，`thisRef`对应的是拥有该被委托属性的对象实例，`property`则是属性，`value`是调用`setter`时的传入值。
 
-<h1 id="example">实例讲解</h1>
+# 实例讲解
 
 ## lazy 懒加载
 
@@ -212,7 +207,7 @@ val mTextView by bindView<TextView>(R.id.text_view)
 
 如上实现了类似 KotterKnife 的控件注入功能，当然 KotterKnife 中还有更加强大的可选绑定以及数组绑定，本文中我们就不细说了，有兴趣的读者可以阅读 [KotterKnife源码](https://github.com/JakeWharton/kotterknife/blob/master/src%2Fmain%2Fkotlin%2Fbutterknife%2FButterKnife.kt)。
 
-<h1 id="summary">小结</h1>
+# 小结
 
 本文分析了 Kotlin 中的委托属性，并对其实际应用做了示例分析。委托属性是 Kotlin 语言的一个特性，灵活使用可以解决实际编码中的许多问题，减少大量重复代码，而由于其与属性的`getter`、`setter`直接绑定所以使用起来也十分灵活方便。
 
