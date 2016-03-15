@@ -116,12 +116,12 @@ Highlighted code showcase is supported, please set the `highlight` option in `_c
 highlight:
   enable: true
   auto_detect: true
-  line_number: false
+  line_number: true
   tab_replace:
 ```
 
 #### Languages
-Six languages are available for this theme currently: Simplified Chinese (zh-CN), Traditional Chinese (zh-TW), English (en), German (de-DE), Korean (kr-KR) and Spanish (es-ES). Contributions of translating to other languages will be highly appreciated.
+Seven languages are available for this theme currently: Simplified Chinese (zh-CN), Traditional Chinese (zh-TW), English (en), French (fr-FR), German (de-DE), Korean (ko) and Spanish (es-ES). Contributions of translating to other languages will be highly appreciated.
 
 ## Solutions
 - Check whether your Terminal's current directory is in hexo's root directory which contains `source/`, `themes/`, etc.
