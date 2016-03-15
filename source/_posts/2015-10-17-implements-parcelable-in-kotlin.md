@@ -9,15 +9,7 @@ description: 在 Android中，如果需要序列化对象可以选择实现 Seri
 
 > 在Android中，如果需要序列化对象可以选择实现 **Serializable** 或 **Parceable**。如果是在使用内存的情况下，**Parcelable** 的效率比 **Serializable** 高。但 **Parcelable** 不能被持久化存储，此时还是需要实现 **Serializable**。
 
-## 目录
-* [Java实现](#java)
-* [Kotlin实现](#kotlin)
-* [优化](#optimization)
-* [总结](#summary)
-
-<br>
-
-<h2 id="java">Java实现</h2>
+# Java实现
 
 首先我们看一个普通的 **JavaBean**
 
@@ -172,9 +164,7 @@ protected PostEntity(Parcel in) {
 
 这一段就是其实现方式，可见主要是将对象从 **Parcel** 中读取出来。
 
-<br>
-
-<h2 id="kotlin">Kotlin实现</h2>
+# Kotlin实现
 
 看过了冗长的 **Java** 实现方式，我们来看看kotlin是如何实现的吧。
 
@@ -251,9 +241,7 @@ class PostEntity : Parcelable {
 
 这就是 **Kotlin** 实现 **Parcelable** 的方式了
 
-<br>
-
-<h2 id="optimization">优化</h2>
+# 优化
 
 经过插件转化的 kotlin 代码其实使用的还是 java 的方式和 java 的思想，我们可以将其完全转化为 kotlin 的方式并对其优化
 
@@ -382,9 +370,7 @@ data class PostEntity(var name: String? = null, /* 帖子标题*/
 }
 ```
 
-<br>
-
-<h2 id="summary">总结</h2>
+# 总结
 
 虽然可以直接将 **Java** 文件转化为 **Kotlin** 文件，但这样毕竟没有办法学习到 **Kotlin** 的精髓
 
