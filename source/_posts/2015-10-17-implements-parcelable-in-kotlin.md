@@ -170,7 +170,7 @@ protected PostEntity(Parcel in) {
 
 首先使用插件将其转换为 **Kotlin** 文件，并修改其中的错误
 
-```java
+```kotlin
 class PostEntity : Parcelable {
 
     /**
@@ -254,7 +254,7 @@ class PostEntity : Parcelable {
 
 我们只需要将其改为这样
 
-```java
+```kotlin
 data class PostEntity(var name: String? = null, /* 帖子标题*/
                       var category: String? = null, /* 帖子类别 */
                       var link: String? = null, /* 帖子链接 */
@@ -302,7 +302,7 @@ data class PostEntity(var name: String? = null, /* 帖子标题*/
 
 再之后观察发现，所有的 **Parcelable** 都需要有一个 **CREATOR**
 
-```java
+```kotlin
     companion object {
 
         val CREATOR: Parcelable.Creator<PostEntity> = object : Parcelable.Creator<PostEntity> {
@@ -323,7 +323,7 @@ data class PostEntity(var name: String? = null, /* 帖子标题*/
 
 新建文件`ParcelableExt.kt`
 
-```java
+```kotlin
 public inline fun createParcel<reified T : Parcelable>(crossinline createFromParcel: (Parcel) -> T?): Parcelable.Creator<T> =
         object : Parcelable.Creator<T> {
             override fun createFromParcel(source: Parcel): T? = createFromParcel(source)
@@ -333,7 +333,7 @@ public inline fun createParcel<reified T : Parcelable>(crossinline createFromPar
 
 此处使用了 Kotlin 的内联函数，然后我们就可以将 `PostEntity` 精简为如下
 
-```java
+```kotlin
 data class PostEntity(var name: String? = null, /* 帖子标题*/
                       var category: String? = null, /* 帖子类别 */
                       var link: String? = null, /* 帖子链接 */
