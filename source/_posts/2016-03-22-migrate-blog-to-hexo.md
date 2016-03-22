@@ -1,6 +1,6 @@
 ---
 title: 博客迁移到 Hexo
-date: 2016-03-08 21:23:10
+date: 2016-03-22 17:09:00
 category: [技术]
 tags: [Hexo,github,github-pages]
 toc: true
