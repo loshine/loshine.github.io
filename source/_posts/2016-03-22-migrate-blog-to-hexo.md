@@ -6,7 +6,7 @@ tags: [Hexo,github,github-pages]
 toc: true
 description: Github Pages 服务的 Jekyll 升级了，干脆我就趁着这次机会把博客迁移到 Hexo 好了。
 ---
->Github Pages 服务的 Jekyll 升级了，干脆我就趁着这次机会把博客迁移到 Hexo 好了。
+> Github Pages 服务的 Jekyll 升级了，干脆我就趁着这次机会把博客迁移到 Hexo 好了。
 >
 > Hexo 是 Node.js 的一个静态博客系统，相比起 Ruby 实现的 Jekyll，它生成的速度更快而且更加现代化。当然最重要的就是对前端工程师更友好啦，毕竟是用 javascript 写的嘛
 > 
