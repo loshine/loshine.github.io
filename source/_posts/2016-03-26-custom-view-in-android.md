@@ -17,7 +17,7 @@ description: 在 Android 中，自定义 View 几乎是每一个开发者都需�
 
 View 的绘制是从 ViewRoot 的`performTraversals()`方法开始的，其执行过程可简单概括为根据之前所有设置好的状态，判断是否需要计算视图大小（measure）、是否需要重新安置视图的位置（layout），以及是否需要重绘（draw）视图，其流程图如下所示：
 
-![流程图](http://7xl94a.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-03-26%20%E4%B8%8A%E5%8D%8812.44.27.png)
+![流程图](http://7xl94a.com1.z0.glb.clouddn.com/blog-pic-custom-view-flow.png)
 
 而我们今天讲的自定义 View 的绘制，主要就是在是否需要重新 draw 这一步来实现。
 
