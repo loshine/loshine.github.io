@@ -119,20 +119,17 @@ protected int getSuggestedMinimumHeight() {
 
 ```java
 protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-	super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-	
-	int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
-	int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
-	int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
-	int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-	
-	if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST) {
-		setMeasuredDimension(mWidth, mHeight);
-	} else if (widthSpecMode == MeasureSpec.AT_MOST) {
-		setMeasuredDimension(mWidth, heightSpecSize);
-	} else if (heightSpecMode == MeasureSpec.AT_MOST) {
-		setMeasuredDimension(widthSpecSize, mHeight);
-	}
+
+    int widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);
+    int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+
+    int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
+    int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
+
+    int realWidth = widthSpecMode == MeasureSpec.AT_MOST ? mWidth : widthSpecSize;
+    int realHeight = heightSpecMode == MeasureSpec.AT_MOST ? mHeight : heightSpecSize;
+
+    setMeasuredDimension(realWidth, realHeight);
 }
 ```
 

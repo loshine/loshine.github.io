@@ -13,7 +13,7 @@ description: Android Support Library 23.2.0 版为我们带来了官方的夜间
 
 使用起来非常简单，我们只需要将主题继承其即可
 
-```markup
+```xml
 <!-- parent 为 Theme.AppCompat.DayNight -->
 <style name="AppTheme" parent="Theme.AppCompat.DayNight">
     <!-- Blah blah -->
