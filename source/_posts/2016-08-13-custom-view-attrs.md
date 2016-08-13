@@ -235,13 +235,13 @@ public class CircleView extends View {
         mPaint.setColor(mColor1);
         canvas.drawCircle(100, 100, 100, mPaint);
         mPaint.setColor(mColor2);
-        canvas.drawCircle(100, 100, 90, mPaint);
-        mPaint.setColor(mColor3);
         canvas.drawCircle(100, 100, 80, mPaint);
-        mPaint.setColor(mColor4);
-        canvas.drawCircle(100, 100, 70, mPaint);
-        mPaint.setColor(mColor5);
+        mPaint.setColor(mColor3);
         canvas.drawCircle(100, 100, 60, mPaint);
+        mPaint.setColor(mColor4);
+        canvas.drawCircle(100, 100, 40, mPaint);
+        mPaint.setColor(mColor5);
+        canvas.drawCircle(100, 100, 20, mPaint);
     }
 }
 ```
@@ -279,31 +279,31 @@ public class CircleView extends View {
         <!-- 配置style -->
         <item name="circle_style">@style/custom_theme</item>
         <!-- 直接在主题中指定 -->
-        <item name="circle_color1">#ff444444</item>
-        <item name="circle_color2">#ff444444</item>
-        <item name="circle_color3">#ff444444</item>
-        <item name="circle_color4">#ff444444</item>
-        <item name="circle_color5">#ff444444</item>
+        <item name="circle_color1">#ffff00ff</item>
+        <item name="circle_color2">#ffff00ff</item>
+        <item name="circle_color3">#ffff00ff</item>
+        <item name="circle_color4">#ffff00ff</item>
+        <item name="circle_color5">#ffff00ff</item>
     </style>
 
     <!-- 主题中配置的style -->
     <style name="custom_theme">
-        <item name="circle_color1">#ff222222</item>
-        <item name="circle_color2">#ff222222</item>
-        <item name="circle_color3">#ff222222</item>
+        <item name="circle_color1">#ffff0000</item>
+        <item name="circle_color2">#ffff0000</item>
+        <item name="circle_color3">#ffff0000</item>
     </style>
 
     <!-- 直接在layout文件中引用的style，最后会被放到set中 -->
     <style name="myStyle">
-        <item name="circle_color1">#ff111111</item>
-        <item name="circle_color2">#ff111111</item>
+        <item name="circle_color1">#ff00ff00</item>
+        <item name="circle_color2">#ff00ff00</item>
     </style>
 
     <style name="default_style">
-        <item name="circle_color1">#ff333333</item>
-        <item name="circle_color2">#ff333333</item>
-        <item name="circle_color3">#ff333333</item>
-        <item name="circle_color4">#ff333333</item>
+        <item name="circle_color1">#ffffff00</item>
+        <item name="circle_color2">#ffffff00</item>
+        <item name="circle_color3">#ffffff00</item>
+        <item name="circle_color4">#ffffff00</item>
     </style>
 
 </resources>
