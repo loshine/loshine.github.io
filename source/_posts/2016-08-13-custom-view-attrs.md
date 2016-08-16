@@ -90,7 +90,7 @@ public class CircleView extends View {
 
 这样就完成了属性名称的声明。
 
-`declare-styleable`的 name 必须要对应 View 的类名，`attr`标签中定义的就是需要自定义的属性名称和类型。
+`declare-styleable`的 name 可以任意命名，只要不重复即可，但一般我们会使用自定义控件的类名方便管理。`attr`标签中定义的就是需要自定义的属性名称和类型。
 
 我们有这几种类型：
 
@@ -186,7 +186,7 @@ obtainStyledAttributes(AttributeSet set, int[] attrs, int defStyleAttr, int defS
 
 ## TypedArray
 
-通过`obtainStyledAttributes()`我们就拿到了 TypedValue，我们需要的属性都存在里面。然后我们可以对应声明的时候的类型，使用对应的`getXXX()`方法来获取自定义属性，之后我们就可以使用自定义属性来绘图了。
+通过`obtainStyledAttributes()`我们就拿到了 TypedArray，我们需要的属性都存在里面。然后我们可以对应声明的时候的类型，使用对应的`getXXX()`方法来获取自定义属性，之后我们就可以使用自定义属性来绘图了。
 
 # 实例
 
