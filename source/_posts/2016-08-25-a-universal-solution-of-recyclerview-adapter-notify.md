@@ -1,5 +1,5 @@
 ---
-title: 一个通用的 RecyclerView.Adapter notify 方案
+title: RecyclerView.Adapter：全能notify解决方案
 date: 2016-08-25 09:51:21
 category: [技术]
 tags: [Android]
