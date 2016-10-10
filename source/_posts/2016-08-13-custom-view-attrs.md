@@ -11,6 +11,8 @@ description: 在之前我们学会了自定义 View 的测量和绘制，那么�
 
 我们先画一个简单的圆形 View，在`onDraw`中绘制。
 
+<!--more-->
+
 ```java
 public class CircleView extends View {
 
