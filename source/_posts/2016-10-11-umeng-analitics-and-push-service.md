@@ -77,7 +77,7 @@ class BaseActivity extends AppCompatActivity {
 }
 ```
 
-封装 BaseFragment 以统计具体页面：
+封装 **BaseFragment** 以统计具体页面：
 
 ```java
 class BaseFragment extends Fragment {
@@ -127,7 +127,7 @@ class BaseFragment extends Fragment {
 
 ## 使用集成测试
 
-首先在 Application 中打开测试模式：
+首先在 **Application** 中打开测试模式：
 
 ```java
 MobclickAgent.setDebugMode(BuildConfig.DEBUG);
@@ -149,7 +149,7 @@ MobclickAgent.setDebugMode(BuildConfig.DEBUG);
 
 1. 把下载的 zip 文件解压缩（解压后的文件路径不能有中文）
 
-2. 把解压缩后得到的目录下的 PushSDK 当做 Module 导入到自己的工程
+2. 把解压缩后得到的目录下的 **PushSDK** 当做 **Module** 导入到自己的工程
 
 3. 在之前的`AndroidManifest.xml`的基础上添加
 
@@ -174,7 +174,7 @@ MobclickAgent.setDebugMode(BuildConfig.DEBUG);
 
 ## 注册服务
 
-在工程的 Application 类的`onCreate()` 方法中注册推送服务，无论推送是否开启都需要调用此方法：
+在工程的 **Application** 类的`onCreate()` 方法中注册推送服务，无论推送是否开启都需要调用此方法：
 
 ```java
 PushAgent mPushAgent = PushAgent.getInstance(this);
@@ -250,7 +250,7 @@ java.lang.UnsatisfiedLinkError: dlopen failed: "/data/data/应用包名/files/li
 
 ### 使用 BuildTypes 修改包名的错误
 
-因为友盟使用 ApplicationId 作为包名利用反射获取资源文件，而当 BuildTypes 中的 ApplicationId 改变了导致应用包名和 Java 包名不一致的时候就会导致错误。此时需要在注册推送服务之前重新设置包名：
+因为友盟使用 **ApplicationId** 作为包名利用反射获取资源文件，而当 **BuildTypes** 中的 **ApplicationId** 改变了导致应用包名和 Java 包名不一致的时候就会导致错误。此时需要在注册推送服务之前重新设置包名：
 
 ```java
 PushAgent mPushAgent = PushAgent.getInstance(this);
