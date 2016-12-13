@@ -162,7 +162,7 @@ categories: Blog
 
 > 注意：`your web site`需替换为**您的域名地址**。
 
-* 在`_layout`中的`post.html`中的底部加入`{{% include comment.html %}}`
+* 在`_layout`中的`post.html`中的底部加入`【【% include comment.html %】】`(此处需将`【】`换成`{}`)
 * 在**多说**的控制台里你可以设置很多自定义项，如：评论审核、评论显示方式、关键词过滤、主题、自定义CSS等
 
 [ds]: http://duoshuo.com/
