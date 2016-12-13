@@ -39,7 +39,7 @@ Snackbar.make(view, "Snackbar comes out", Snackbar.LENGTH_LONG)
 
 显示效果：
 
-![Snackbar](http://7xl94a.com1.z0.glb.clouddn.com/123123.png)
+![Snackbar](https://i.niupic.com/images/2016/12/13/e02RRv.png)
 
 官网API：[Snackbar API][snackbar api]
 
@@ -98,9 +98,9 @@ editText.addTextChangedListener(new TextWatcher() {
 
 显示效果：
 
-![textinputlayout1](http://7xl94a.com1.z0.glb.clouddn.com/20150603224122229.png)
+![textinputlayout1](https://i.niupic.com/images/2016/12/13/07s2gK.png)
 
-![textinputlayout2](http://7xl94a.com1.z0.glb.clouddn.com/20150603224141620.png)
+![textinputlayout2](https://i.niupic.com/images/2016/12/13/DdIjpV.png)
 
 官网API：[TextInputLayout API][textinputlayout api]
 
@@ -164,7 +164,7 @@ tabLayout.setupWithViewPager(mViewPager);
 
 显示效果：
 
-![tablayout](http://7xl94a.com1.z0.glb.clouddn.com/201506041446331510.png)
+![tablayout](https://i.niupic.com/images/2016/12/13/wIDYUF.png)
 
 官网API：[TabLayout API][tablayout api]
 
@@ -199,7 +199,7 @@ NavigationView 主要用于实现滑动显示的导航抽屉，这在 Material D
 
 通过这两个属性，我们可以非常方便的指定导航界面的头布局和菜单布局：
 
-![navigationview](http://7xl94a.com1.z0.glb.clouddn.com/20150604151120067.png)
+![navigationview](https://i.niupic.com/images/2016/12/13/3Z68nq.png)
 
 其中最上面的布局就是`app:headerLayout`所指定的头布局：
 
@@ -294,7 +294,7 @@ private void setupDrawerContent(NavigationView navigationView) {
 
 AppBarLayout 是一个容器，会把所有放在里面的组件一起作为一个 AppBar。
 
-![appbarlayout](http://7xl94a.com1.z0.glb.clouddn.com/20150604173640997.png)
+![appbarlayout](https://i.niupic.com/images/2016/12/13/JGtbYN.png)
 
 这里就是把 Toolbar 和 TabLayout 放到了 AppBarLayout 中，让他们当做一个整体作为 AppBar。
 
@@ -382,7 +382,7 @@ CoordinatorLayout 可以说是这次 support library 更新的重中之重。它
 
 那么，当设置了`layout_behavior`的控件滑动时，就会触发设置了`layout_scrollFlags`的控件发生状态的改变。 
 
-![coordinatorlayout](http://7xl94a.com1.z0.glb.clouddn.com/20150604225906021.gif)
+![coordinatorlayout](https://i.niupic.com/images/2016/12/13/NHb7vj.gif)
 
 设置的`layout_scrollFlags`有如下几种选项：
 
@@ -468,7 +468,7 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 这样才能产生滚动效果，而通过`layout_collapseMode`，我们就设置了滚动时内容的变化效果。
 
-![CollapsingToolbarLayout](http://7xl94a.com1.z0.glb.clouddn.com/20150604230018928.gif)
+![CollapsingToolbarLayout](https://i.niupic.com/images/2016/12/13/itT4iv.gif)
 
 ### CoordinatorLayout与自定义view
 

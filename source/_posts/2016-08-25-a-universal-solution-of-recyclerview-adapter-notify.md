@@ -227,7 +227,7 @@ mFab.setOnClickListener(new View.OnClickListener() {
 
 效果如下：
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/GIF_20160825_093648.gif)
+![](https://i.niupic.com/images/2016/12/13/xVVNUb.gif)
 
 DiffUtil 的使用就是这样，根据 DiffUtil.Callback 计算出 Result，然后应用更新到 Adapter。
 

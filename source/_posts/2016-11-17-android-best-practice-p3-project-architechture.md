@@ -48,7 +48,7 @@ Clean 架构把项目按功能分为四层，对应到 Android 项目中从底�
 2. RxJava 处理并发并抽象数据层
 3. 使用 Dagger2 处理依赖注入
 
-![clean_arch](http://7xl94a.com1.z0.glb.clouddn.com/clean_architecture.jpg)
+![clean_arch](https://i.niupic.com/images/2016/12/13/OkRsc3.jpg)
 
 ### Flux 架构
 
@@ -64,7 +64,7 @@ Clean 架构把项目按功能分为四层，对应到 Android 项目中从底�
 
 **Store** Store 有点类似于 MVP 模式中的 Presenter，但它只负责更新 UI 不负责响应 UI 事件。
 
-![flux-arch](http://7xl94a.com1.z0.glb.clouddn.com/flux-arch.png)
+![flux-arch](https://i.niupic.com/images/2016/12/13/bBeN6U.png)
 
 如果使用 Flux 架构，我还会选择以下部分实现其它功能：
 
@@ -83,7 +83,7 @@ MVP 相比于 MVC，它从 Controller 层中抽出了一层 Presenter，来负�
 
 在这个过程中 View 和 Model 不直接发生联系，所有通信通过 Presenter 传递，这样 View 中只处理界面相关的东西，逻辑相关的则交由 Presenter 处理，便于后期维护。
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/MVP.png)
+![](https://i.niupic.com/images/2016/12/13/Qme0C1.png)
 
 ### MVVM
 
@@ -91,7 +91,7 @@ MVVM 其实是对 MVP 的改进，它使用了双向绑定(data-binding)，View 
 
 在 Google 推出了 Databinding 库之后使用 MVVM 可以大幅减少代码量，非常方便。
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/MVVM.png)
+![](https://i.niupic.com/images/2016/12/13/heO1BV.png)
 
 # 总结
 

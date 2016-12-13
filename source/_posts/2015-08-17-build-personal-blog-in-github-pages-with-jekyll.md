@@ -7,9 +7,9 @@ toc: true
 description: 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了《“授人以渔”的教你搭建个人独立博客》——Azure Yu、《Using Jekyll with Pages》。鄙人于此也作一下使用Jekyll在Github-Pages上搭建个人博客的总结，也可以给其他后来者做一些参考。
 ---
 > 我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了[《“授人以渔”的教你搭建个人独立博客》——Azure Yu][site1]、[《Using Jekyll with Pages》][site2]。鄙人于此也作一下**使用Jekyll在Github-Pages上搭建个人博客**的总结，也可以给其他后来者做一些参考。
-> 
+>
 > 本文默认读者已经拥有了Github的帐号，并且对Git的使用较为熟练。如果对Git以及Github不是很了解，可以参考[《版本控制入门 – 搬进 Github》][site3]。
-> 
+>
 > 在这个过程中可能需要使用到少许的Ruby知识，如果您需要学习，可以看[这里][site4]
 
 [site1]: http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html
@@ -46,7 +46,7 @@ description: 我的个人博客也在Github-Pages上搭建起来了，其中各�
 1. **Ruby** - Mac已经自带了Ruby，所以无需再次安装。如果是其它系统且没有安装Ruby，请[安装Ruby环境][ruby]。
 2. **Bundler** - 打开终端输入`gem install bundler`以安装。
 3. **github-pages** - 打开终端输入`gem install github-pages`以安装。
-3. **Jekyll** - 打开终端输入`gem install jekyll`以安装。
+4. **Jekyll** - 打开终端输入`gem install jekyll`以安装。
 
 **注**: 如果你在墙内则可能会出现无法安装的问题，可以通过将Gem源更换为[淘宝镜像源][taobaoGem]解决。
 
@@ -92,7 +92,7 @@ description: 我的个人博客也在Github-Pages上搭建起来了，其中各�
 * `css` 存放博客所用css
 * `script` 存放博客所用JavaScript
 * `index.html` 博客主页
-<h1 id="write blog">写博客</h1>
+  <h1 id="write blog">写博客</h1>
 
 博客文章都是用[markdown格式][markdown]书写，命名格式为*时间加标题*，形如：`2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md`
 
@@ -156,13 +156,13 @@ categories: Blog
 修改为
 
 ```html
-<div class="ds-thread" data-thread-key="【 page.id 】"
-    data-title="【 page.title 】" data-url="your web site【 page.url 】"></div>
+<div class="ds-thread" data-thread-key="{{ page.id }}"
+    data-title="{{ page.title }}" data-url="your web site{{ page.url }}"></div>
 ```
 
-注意`【】`需要替换为**两个大括号**，`your web site`需替换为**您的域名地址**。
+> 注意：`your web site`需替换为**您的域名地址**。
 
-* 在`_layout`中的`post.html`中的底部加入`【% include comment.html %】`（【】须替换为{}）
+* 在`_layout`中的`post.html`中的底部加入`{{% include comment.html %}}`
 * 在**多说**的控制台里你可以设置很多自定义项，如：评论审核、评论显示方式、关键词过滤、主题、自定义CSS等
 
 [ds]: http://duoshuo.com/

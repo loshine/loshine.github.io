@@ -61,7 +61,7 @@ public class CircleView extends View {
 
 然后我们就可以在 preview 窗口中看到效果了
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/blog-attr-circle-1.png)
+![](https://i.niupic.com/images/2016/12/13/RnMClH.png)
 
 一个很简单的黑色的圆形
 
@@ -323,7 +323,7 @@ public class CircleView extends View {
 
 如上配置，我们效果如图所示：
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/custom_attr.png)
+![](https://i.niupic.com/images/2016/12/13/s9CL0q.png)
 
 可以看出我们的 color4 没有起效果，这是因为使用了 defStyle，这个时候默认 Style 就不会起作用了。
 

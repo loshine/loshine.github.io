@@ -14,7 +14,7 @@ description: 准备一个抽象类，将部分逻辑以具体方法以及具体�
 
 模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑。模板方法模式的静态结构图如下所示：
 
-![](http://7xl94a.com1.z0.glb.clouddn.com/123123123.png)
+![](https://i.niupic.com/images/2016/12/13/i0GU64.png)
 
 这里涉及到两个角色：
 
@@ -84,7 +84,7 @@ public class ConcreteTemplate extends AbstractTemplate {
 ```
 
 **模板方法模式的关键**：*子类可以置换掉父类的可变部分，但是子类却不可以改变模板方法所代表的顶级逻辑*。
- 
+
 每当定义一个新的子类时，不要按照控制流程的思路去想，而应当按照**责任**的思路去想。换言之，应当考虑哪些操作是必须置换掉的，哪些操作是可以置换掉的，以及哪些操作是不可以置换掉的。使用模板模式可以使这些责任变得清晰。
 
 # 在Servlet中的应用
@@ -153,9 +153,9 @@ public class ConcreteTemplate extends AbstractTemplate {
 ```
 
 当然，这个`service()`方法也可以被子类置换掉。
- 
+
 下面给出一个简单的 Servlet 例子：
- 
+
 TestServlet 类是 HttpServlet 类的子类，并且置换掉了父类的两个方法：`doGet()`和`doPost()`：
 
 ```java
@@ -178,12 +178,12 @@ TestServlet 类是 HttpServlet 类的子类，并且置换掉了父类的两个�
 ```
 
 从上面的例子可以看出这是一个典型的模板方法模式。
- 
+
 HttpServlet 担任抽象模板角色
- 
+
 * **模板方法**：由`service()`方法担任。
 * **基本方法**：由`doPost()`、`doGet()`等方法担任。
- 
+
 TestServlet 担任具体模板角色
- 
+
 * TestServlet 置换掉了父类 HttpServlet 中七个基本方法中的其中两个，分别是`doGet()`和`doPost()`。

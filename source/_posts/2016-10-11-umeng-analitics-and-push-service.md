@@ -16,7 +16,7 @@ toc: true
 
 在集成友盟的统计 SDK 之前肯定要先注册帐号，添加新应用并获取 Appkey。
 
-![app_key](http://dev.umeng.com/system/images/W1siZiIsIjIwMTQvMDEvMTcvMTNfNTJfMzBfMjI4X2RldjUucG5nIl1d/dev5.png)
+![app_key](https://i.niupic.com/images/2016/12/13/ESgJ9h.png)
 
 ## 导入 SDK
 
