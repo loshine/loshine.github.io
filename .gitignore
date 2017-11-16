@@ -4,3 +4,9 @@ node_modules/
 public/
 .deploy_git/
 db.json
+.vscode/
+package-lock.json
+
+*.DS_Store
+.AppleDouble
+.LSOverride
