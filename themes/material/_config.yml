@@ -5,8 +5,8 @@
 # Head info
 head:
     favicon: "/assets/img/favicon.png"
-    high_res_favicon: "/assets/img/favicon.png"
-    apple_touch_icon: "/assets/img/favicon.png"
+    high_res_favicon: "/assets/img/favicon_high_res.png"
+    apple_touch_icon: "/assets/img/favicon_high_res.png"
     keywords:
     site_verification:
         google:
