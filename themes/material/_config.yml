@@ -34,11 +34,11 @@ scheme: Isolation
 # UI & UX: slogan, color, effect
 uiux:
     slogan: "活捉一只 Android 狗"
-    theme_color: "#0097A7"
-    theme_sub_color: "#00838F"
-    hyperlink_color: "#00838F"
+    theme_color: "#1976D2"
+    theme_sub_color: "#2196F3"
+    hyperlink_color: "#2196F3"
     button_color: "#757575"
-    android_chrome_color: "#0097A7"
+    android_chrome_color: "#1976D2"
     nprogress_color: "#29d"
     nprogress_buffer: "800"
 
@@ -62,10 +62,10 @@ thumbnail:
 #         color available value: black, blue, brown, green, multi, orange, pink, purple, red, white, yellow
 #         type available value: A (animal), C (culture), N (nature), S (space), T (travel)
 background:
-    #purecolor: "#F5F5F5"
+    purecolor: "#F5F5F5"
     #bgimg: "/img/bg.png"
     bing:
-        enable: true
+        enable: false
         parameter:
 
 # Images Settings
