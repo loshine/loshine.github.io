@@ -288,6 +288,7 @@ Tasks 填入 `clean assembleDebug`
 * **Content Type**: HTML
 * **Default Subject**: `构建通知: $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!`
 * **Default Content**: 
+
 ```
 (本邮件是 Jenkins 服务端构建完毕后自动发送，请勿回复)<br/><hr/>
 
@@ -299,6 +300,7 @@ Git 版本号: $GIT_REVISION<br/>
 
 构建地址: <a href="$BUILD_URL">$BUILD_URL</a><br/>
 ```
+
 * **Attach Build Log**: Compress and Attach Build Log
 
 ## 触发构建
