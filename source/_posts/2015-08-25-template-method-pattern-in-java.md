@@ -14,7 +14,7 @@ description: 准备一个抽象类，将部分逻辑以具体方法以及具体�
 
 模板方法所代表的行为称为顶级行为，其逻辑称为顶级逻辑。模板方法模式的静态结构图如下所示：
 
-![](https://i.niupic.com/images/2016/12/13/i0GU64.png)
+![template](https://imgur.com/axz30Se.png)
 
 这里涉及到两个角色：
 

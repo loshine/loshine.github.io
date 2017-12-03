@@ -111,10 +111,10 @@ git clone https://github.com/ywb94/openwrt-ssr.git package/openwrt-ssr
 make menuconfig
 ```
 
-![](https://imgur.com/qDkxSlZ)
-![](https://imgur.com/FLjo439)
-![](https://imgur.com/rL2zNRl)
-![](https://imgur.com/Wsp6vFs)
+![](https://imgur.com/qDkxSlZ.png)
+![](https://imgur.com/FLjo439.png)
+![](https://imgur.com/rL2zNRl.png)
+![](https://imgur.com/Wsp6vFs.png)
 
 ## 开始编译
 

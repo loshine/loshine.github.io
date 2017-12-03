@@ -39,7 +39,7 @@ Snackbar.make(view, "Snackbar comes out", Snackbar.LENGTH_LONG)
 
 显示效果：
 
-![Snackbar](https://i.niupic.com/images/2016/12/13/e02RRv.png)
+![snackbar](https://imgur.com/dES33QE.png)
 
 官网API：[Snackbar API][snackbar api]
 
@@ -98,9 +98,9 @@ editText.addTextChangedListener(new TextWatcher() {
 
 显示效果：
 
-![textinputlayout1](https://i.niupic.com/images/2016/12/13/07s2gK.png)
+![text_input_layout_normal](https://imgur.com/9dm9Ups.png)
 
-![textinputlayout2](https://i.niupic.com/images/2016/12/13/DdIjpV.png)
+![text_input_layout_error](https://imgur.com/DO2scN9.png)
 
 官网API：[TextInputLayout API][textinputlayout api]
 
@@ -108,7 +108,7 @@ editText.addTextChangedListener(new TextWatcher() {
 
 FloatingActionButton 是一个浮动显示的圆形按钮，Design library 中的 FloatingActionButton 实现了一个默认颜色为主题中 colorAccent 的悬浮操作按钮，like this：
 
-![floatingactionbutton](http://7xl94a.com1.z0.glb.clouddn.com/20150604094913153.png)
+![floating_action_button](https://imgur.com/TxlLoPf.png)
 
 FloatingActionButton 的使用非常简单，一般将其放入 CoordinatorLayout 中。
 
@@ -164,7 +164,7 @@ tabLayout.setupWithViewPager(mViewPager);
 
 显示效果：
 
-![tablayout](https://i.niupic.com/images/2016/12/13/wIDYUF.png)
+![tab_layout](https://imgur.com/exJGhla.png)
 
 官网API：[TabLayout API][tablayout api]
 
@@ -199,7 +199,7 @@ NavigationView 主要用于实现滑动显示的导航抽屉，这在 Material D
 
 通过这两个属性，我们可以非常方便的指定导航界面的头布局和菜单布局：
 
-![navigationview](https://i.niupic.com/images/2016/12/13/3Z68nq.png)
+![navigation_view](https://imgur.com/WKvmwQ4.png)
 
 其中最上面的布局就是`app:headerLayout`所指定的头布局：
 
@@ -294,7 +294,7 @@ private void setupDrawerContent(NavigationView navigationView) {
 
 AppBarLayout 是一个容器，会把所有放在里面的组件一起作为一个 AppBar。
 
-![appbarlayout](https://i.niupic.com/images/2016/12/13/JGtbYN.png)
+![appbar_layout](https://imgur.com/1dV4Tgq.png)
 
 这里就是把 Toolbar 和 TabLayout 放到了 AppBarLayout 中，让他们当做一个整体作为 AppBar。
 
@@ -382,7 +382,7 @@ CoordinatorLayout 可以说是这次 support library 更新的重中之重。它
 
 那么，当设置了`layout_behavior`的控件滑动时，就会触发设置了`layout_scrollFlags`的控件发生状态的改变。 
 
-![coordinatorlayout](https://i.niupic.com/images/2016/12/13/NHb7vj.gif)
+![coordinator_layout](https://imgur.com/ALKZ2Pr.gif)
 
 设置的`layout_scrollFlags`有如下几种选项：
 
@@ -468,7 +468,7 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 这样才能产生滚动效果，而通过`layout_collapseMode`，我们就设置了滚动时内容的变化效果。
 
-![CollapsingToolbarLayout](https://i.niupic.com/images/2016/12/13/itT4iv.gif)
+![collapsing_toolbar_layout](https://imgur.com/Hn48ZaO.gif)
 
 ### CoordinatorLayout与自定义view
 

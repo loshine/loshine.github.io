@@ -12,7 +12,7 @@ toc: true
 
 截止到10月22日，Yarn 发布短短十多天就已经达到了让人惊叹的 star 数量
 
-![](https://i.niupic.com/images/2016/12/13/XL88r8.jpg)
+![yarn_stars](https://imgur.com/WTDygP2.png)
 
 这成绩简直吓死人了，那么接下来就稍微介绍一下它为什么好，为什么这么多人想要用它替换掉 NPM，以及我们该如何使用它吧。
 
