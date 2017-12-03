@@ -106,7 +106,7 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ### fir.im 插件
 
-[fir.im](https://fir.im) 的插件需要自己安装，详情看(fir.im Jenkins 插件使用方法)[https://blog.fir.im/jenkins/]
+[fir.im](https://fir.im) 的插件需要自己安装，详情看[fir.im Jenkins 插件使用方法](https://blog.fir.im/jenkins/)
 
 ## 设置工具
 
