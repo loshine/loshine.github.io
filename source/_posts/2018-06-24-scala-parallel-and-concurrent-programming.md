@@ -141,12 +141,12 @@ Await.result(b, Duration.Inf) // crash with java.lang.NullPointerException
 我们只需要用`async`代替`Future.apply`，然后用`await`获取结果即可。
 
 ```scala
-val future = async {                                     
-  val f1 = async { true }                                 
-  val x = 1                                               
-  def inc(t: Int) = t + x                                 
-  val t = 0                                               
-  val f2 = async { 42 }                                   
+val future = async {
+  val f1 = async { true }
+  val x = 1
+  def inc(t: Int) = t + x
+  val t = 0
+  val f2 = async { 42 }
   if (await(f1)) await(f2) else { val z = 1; inc(t + z) }
 }
 ```
