@@ -173,7 +173,7 @@ Flutter 天生支持数据绑定，UI 部分编写也不困难
 
 StatefulWidget 有属性变化的时候需要调用`setState`方法，否则 UI 无法更新
 
-具体 UI 编码可以查看 [Flutter-todo] 项目，这里就不具体展开了。
+具体 UI 编码可以查看 [Flutter-todo](https://github.com/loshine/flutter-todo) 项目，这里就不具体展开了。
 
 ## 页面跳转
 
