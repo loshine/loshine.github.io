@@ -15,18 +15,18 @@ toc: true
 我购置的一套配置如下：
 
 | 部件 | 型号 |
-|------|------|----------|
-| 主板 | Gigabyte h370n wifi | ￥1099 |
-| CPU | Intel I5 8400 | ￥1350 |
-| 内存 | Crucial 8g 2666 | ￥550 × 2 |
-| SSD | Samsung 970 EVO 500g M.2 | ￥918 |
-| SSD | Toshiba Q200EX 256g SATA | ￥589 |
-| 显卡 | EVGA GTX1060 6G SC | ￥1969 |
-| 机箱 | 乔斯伯 TU 手提箱 | ￥528 |
-| 电源 | SilverStone ST45SF SFX | ￥439 |
-| 显示器 | ASUS MX27AQ 2K IPS | ￥2200 |
-| 鼠标 | 罗技 G102 | ￥129 |
-| 键盘 | Cherry G80-3494 红轴 | ￥659 |
+|------|------|
+| 主板 | Gigabyte h370n wifi |
+| CPU | Intel I5 8400 |
+| 内存 | Crucial 8g 2666 |
+| SSD | Samsung 970 EVO 500g M.2 |
+| SSD | Toshiba Q200EX 256g SATA |
+| 显卡 | EVGA GTX1060 6G SC |
+| 机箱 | 乔斯伯 TU 手提箱 |
+| 电源 | SilverStone ST45SF SFX |
+| 显示器 | ASUS MX27AQ 2K IPS |
+| 鼠标 | 罗技 G102 |
+| 键盘 | Cherry G80-3494 红轴 |
 
 在购买的时候我踩了个小坑，因为 Intel 在 H370 这一代芯片的主板上更换了新规格的网卡接口 **CNVI**，不兼容老的 **NGFF** 规格无线网卡，所以无法直接更换无线网卡达到免驱支持无线上网。
 
@@ -100,7 +100,7 @@ USB: USBInjectAll
 ```
 
 声卡驱动：待补
-USB 网卡驱动：待补
+USB 网卡驱动：[下载地址](https://drive.google.com/open?id=1tV2y9iEVsmBNodiDsKX6MZOF5yDgpJq0)
 Nvidia Webdriver：[下载地址](https://www.tonymacx86.com/nvidia-drivers/)
 
 # 总结
