@@ -4,6 +4,7 @@ date: 2018-08-30 11:50:00
 category: [技术]
 tags: [Flutter]
 toc: true
+thumbnail: https://i.imgur.com/fxgffx6.png
 ---
 
 Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那我就以这个项目的业务为模板用 Flutter 也实现一个。

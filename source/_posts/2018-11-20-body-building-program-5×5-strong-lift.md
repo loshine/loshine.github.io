@@ -4,6 +4,7 @@ date: 2018-11-20 16:22:00
 category: [健身]
 tags: [健身]
 toc: true
+thumbnail: https://i.imgur.com/NNz9SLa.jpg
 ---
 
 系统开始练 5×5 差不多有 2 个月了，从零基础开始到现在三大项加起来有3倍多体重了，于是乎就好好归纳一下这个健身计划吧。

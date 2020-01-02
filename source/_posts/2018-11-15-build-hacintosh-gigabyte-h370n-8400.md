@@ -4,6 +4,7 @@ date: 2018-11-15 14:37:00
 category: [玩具]
 tags: [Apple]
 toc: true
+thumbnail: https://i.imgur.com/ISipsqP.png
 ---
 
 看到 Apple 新发布会发布了新款的 iMac mini，突然被种草。但转念一想 Mac mini 没有升级潜力，而且价格又太贵，不如自己来组个黑苹果吧，于是心动不如行动。
