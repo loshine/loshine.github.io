@@ -1,0 +1,71 @@
+
+# html lang
+language: zh-Hans
+
+# main menu navigation
+menu:
+  Home: /
+  About: /about
+  Tags: /tags
+
+# customize your terminal panel
+terminal:
+  #Home
+  Blog:
+    purpose: 
+      typ: string
+      val: Sharing something interesting in my limited life.
+    author: 
+      typ: string
+      val: Loshine
+    more:
+      typ: link
+      val: check here
+      url: https://github.com/loshine/loshine.github.io
+  #About
+  Sheep:
+    locations: 
+      typ: array
+      val: Shanghai
+    #education: 
+    #  typ: string
+     # val: BUPT
+    interests:
+      typ: array
+      val: coding movie music reading
+    github:
+      typ: link
+      val: github.com/loshine
+      url: https://github.com/loshine
+  #Tags
+  Tags:
+  #Post
+  Post:
+
+#social media
+#name: url
+social:
+  # github: https://github.com/lazysheep666
+  # weibo: https://weibo.com/u/5318061001
+  
+# Miscelaneous
+favicon: /favicon.ico
+
+# stylesheets loaded in the <head>
+stylesheets:
+- /css/index.css
+
+# scripts loaded in the end of the body
+scripts:
+- /js/nav.js
+- /js/scroll.js
+- /js/index.js
+# the third-party loaded in the head
+third_party:
+  js:
+    jquery: /js/third-party/jquery.min.js
+    velocity: /js/third-party/velocity.min.js 
+    velocity-ui: /js/third-party/velocity.ui.min.js 
+  css:
+    font-awsome: https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+

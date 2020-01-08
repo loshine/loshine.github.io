@@ -1,0 +1,71 @@
+#header-info
+  margin-bottom: 10px
+
+#header-container
+  @extend $layout-container
+  padding-top: 5rem
+
+#terminal-pl
+  @extend $layout-inner
+  font-family: $cute-font
+
+#top-bar
+  position: relative
+  font-size: .8rem
+
+#control 
+  position: absolute
+  margin: 0
+  padding: .4rem
+  list-style: none 
+  .btn
+    display: inline-block
+    margin: .1rem
+    width: .6rem
+    height: .6rem
+    border-radius: 100%
+    for num in 0 1 2
+      &:nth-child({num + 1})
+        background-color: $btn-color[num]
+
+#file-path
+  padding: .4rem 0
+  text-align: center
+  .folder-ic
+    margin-right: .2rem
+    color: $light-blue
+
+#code-pl
+  padding: 1rem 1.5rem
+  height: 400px
+  border-radius: 5px
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+  color: #fff
+  background: #383737
+  overflow-y: scroll
+  .answer,
+  a
+    color: $dark-green
+  a
+    text-decoration: underline
+  .code-pl-input
+    color: $dark-red
+  .category
+    display: inline-block
+    margin-right: 5px
+  .tag
+    display: inline-block
+    margin-right: 5px
+  .selfie
+    margin: 0 auto
+    width: 5rem
+    height: 5rem
+    img 
+      padding: 4px
+      max-width: 100%
+
+@media screen and (max-width: $sm)
+  #code-pl
+    height: 200px
+

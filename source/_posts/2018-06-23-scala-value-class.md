@@ -4,6 +4,7 @@ date: 2018-06-23 16:41:00
 category: [技术]
 tags: [Scala]
 toc: true
+description: 值类型(Value class)是一种通过继承 AnyVal 类来避免运行时对象分配的新机制。
 ---
 
 值类型(Value class)是一种通过继承 AnyVal 类来避免运行时对象分配的新机制。

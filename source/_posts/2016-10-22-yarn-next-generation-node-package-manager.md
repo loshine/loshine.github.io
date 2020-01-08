@@ -4,6 +4,7 @@ date: 2016-10-22 01:22:47
 category: [技术]
 tags: [Node]
 toc: true
+description: 最近前端圈子里最热的话题应该就是 Facebook 新出的包管理器—— Yarn 了，它解决了前端工程师构建项目中许多痛点，类比到 Java 圈子大概就是从 Maven 切换到 Gradle 的爽快吧。
 ---
 
 最近前端圈子里最热的话题应该就是 Facebook 新出的包管理器—— Yarn 了，它解决了前端工程师构建项目中许多痛点，类比到 Java 圈子大概就是从 Maven 切换到 Gradle 的爽快吧。

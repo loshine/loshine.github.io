@@ -1,0 +1,26 @@
+*
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  &::selection
+    background-color: rgba(231,105,105,.7)
+    color: #fff
+html
+  height: 100%
+  font-size: $bg-rem
+  font-family: $font-family
+  background-color: $g-bg-color
+  line-height: 2
+body
+  font-size: $font-size
+a
+  color: $dark-gray
+  transition(.2s)
+hr 
+  margin-top: 20px
+  margin-bottom: 20px
+  border: 0
+  border-top: 1px solid #eee
+@media screen and (max-width: $sm)
+  html
+    font-size: $sm-rem

@@ -4,6 +4,7 @@ date: 2017-02-07 17:02:11
 category: [技术]
 tags: [Android]
 toc: true
+description: 今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。
 ---
 
 今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。

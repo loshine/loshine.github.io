@@ -1,10 +1,11 @@
 ---
-title: 自己攒个黑苹果 —— 基于 Gigabyte h370n
+title: 自己攒个黑苹果 —— 基于 Gigabyte z370n
 date: 2018-11-15 14:37:00
 category: [玩具]
 tags: [Apple]
 toc: true
 thumbnail: https://i.imgur.com/ISipsqP.png
+description: 看到 Apple 新发布会发布了新款的 iMac mini，突然被种草。但转念一想 Mac mini 没有升级潜力，而且价格又太贵，不如自己来组个黑苹果吧，于是心动不如行动。
 ---
 
 看到 Apple 新发布会发布了新款的 iMac mini，突然被种草。但转念一想 Mac mini 没有升级潜力，而且价格又太贵，不如自己来组个黑苹果吧，于是心动不如行动。
@@ -17,7 +18,7 @@ thumbnail: https://i.imgur.com/ISipsqP.png
 
 | 部件 | 型号 |
 |------|------|
-| 主板 | Gigabyte h370n wifi |
+| 主板 | Gigabyte z370n wifi |
 | CPU | Intel I5 8400 |
 | 内存 | Crucial 8g 2666 |
 | SSD | Samsung 970 EVO 500g M.2 |
@@ -29,9 +30,11 @@ thumbnail: https://i.imgur.com/ISipsqP.png
 | 鼠标 | 罗技 G102 |
 | 键盘 | Cherry G80-3494 红轴 |
 
-在购买的时候我踩了个小坑，因为 Intel 在 H370 这一代芯片的主板上更换了新规格的网卡接口 **CNVI**，不兼容老的 **NGFF** 规格无线网卡，所以无法直接更换无线网卡达到免驱支持无线上网。
+~~在购买的时候我踩了个小坑，因为 Intel 在 H370 这一代芯片的主板上更换了新规格的网卡接口 **CNVI**，不兼容老的 **NGFF** 规格无线网卡，所以无法直接更换无线网卡达到免驱支持无线上网。~~
 
-这里如果有条件最好还是购买 Z370 的主板，可以直接更换`BCM94360CS2`这款网卡达到免驱支持 Wifi，否则和我一样踩坑就只能插 USB Wifi 了。
+~~这里如果有条件最好还是购买 Z370 的主板，可以直接更换`BCM94360CS2`这款网卡达到免驱支持 Wifi，否则和我一样踩坑就只能插 USB Wifi 了。~~
+
+**最后我还是更换了 z370n 主板，并更换了`BCM94360CS2`，不用去操心 Wifi 和蓝牙的问题了**
 
 另外有条件的最好购买免驱的 A卡，可以安装最新的 Mac OS，不用像我需要等待 Nvidia Webdriver 适配 Mojave。
 

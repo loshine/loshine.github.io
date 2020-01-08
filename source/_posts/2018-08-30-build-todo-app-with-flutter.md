@@ -5,6 +5,7 @@ category: [技术]
 tags: [Flutter]
 toc: true
 thumbnail: https://i.imgur.com/fxgffx6.png
+description: Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那我就以这个项目的业务为模板用 Flutter 也实现一个。
 ---
 
 Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那我就以这个项目的业务为模板用 Flutter 也实现一个。
