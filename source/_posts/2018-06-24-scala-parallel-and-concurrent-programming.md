@@ -4,6 +4,7 @@ date: 2018-06-24 12:00:00
 category: [技术]
 tags: [Scala]
 toc: true
+description: 并发编程是开发中及其重要的部分，本文用于说明 scala 中的并发编程。
 ---
 
 并发编程是开发中及其重要的部分，本文用于说明 scala 中的并发编程。

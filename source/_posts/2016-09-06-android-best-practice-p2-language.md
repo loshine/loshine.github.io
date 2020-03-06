@@ -4,6 +4,7 @@ date: 2016-09-06 00:30:21
 category: [技术]
 tags: [Android]
 toc: true
+description: Android 的官方开发语言是 Java，但 Java 缺少了很多现代编程语言的特性，本文介绍了 Kotlin 的一些基本用法。
 ---
 
 # 引

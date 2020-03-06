@@ -4,6 +4,7 @@ date: 2017-11-26 19:47:45
 category: [技术]
 tags: [LEDE]
 toc: true
+description: 今天手贱，把手里的 NETGEAR WNDR4300 从 OpenWRT 15.05 升级到了 LEDE 17.01.4。虽然配置保留了，但比较悲剧的是之前安装的 ssr 和其他服务都没了，需要重新安装。但安装完 ssr 之后更坑的来了：github 上直接下载的编译好的包是 for OpenWRT 的，LEDE 需要自行编译，于是就只能自己动手，丰衣足食了。
 ---
 
 今天手贱，把手里的 NETGEAR WNDR4300 从 OpenWRT 15.05 升级到了 LEDE 17.01.4。虽然配置保留了，但比较悲剧的是之前安装的 ssr 和其他服务都没了，需要重新安装。但安装完 ssr 之后更坑的来了：github 上直接下载的编译好的包是 for OpenWRT 的，LEDE 需要自行编译，于是就只能自己动手，丰衣足食了。

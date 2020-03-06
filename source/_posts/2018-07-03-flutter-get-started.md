@@ -4,6 +4,7 @@ date: 2018-07-03 15:50:00
 category: [技术]
 tags: [Flutter]
 toc: true
+description: Flutter 是 Google 出品的一项基于 Dart 的跨平台应用开发工具，理论上支持还在孵化中的 Fuchsia 和目前占据移动端大头的 Android, iOS 系统。它拥有相较于 React Native 更好的性能，Dart 的语法也很容易学习，是一门十分值得掌握的技术。
 ---
 
 Flutter 是 Google 出品的一项基于 Dart 的跨平台应用开发工具，理论上支持还在孵化中的 Fuchsia 和目前占据移动端大头的 Android, iOS 系统。它拥有相较于 React Native 更好的性能，Dart 的语法也很容易学习，是一门十分值得掌握的技术。

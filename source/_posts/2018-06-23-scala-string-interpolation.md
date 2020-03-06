@@ -4,6 +4,7 @@ date: 2018-06-23 10:51:00
 category: [技术]
 tags: [Scala]
 toc: true
+description: Scala 提供了三种创新的字符串插值方法：`s`,`f`和`raw`，使用他们我们可以方便快捷的组合字符串。
 ---
 
 Scala 提供了三种创新的字符串插值方法：`s`,`f`和`raw`，使用他们我们可以方便快捷的组合字符串。
