@@ -1,6 +1,0 @@
-.DS_Store
-.vscode/*
-.eslintrc.json
-.eslintignore
-node_modules/*
-_config.demo.yml

@@ -6,7 +6,7 @@ tags: [Java]
 toc: true
 ---
 
-# LinkedList 源码解析
+<!--more-->
 
 LinkedList 是有序双向链表，本文分析其源码和实现原理。
 

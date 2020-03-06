@@ -6,7 +6,7 @@ tags: [Java]
 toc: true
 ---
 
-# ArrayList 源码解析
+<!--more-->
 
 ArrayList 是最常见的 List 实现，本文分析其源码和实现原理。
 
