@@ -1,5 +1,5 @@
 ---
-title: ArrayList 源码解析
+title: LinkedList 源码解析
 date: 2020-03-06 15:41:00
 category: [技术]
 tags: [Java]
