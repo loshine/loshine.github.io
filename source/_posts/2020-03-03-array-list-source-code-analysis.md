@@ -4,6 +4,7 @@ date: 2020-03-03 19:35:00
 category: [技术]
 tags: [Java]
 toc: true
+thumbnail: https://i.imgur.com/OlNW1oR.png
 ---
 
 <!--more-->
