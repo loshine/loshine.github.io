@@ -9,7 +9,7 @@ thumbnail: https://i.imgur.com/yHVo4h0.png
 
 <!--more-->
 
-TreeMap 是红黑树实现的键值对映射容器，本文分析其源码和实现原理。
+TreeMap 是红黑树实现的键值对容器，本文分析其源码和实现原理。
 
 ## 定义
 
@@ -19,7 +19,7 @@ public class TreeMap<K,V>
     implements NavigableMap<K,V>, Cloneable, java.io.Serializable
 ```
 
-TreeMap 基于**红黑树（Red-Black tree）实现**。该映射根据**其键的自然顺序进行排序**，或者根据**创建映射时提供的 Comparator 进行排序**，具体取决于使用的构造方法。
+TreeMap 基于**红黑树（Red-Black tree）**实现。该映射根据**其键的自然顺序进行排序**，或者根据**创建映射时提供的 Comparator 进行排序**，具体取决于使用的构造方法。
 
 ## 初始化
 
@@ -428,7 +428,7 @@ private void deleteEntry(Entry<K,V> p) {
 
    ![删除节点](https://i.imgur.com/FmMASzp.png)
 
-5. 在步骤2和3中，若删除的节点是黑色，需要调用`fixAfterDeletion`调整树结构。
+5. 在步骤3和4中，若删除的节点是黑色，需要调用`fixAfterDeletion`调整树结构。
 
 查看上述步骤，可以发现实质上我们都是删除了只有一个子节点的节点，然后将子节点作为原节点的替代。若被删节点是红色，黑高不变；否则黑高变化需要调整树结构。
 
