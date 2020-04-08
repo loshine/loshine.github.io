@@ -4,9 +4,8 @@ date: 2020-04-01 17:13:00
 category: [技术]
 tags: [Android]
 toc: true
-thumbnail: https://i.imgur.com/X11JNkC.png
+thumbnail: https://i.imgur.com/KTNxgN9.png
 ---
-
 
 <!--more-->
 
