@@ -9,6 +9,8 @@ description: 值类型(Value class)是一种通过继承 AnyVal 类来避免运�
 
 值类型(Value class)是一种通过继承 AnyVal 类来避免运行时对象分配的新机制。
 
+<!-- more -->
+
 # 值类型
 
 ## 创建

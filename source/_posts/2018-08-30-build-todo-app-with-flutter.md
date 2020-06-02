@@ -10,6 +10,8 @@ description: Google 在 Github 上提供了一个 Android 各种架构的 Todo �
 
 Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那我就以这个项目的业务为模板用 Flutter 也实现一个。
 
+<!-- more -->
+
 # 分析
 
 我们以最基础的 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp) 来分析

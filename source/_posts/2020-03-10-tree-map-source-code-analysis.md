@@ -7,9 +7,9 @@ toc: true
 thumbnail: https://i.imgur.com/yHVo4h0.png
 ---
 
-<!--more-->
-
 TreeMap 是红黑树实现的键值对容器，本文分析其源码和实现原理。
+
+<!-- more -->
 
 ## 定义
 

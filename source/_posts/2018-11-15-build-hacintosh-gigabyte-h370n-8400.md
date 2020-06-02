@@ -10,6 +10,8 @@ description: 看到 Apple 新发布会发布了新款的 iMac mini，突然被�
 
 看到 Apple 新发布会发布了新款的 iMac mini，突然被种草。但转念一想 Mac mini 没有升级潜力，而且价格又太贵，不如自己来组个黑苹果吧，于是心动不如行动。
 
+<!-- more -->
+
 # 购买建议
 
 首先参照 [Tonymacx86 Buyer's Guide](https://www.tonymacx86.com/buyersguide/building-a-customac-hackintosh-the-ultimate-buyers-guide/) 购买硬件。

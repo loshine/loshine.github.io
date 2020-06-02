@@ -7,9 +7,9 @@ toc: true
 thumbnail: https://imgur.com/bKHmPbb.png
 ---
 
-<!--more-->
-
 HashMap 是散列表实现的键值对容器，本文分析其源码和实现原理。
+
+<!-- more -->
 
 ## 定义
 

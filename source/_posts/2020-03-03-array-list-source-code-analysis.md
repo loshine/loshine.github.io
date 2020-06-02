@@ -7,9 +7,9 @@ toc: true
 thumbnail: https://i.imgur.com/OlNW1oR.png
 ---
 
-<!--more-->
-
 ArrayList 是最常见的 List 实现，本文分析其源码和实现原理。
+
+<!-- more -->
 
 ## 定义
 

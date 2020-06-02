@@ -7,9 +7,9 @@ toc: true
 thumbnail: https://i.imgur.com/OMNu4cD.png
 ---
 
-<!--more-->
-
 LinkedList 是有序双向链表，本文分析其源码和实现原理。
+
+<!-- more -->
 
 ## 定义
 

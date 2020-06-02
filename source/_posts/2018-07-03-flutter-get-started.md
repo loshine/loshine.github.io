@@ -9,6 +9,8 @@ description: Flutter 是 Google 出品的一项基于 Dart 的跨平台应用开
 
 Flutter 是 Google 出品的一项基于 Dart 的跨平台应用开发工具，理论上支持还在孵化中的 Fuchsia 和目前占据移动端大头的 Android, iOS 系统。它拥有相较于 React Native 更好的性能，Dart 的语法也很容易学习，是一门十分值得掌握的技术。
 
+<!-- more -->
+
 # Get started
 
 以下假设读者使用 Mac，并已经安装并配置好了 Android sdk, Android Studio 等工具。

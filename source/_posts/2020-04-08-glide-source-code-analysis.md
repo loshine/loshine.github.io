@@ -7,9 +7,9 @@ toc: true
 thumbnail: https://i.imgur.com/Lg4N5sP.png
 ---
 
-<!--more-->
-
 Glide 是一个非常优秀的图片加载框架，为我们处理了图片加载中的各种痛点，如：多种尺寸格式的缓存、生命周期感知、高效处理 Bitmap 等，本文解析其源码分析它是如何做到这些的。
+
+<!-- more -->
 
 ## 使用方法
 
