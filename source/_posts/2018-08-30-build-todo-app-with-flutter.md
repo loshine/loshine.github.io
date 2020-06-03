@@ -12,13 +12,19 @@ Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那�
 
 <!-- more -->
 
-# 分析
+## 分析
 
 我们以最基础的 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp) 来分析
 
-![tasks](https://i.imgur.com/xaaJejJ.jpg) ![statistics](https://i.imgur.com/IGcI9XM.jpg) ![taskdetail](https://i.imgur.com/bgJ34ds.jpg) ![addedittask](https://i.imgur.com/MpMzblY.jpg)
+![tasks](https://i.imgur.com/xaaJejJ.jpg)
 
-## 任务列表
+![statistics](https://i.loli.net/2020/06/03/iHKrVCWPmsyl29Q.jpg)
+
+![taskdetail](https://i.imgur.com/bgJ34ds.jpg)
+
+![addedittask](https://i.imgur.com/MpMzblY.jpg)
+
+### 任务列表
 
 我们进入应用首先是一个任务列表页面，展示所有的任务列表，右上角 Menu 栏有两个按钮，分别是过滤和更多操作。
 
@@ -26,19 +32,19 @@ Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那�
 
 左上角点击或者屏幕左侧滑动可以展开 DrawerView，里面可以切换到数据统计页面。
 
-## 数据统计
+### 数据统计
 
 数据统计页面非常简单，就是展示有多少正在进行的任务和已结束的任务
 
-## 添加、编辑任务页
+### 添加、编辑任务页
 
 该页面由两个 EditText 组成，用于编辑或创建任务，EditText 分别需要填入标题和描述，右下角有一个 FloatingActionButton 用于编辑结束之后点击提交。
 
-## 任务详情页
+### 任务详情页
 
 任务详情页用于查看任务详情，右上角有一个 **DELETE TASK** Menu Item 可以删除任务，右下角 FloatingActionButton 用于进入编辑页，Checkbox 用于勾选完成任务。
 
-# 开始
+## 开始
 
 分析完毕项目，我们就开始使用 Flutter 实现
 
@@ -46,7 +52,7 @@ Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那�
 
 首先需要创建项目，可以使用工具或命令行创建
 
-## 数据
+### 数据
 
 因为涉及到本地数据存储，我们需要引入 dart 的 sqlite 操作库 [sqflite](https://pub.dartlang.org/packages/sqflite)
 
@@ -169,7 +175,7 @@ class TaskProvider {
 }
 ```
 
-## UI
+### UI
 
 Flutter 天生支持数据绑定，UI 部分编写也不困难
 
@@ -179,12 +185,12 @@ StatefulWidget 有属性变化的时候需要调用`setState`方法，否则 UI 
 
 具体 UI 编码可以查看 [Flutter-todo](https://github.com/loshine/flutter-todo) 项目，这里就不具体展开了。
 
-## 页面跳转
+### 页面跳转
 
 需要注意的是 Flutter 一切基于 Widget，所以不区分 Activity，Fragment 这些东西的。
 
 涉及到页面的跳转需要用 Route 来实现，而 Flutter Android 默认的 Route 动画不是很好看，所以我也实现了一个侧滑动画的 [SlideRoute](https://github.com/loshine/flutter-todo/blob/master/lib/utils.dart)
 
-# 总结
+## 总结
 
 Flutter 的使用总体来说还是比较简单的，dart 也是比较简单易学的一门语言，Flutter 的未来我也是十分看好的。接下来我需要做的就是使用一个合理的架构，如 redux 来重构一下这个项目，以及具体深入学习一下 Flutter 的机制和架构了。

@@ -4,7 +4,7 @@ date: 2020-03-12 21:32:00
 category: [技术]
 tags: [Java]
 toc: true
-thumbnail: https://imgur.com/bKHmPbb.png
+thumbnail: https://i.loli.net/2020/06/03/BVM8eoYzlZP6nN7.png
 ---
 
 HashMap 是散列表实现的键值对容器，本文分析其源码和实现原理。

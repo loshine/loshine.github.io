@@ -4,7 +4,7 @@ date: 2020-03-03 19:35:00
 category: [技术]
 tags: [Java]
 toc: true
-thumbnail: https://i.imgur.com/OlNW1oR.png
+thumbnail: https://i.loli.net/2020/06/03/CA64z3IDXgpPKWc.png
 ---
 
 ArrayList 是最常见的 List 实现，本文分析其源码和实现原理。

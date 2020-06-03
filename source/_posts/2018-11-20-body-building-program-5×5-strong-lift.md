@@ -4,7 +4,7 @@ date: 2018-11-20 16:22:00
 category: [健身]
 tags: [健身]
 toc: true
-thumbnail: https://i.imgur.com/NNz9SLa.jpg
+thumbnail: https://i.loli.net/2020/06/03/2vEJAKQXrfpO5zF.jpg
 description: 系统开始练 5×5 差不多有 2 个月了，从零基础开始到现在三大项加起来有3倍多体重了，于是乎就好好归纳一下这个健身计划吧。
 ---
 
@@ -12,7 +12,7 @@ description: 系统开始练 5×5 差不多有 2 个月了，从零基础开始�
 
 <!-- more -->
 
-# 什么是 5×5
+## 什么是 5×5
 
 这个计划的特色是每个项目做 5 组，每组做 5 次，所以就被称为 5×5 计划。
 

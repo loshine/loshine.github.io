@@ -4,7 +4,7 @@ date: 2020-03-06 15:41:00
 category: [技术]
 tags: [Java]
 toc: true
-thumbnail: https://i.imgur.com/OMNu4cD.png
+thumbnail: https://i.loli.net/2020/06/03/tgKpCwDYcImFuHa.png
 ---
 
 LinkedList 是有序双向链表，本文分析其源码和实现原理。

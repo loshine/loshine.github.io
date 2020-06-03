@@ -4,7 +4,7 @@ date: 2020-03-10 19:01:00
 category: [技术]
 tags: [Java]
 toc: true
-thumbnail: https://i.imgur.com/yHVo4h0.png
+thumbnail: https://i.loli.net/2020/06/03/uMA9bwO6R8t3Qnr.png
 ---
 
 TreeMap 是红黑树实现的键值对容器，本文分析其源码和实现原理。
@@ -317,9 +317,9 @@ private void rotateRight(Entry<K,V> p) {
 
 **左旋**和**右旋**的演示如图：
 
-![rotate-left](https://i.imgur.com/mx9zmpy.gif)
+![rotate-left](https://i.loli.net/2020/06/03/9crOYZH2LTMNqRU.gif)
 
-![rotate-right](https://i.imgur.com/7ND1iK8.gif)
+![rotate-right](https://i.loli.net/2020/06/03/7Qzskw9TBe6KJYy.gif)
 
 可以看出旋转虽然调整了树结构，但对每个节点而言其子节点左小右大的规则是不变的。
 
@@ -339,13 +339,13 @@ private void rotateRight(Entry<K,V> p) {
 
    （1）P 和 U 都是红色，此时把 P 和 U 都变黑，然后把 G 变红，再把 G 视作新插入的节点重新调整；如果此时 G 是根节点则变黑即可；
 
-   ![调整1](https://i.imgur.com/YFKW8az.png)
+    ![调整1](https://i.loli.net/2020/06/03/O3JDZRqoz1xksEd.png)
 
    （2）P 红色，U 是黑色，此时若新插入节点是右子节点，P 左旋，变成插入左子节点的情况；如果本身就是左子节点，那么继续将 G 右旋，然后 P 变黑，G 变红即可。
 
-   ![调整2](https://i.imgur.com/UFOeq2t.png)
+   ![调整2](https://i.loli.net/2020/06/03/NOVRrLyF9m37j2b.png)
 
-   ![调整3](https://i.imgur.com/xM2MSoD.png)
+   ![调整3](https://i.loli.net/2020/06/03/o3QKbJR6utTLCH8.png)
 
 若 P 为右子节点，那么镜像操作即可。
 
@@ -434,7 +434,7 @@ private void deleteEntry(Entry<K,V> p) {
 
 4. 如果被删除的节点有两个子节点，那么找到右子树上的最小值节点，把值赋值给要被删除的节点；然后把右子树上的最小值节点视作要被删除的节点回到2或3处理；
 
-   ![删除节点](https://i.imgur.com/FmMASzp.png)
+   ![删除节点](https://i.loli.net/2020/06/03/5qmk9JRfwHejaGC.png)
 
 5. 在步骤3和4中，若删除的节点是黑色，需要调用`fixAfterDeletion`调整树结构。
 
@@ -506,29 +506,29 @@ private void fixAfterDeletion(TreeMap.Entry<K,V> x) {
 
 为方便演示，我们进行如下定义：被删节点为 N(Node) ，需要调整的替代节点为 R(Replacement)，其父节点为 P(Parent)，兄弟节点为 S(Sibling)，兄弟节点的子节点分别为 SL 和 SR，图仅演示 N 为左子节点的情况，若为右子节点镜像处理即可（R 是左子还是右子不影响）。
 
-![删除名称定义](https://i.imgur.com/crBElMG.png)
+![删除名称定义](https://i.loli.net/2020/06/03/lDWfnyMKAt51sx7.png)
 
 首先需要调整的情况下，N 一定是黑色的，若 N 是红色黑高是不变的。
 
 1. 若 R 为红色，将 R 变为黑色即可，此时树结构恢复平衡；
 
-   ![R红色](https://i.imgur.com/95KVAOH.png)
+   ![R红色](https://i.loli.net/2020/06/03/3867dBuDWIfJ9Zl.png)
 
 2. R 为黑色，兄弟节点 S 是红色，此时 S 的父节点 S 和子节点 SL，SR 必然是黑色的；首先将 P 变红，S 变黑，然后左旋 P；之后可以视作 R 的兄弟节点是黑色，父节点是红色的情况进入 5 处理；
 
-   ![R黑S红](https://i.imgur.com/zSyOjIt.png)
+   ![R黑S红](https://i.loli.net/2020/06/03/d4TGZ3oHWuckYVS.png)
 
 3. R，P，S，SL 和 SR 都是黑色；我们将 S 变红，此时对 P 的父节点而言 P 子树整体黑高减1，所以需要将 P 整体视作一个替代节点重新调整；
 
-   ![R黑S黑P黑](https://i.imgur.com/yHVo4h0.png)
+   ![R黑S黑P黑](https://i.loli.net/2020/06/03/uMA9bwO6R8t3Qnr.png)
 
 4. R，S 是黑色，SL 是红色，SR 是黑色；将 SL 变黑，S 变红，再右旋 S；之后我们可以进入 5 处理；
 
-   ![R黑S黑SL红SR黑](https://i.imgur.com/LTq9qfe.png)
+   ![R黑S黑SL红SR黑](https://i.loli.net/2020/06/03/Q7Euqna1DS8w3fp.png)
 
 5. R，S 是黑色，SL 是黑色，SR 是红色；互换 P 和 S 的颜色，SR 变黑，然后左旋 P；无论 P 初始时是什么颜色都能得到一个重新平衡的树。
 
-   ![R黑S黑SL黑SR红](https://i.imgur.com/aARrojG.png)
+   ![R黑S黑SL黑SR红](https://i.loli.net/2020/06/03/DHMWkOxl9oprt3i.png)
 
 将以上情况实现为代码，就是`fixAfterDeletion`了。
 

@@ -4,7 +4,7 @@ date: 2020-04-01 17:13:00
 category: [技术]
 tags: [Android]
 toc: true
-thumbnail: https://i.imgur.com/KTNxgN9.png
+thumbnail: https://i.loli.net/2020/06/03/HxbGpvwfTeaIcQg.png
 ---
 
 Retrofit 是流行的 Android 网络访问框架，本文基于 2.8.1 版本分析其源码，了解 Retrofit 是如何进行网络访问的。
