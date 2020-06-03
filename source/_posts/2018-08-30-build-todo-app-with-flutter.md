@@ -4,7 +4,7 @@ date: 2018-08-30 11:50:00
 category: [技术]
 tags: [Flutter]
 toc: true
-thumbnail: https://i.imgur.com/fxgffx6.png
+thumbnail: https://i.loli.net/2020/06/03/dzlZjibJcREmoWN.png
 description: Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那我就以这个项目的业务为模板用 Flutter 也实现一个。
 ---
 
@@ -16,13 +16,13 @@ Google 在 Github 上提供了一个 Android 各种架构的 Todo 项目，那�
 
 我们以最基础的 [todo-mvp](https://github.com/googlesamples/android-architecture/tree/todo-mvp) 来分析
 
-![tasks](https://i.imgur.com/xaaJejJ.jpg)
+![tasks](https://i.loli.net/2020/06/03/BV2RQH1vPLJN5md.jpg)
 
 ![statistics](https://i.loli.net/2020/06/03/iHKrVCWPmsyl29Q.jpg)
 
-![taskdetail](https://i.imgur.com/bgJ34ds.jpg)
+![taskdetail](https://i.loli.net/2020/06/03/Bs2ATbnmLSdUI4z.jpg)
 
-![addedittask](https://i.imgur.com/MpMzblY.jpg)
+![addedittask](https://i.loli.net/2020/06/03/zlWxg62bAdaOotf.jpg)
 
 ### 任务列表
 
