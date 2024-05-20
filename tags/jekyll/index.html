@@ -1,43 +1,160 @@
-const { Component } = require('inferno');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const Head = require('./common/head');
-const Navbar = require('./common/navbar');
-const Widgets = require('./common/widgets');
-const Footer = require('./common/footer');
-const Scripts = require('./common/scripts');
-const Search = require('./common/search');
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>标签: jekyll - 饭窝</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="饭窝"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="饭窝"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="描述"><meta property="og:type" content="blog"><meta property="og:title" content="饭窝"><meta property="og:url" content="https://loshine.github.io/"><meta property="og:site_name" content="饭窝"><meta property="og:description" content="描述"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://loshine.github.io/img/og_image.png"><meta property="article:author" content="Loshine"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://loshine.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://loshine.github.io"},"headline":"饭窝","image":["https://loshine.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Loshine"},"publisher":{"@type":"Organization","name":"饭窝","logo":{"@type":"ImageObject","url":"https://loshine.github.io/assets/img/favicon_high_res.png"}},"description":"描述"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
-module.exports = class extends Component {
-    render() {
-        const { site, config, page, helper, body } = this.props;
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-        const language = page.lang || page.language || config.language;
-        const columnCount = Widgets.getColumnCount(config.widgets, config, page);
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-        return <html lang={language ? language.substr(0, 2) : ''}>
-            <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
-                <Navbar config={config} helper={helper} page={page} />
-                <section class="section">
-                    <div class="container">
-                        <div class="columns">
-                            <div class={classname({
-                                column: true,
-                                'order-2': true,
-                                'column-main': true,
-                                'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
-                                'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
-                            })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
-                        </div>
-                    </div>
-                </section>
-                <Footer config={config} helper={helper} />
-                <Scripts site={site} config={config} helper={helper} page={page} />
-                <Search config={config} helper={helper} />
-            </body>
-        </html>;
-    }
-};
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/assets/img/favicon_high_res.png" alt="饭窝" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">jekyll</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2015-08-17T02:12:30.000Z" title="8/17/2015, 10:12:30 AM">2015-08-17</time>发表</span><span class="level-item"><time dateTime="2024-04-01T03:27:47.641Z" title="4/1/2024, 11:27:47 AM">2024-04-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span><span class="level-item">13 分钟读完 (大约1876个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/08/17/build-personal-blog-in-github-pages-with-jekyll/">使用Jekyll在Github-Pages上搭建个人博客</a></p><div class="content"><blockquote>
+<p>我的个人博客也在Github-Pages上搭建起来了，其中各个步骤参照了<a target="_blank" rel="noopener" href="http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html">《“授人以渔”的教你搭建个人独立博客》——Azure Yu</a>、<a target="_blank" rel="noopener" href="https://help.github.com/articles/using-jekyll-with-pages/">《Using Jekyll with Pages》</a>。鄙人于此也作一下<strong>使用Jekyll在Github-Pages上搭建个人博客</strong>的总结，也可以给其他后来者做一些参考。</p>
+<p>本文默认读者已经拥有了Github的帐号，并且对Git的使用较为熟练。如果对Git以及Github不是很了解，可以参考<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/390">《版本控制入门 – 搬进 Github》</a>。</p>
+<p>在这个过程中可能需要使用到少许的Ruby知识，如果您需要学习，可以看<a target="_blank" rel="noopener" href="http://saito.im/slide/ruby-new.html">这里</a></p>
+</blockquote>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="新建一个仓库"><a href="#新建一个仓库" class="headerlink" title="新建一个仓库"></a>新建一个仓库</h2><ul>
+<li>如果没有Github帐号，首先<a target="_blank" rel="noopener" href="https://github.com/">注册一个</a>。</li>
+<li>接下来新建一个仓库</li>
+</ul>
+<p><strong>注：</strong>Repository name(仓库名)必须是 <code>yourusername.github.io</code></p>
+<p>比如我的用户名是loshine，那么我的这个仓库名就是<code>loshine.github.io</code></p>
+<h2 id="clone到本地"><a href="#clone到本地" class="headerlink" title="clone到本地"></a>clone到本地</h2><p>使用Github客户端或者Git命令行工具将这个项目clone到本地。</p>
+<h2 id="上传页面"><a href="#上传页面" class="headerlink" title="上传页面"></a>上传页面</h2><p>之后，新建一个<code>index.html</code>文件，push到对应的<strong>master</strong>分支（推荐官网教程）。等一段时间之后（可以听首歌），网站生效，访问<code>yourusername.github.io</code>，就能看见完整的网页了。</p>
+<h1 id="build">建造</h1>
+
+<h2 id="搭建本地环境"><a href="#搭建本地环境" class="headerlink" title="搭建本地环境"></a>搭建本地环境</h2><p>由于我们使用Jekell来将markdown文件生成博客文章，所以我们需要搭建本地的Jekyll环境。</p>
+<ol>
+<li><strong>Ruby</strong> - Mac已经自带了Ruby，所以无需再次安装。如果是其它系统且没有安装Ruby，请<a target="_blank" rel="noopener" href="https://www.ruby-lang.org/en/downloads/">安装Ruby环境</a>。</li>
+<li><strong>Bundler</strong> - 打开终端输入<code>gem install bundler</code>以安装。</li>
+<li><strong>github-pages</strong> - 打开终端输入<code>gem install github-pages</code>以安装。</li>
+<li><strong>Jekyll</strong> - 打开终端输入<code>gem install jekyll</code>以安装。</li>
+</ol>
+<p><strong>注</strong>: 如果你在墙内则可能会出现无法安装的问题，可以通过将Gem源更换为<a target="_blank" rel="noopener" href="http://ruby.taobao.org/">淘宝镜像源</a>解决。</p>
+<h2 id="Jekyll的使用"><a href="#Jekyll的使用" class="headerlink" title="Jekyll的使用"></a>Jekyll的使用</h2><ol>
+<li>在我们之前创建的仓库下新建一个文件，命名为<strong>Gemfile</strong>，并写入<code>gem &#39;github-pages&#39;</code>。</li>
+<li>在仓库目录下打开命令行工具，输入<code>bundle install</code>。</li>
+<li>在命令行工具中输入<code>bundle exec jekyll serve</code>，按提示打开地址，就可以在本地进行查看和调试网站了。</li>
+</ol>
+<h2 id="Jekyll目录解析"><a href="#Jekyll目录解析" class="headerlink" title="Jekyll目录解析"></a>Jekyll目录解析</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|—— _config.yml</span></span><br><span class="line"><span class="string">|—— _includes</span></span><br><span class="line">    <span class="string">|—— footer.html</span></span><br><span class="line">    <span class="string">|—— header.html</span></span><br><span class="line"><span class="string">|—— _layouts</span></span><br><span class="line">    <span class="string">|—— default.html</span></span><br><span class="line">    <span class="string">|—— post.html</span></span><br><span class="line"><span class="string">|—— _posts</span></span><br><span class="line">    <span class="string">|—— 2015-04-09-welcome-to-jekyll.md</span></span><br><span class="line">    <span class="string">|—— 2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md</span></span><br><span class="line"><span class="string">|—— _site</span></span><br><span class="line"><span class="string">|—— css</span></span><br><span class="line">    <span class="string">|—— *.css</span></span><br><span class="line"><span class="string">|—— script</span></span><br><span class="line">    <span class="string">|—— *.js</span></span><br><span class="line"><span class="string">|—— Gemfile</span></span><br><span class="line"><span class="string">|—— Gemfile.lock</span></span><br><span class="line"><span class="string">|—— index.html</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来按顺序介绍一下以上文件目录树的每一个文件夹以及文件的作用。</p>
+<ul>
+<li><code>_config.yml</code> 配置文件，你可以在里面配置你博客会用到的常量，比如博客名，邮件</li>
+<li><code>_includes</code> 文章各个部分的html文件，可以在布局中包含这些文件</li>
+<li><code>_layouts</code> 存放模板。就是你网页的布局，主页布局，文章布局。当然不是指CSS那样的布局，是指，你包含哪些基本的内容到页面上。包含的内容就是includes里面的文件。</li>
+<li><code>_posts</code> 存放博客文章</li>
+<li><code>CNAME</code> 域名地址</li>
+<li><code>css</code> 存放博客所用css</li>
+<li><code>script</code> 存放博客所用JavaScript</li>
+<li><code>index.html</code> 博客主页<h1 id="write blog">写博客</h1></li>
+</ul>
+<p>博客文章都是用<a target="_blank" rel="noopener" href="http://wowubuntu.com/markdown/">markdown格式</a>书写，命名格式为<em>时间加标题</em>，形如：<code>2015-08-17-使用Jekyll在Github-Pages上搭建个人博客.md</code></p>
+<p>文章需要在开头位置加入一段特殊的文字，其中定义了使用到的<strong>样式</strong>、<strong>文章标题</strong>、<strong>时间</strong>、<strong>分类</strong>。</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: post</span><br><span class="line">title: &quot;Welcome to Jekyll!&quot;</span><br><span class="line">date: 2014-01-27 21:57:11</span><br><span class="line"><span class="section">categories: Blog</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<p>完成了以上的步骤，就可以开始撰写博客了。写完之后记得把它放入<code>_post</code>文件夹中，并同步到Github上哦。</p>
+<h1 id="装修"><a href="#装修" class="headerlink" title="装修"></a>装修</h1><h2 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h2><p>之前在[Jekyll目录解析](#jekyll dictionary)中我们大致了解了各个目录的结构。如果您是一名资深的前端工程师，那么就可以直接开始编写自己喜欢的样式的博客了。如果您对于前端并不是那么擅长，那么您可以直接在<a target="_blank" rel="noopener" href="http://jekyllthemes.org/">Jekyll 主题</a>中选择自己喜欢的主题并放入到自己的项目中去。</p>
+<p>以我的博客为例，我选择了<a target="_blank" rel="noopener" href="http://jekyllthemes.org/themes/pithy/">Pithy</a>主题，将其下载了下来，然后放入了自己的项目中，覆盖已有的文件，然后在终端中输入<code>bundle exec jekyll serve</code>运行jekyll服务器，打开<code>http://localhost:4000</code>就可以查看到效果了。</p>
+<h2 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h2><p>如果您不是一名资深的前端工程师但是还是想要自己定义自己博客的样式。那么我推荐您<a target="_blank" rel="noopener" href="http://www.runoob.com/">Run Noob</a>、<a target="_blank" rel="noopener" href="http://www.w3school.com.cn/">w3cschool</a>这两个地方学习前端知识。之后您就可以根据自己的需求装点自己的博客了。</p>
+<h1 id="定制"><a href="#定制" class="headerlink" title="定制"></a>定制</h1><h2 id="使用独立域名"><a href="#使用独立域名" class="headerlink" title="使用独立域名"></a>使用独立域名</h2><ul>
+<li>新建一个文件，命名为<strong>CNAME</strong>，然后在里面写入你需要绑定的独立域名就可以了。</li>
+<li>在你的域名服务商处添加解析地址。</li>
+</ul>
+<p>完成以上步骤你就可以使用自己的独立域名了。</p>
+<h2 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h2><h3 id="多说"><a href="#多说" class="headerlink" title="多说"></a>多说</h3><p>多说评论对国内的社交帐号支持不错，自定义性也很强，是一个不错的选择。</p>
+<ul>
+<li>登录<a target="_blank" rel="noopener" href="http://duoshuo.com/">多说</a>，创建一个项目，拷贝你的<strong>通用代码</strong>。</li>
+<li>在<code>_include</code>文件夹里新建一个<code>comment.html</code>文件，将通用代码粘贴进去。</li>
+<li>修改<strong>通用代码</strong>中需要配置的地方</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ds-thread&quot;</span> <span class="attr">data-thread-key</span>=<span class="string">&quot;请将此处替换成文章在你的站点中的ID&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">data-title</span>=<span class="string">&quot;请替换成文章的标题&quot;</span> <span class="attr">data-url</span>=<span class="string">&quot;请替换成文章的网址&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改为</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ds-thread&quot;</span> <span class="attr">data-thread-key</span>=<span class="string">&quot;&#123;&#123; page.id &#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">data-title</span>=<span class="string">&quot;&#123;&#123; page.title &#125;&#125;&quot;</span> <span class="attr">data-url</span>=<span class="string">&quot;your web site&#123;&#123; page.url &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>your web site</code>需替换为<strong>您的域名地址</strong>。</p>
+</blockquote>
+<ul>
+<li>在<code>_layout</code>中的<code>post.html</code>中的底部加入<code>【【% include comment.html %】】</code>(此处需将<code>【】</code>换成<code>&#123;&#125;</code>)</li>
+<li>在<strong>多说</strong>的控制台里你可以设置很多自定义项，如：评论审核、评论显示方式、关键词过滤、主题、自定义CSS等</li>
+</ul>
+<h3 id="Disqus"><a href="#Disqus" class="headerlink" title="Disqus"></a>Disqus</h3><p>Disqus支持使用Disqus、Facebook、Twitter以及Google帐号登录，如果你的博客不是主要面向国内普通用户的话，可以考虑使用Disqus。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://disqus.com/">注册Disqus</a></li>
+<li>右上角设置项中选择<code>Add Disqus To Site</code>，按步骤走，最后复制生成的<strong>Universal Code</strong></li>
+<li>其它部分类似如上的集成多说操作，<em>但不需要自己修改代码了</em></li>
+<li>Disqus也有控制台可以对评论进行操作</li>
+</ul>
+<p><strong>注意</strong>：Disqus在国内的访问速度可能比较慢，可能需要慎重考虑使用。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://azureyu.com/blog/2015/08/15/HowToBulidBlog.html">《“授人以渔”的教你搭建个人独立博客》——Azure Yu</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/categories/github-pages-basics/">官方文档</a></li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/assets/img/avatar.png" alt="Loshine"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Loshine</p><p class="is-size-6 is-block">Android Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China, Shanghai</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">49</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">22</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/loshine1992" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/loshine1992"><i class="fab fa-github"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E5%81%A5%E8%BA%AB/"><span class="level-start"><span class="level-item">健身</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">47</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%8E%A9%E5%85%B7/"><span class="level-start"><span class="level-item">玩具</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><figure class="media-left"><a class="image" href="/2020/06/21/jetpack-livedata/"><img src="https://i.loli.net/2020/06/21/u15J7lLm6XpZgti.png" alt="Jetpack LiveData 原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-06-21T10:08:00.000Z">2020-06-21</time></p><p class="title"><a href="/2020/06/21/jetpack-livedata/">Jetpack LiveData 原理</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/06/20/jetpack-savedstate/"><img src="https://i.loli.net/2020/06/20/IWEt1LnhAvjQo9F.png" alt="Jetpack SavedState 原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-06-20T06:16:00.000Z">2020-06-20</time></p><p class="title"><a href="/2020/06/20/jetpack-savedstate/">Jetpack SavedState 原理</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/06/17/jetpack-viewmodel/"><img src="https://i.loli.net/2020/06/17/2narzCSBfAsJ7OY.png" alt="Jetpack ViewModel 原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-06-17T02:55:00.000Z">2020-06-17</time></p><p class="title"><a href="/2020/06/17/jetpack-viewmodel/">Jetpack ViewModel 原理</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/06/16/jetpack-lifecycle/"><img src="https://i.loli.net/2020/06/16/bPhvswoEiQpZKxW.png" alt="Jetpack Lifecycle 原理"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-06-16T12:02:00.000Z">2020-06-16</time></p><p class="title"><a href="/2020/06/16/jetpack-lifecycle/">Jetpack Lifecycle 原理</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><figure class="media-left"><a class="image" href="/2020/04/08/glide-source-code-analysis/"><img src="https://i.loli.net/2020/06/03/7dbpGo1hWJcTXtF.png" alt="Glide 源码解析"></a></figure><div class="media-content"><p class="date"><time dateTime="2020-04-08T09:00:00.000Z">2020-04-08</time></p><p class="title"><a href="/2020/04/08/glide-source-code-analysis/">Glide 源码解析</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/06/"><span class="level-start"><span class="level-item">六月 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/11/"><span class="level-start"><span class="level-item">十一月 2018</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/08/"><span class="level-start"><span class="level-item">八月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/07/"><span class="level-start"><span class="level-item">七月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/06/"><span class="level-start"><span class="level-item">六月 2018</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/03/"><span class="level-start"><span class="level-item">三月 2018</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/01/"><span class="level-start"><span class="level-item">一月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/11/"><span class="level-start"><span class="level-item">十一月 2017</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/02/"><span class="level-start"><span class="level-item">二月 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/01/"><span class="level-start"><span class="level-item">一月 2017</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/11/"><span class="level-start"><span class="level-item">十一月 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/10/"><span class="level-start"><span class="level-item">十月 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/09/"><span class="level-start"><span class="level-item">九月 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/08/"><span class="level-start"><span class="level-item">八月 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/06/"><span class="level-start"><span class="level-item">六月 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/04/"><span class="level-start"><span class="level-item">四月 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/03/"><span class="level-start"><span class="level-item">三月 2016</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/10/"><span class="level-start"><span class="level-item">十月 2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/09/"><span class="level-start"><span class="level-item">九月 2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/08/"><span class="level-start"><span class="level-item">八月 2015</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Android/"><span class="tag">Android</span><span class="tag">26</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Android-Studio/"><span class="tag">Android Studio</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Apple/"><span class="tag">Apple</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Flutter/"><span class="tag">Flutter</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFW/"><span class="tag">GFW</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Jenkins/"><span class="tag">Jenkins</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Jetpack/"><span class="tag">Jetpack</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Kotlin/"><span class="tag">Kotlin</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LEDE/"><span class="tag">LEDE</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Node/"><span class="tag">Node</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RIME/"><span class="tag">RIME</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scala/"><span class="tag">Scala</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Volley/"><span class="tag">Volley</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github-pages/"><span class="tag">github-pages</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/jekyll/"><span class="tag">jekyll</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/react-native/"><span class="tag">react native</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%81%A5%E8%BA%AB/"><span class="tag">健身</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8B%E7%9B%9F/"><span class="tag">友盟</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="tag">设计模式</span><span class="tag">2</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/assets/img/favicon_high_res.png" alt="饭窝" height="28"></a><p class="is-size-7"><span>&copy; 2024 Loshine</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
