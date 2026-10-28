@@ -1,4 +1,35 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#f8f7f4"><link rel="canonical" href="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="集成友盟分析和推送的一些坑 · 饭窝"><meta property="og:description" content="最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>集成友盟分析和推送的一些坑 · 饭窝</title><link rel="stylesheet" href="/_astro/Base.rWQLZOCb.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><span class="brand-mark" aria-hidden="true">饭</span>饭窝<span class="brand-note">Loshine</span></a><nav aria-label="主导航"><a href="/">文章</a><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a><a href="/search/">搜索</a></nav></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2016-10-11">2016-10-11</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">集成友盟分析和推送的一些坑</h1><div class="post-tags"><a href="/tags/Android/">Android</a><a href="/tags/%E5%8F%8B%E7%9B%9F/">友盟</a></div></header><div class="article-layout"><article class="prose" data-pagefind-body><p>最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#fafafa"><script data-theme-script>
+  (() => {
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    let preference;
+    const readPreference = () => {
+      try {
+        const stored = localStorage.getItem('theme');
+        preference = stored === 'dark' || stored === 'light' ? stored : undefined;
+      } catch { /* Storage may be disabled; keep the in-memory choice. */ }
+    };
+    const apply = () => {
+      const theme = preference ?? (system.matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#1d1f21' : '#fafafa';
+      document.getElementById('theme-toggle')?.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+    readPreference();
+    apply();
+    system.addEventListener('change', apply);
+    window.addEventListener('pageshow', () => { readPreference(); apply(); });
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('theme-toggle');
+      button.hidden = false;
+      apply();
+      button.addEventListener('click', () => {
+        preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', preference); } catch { /* The current page can still switch. */ }
+        apply();
+      });
+    }, { once: true });
+  })();
+</script><link rel="canonical" href="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="集成友盟分析和推送的一些坑 · 饭窝"><meta property="og:description" content="最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>集成友盟分析和推送的一些坑 · 饭窝</title><link rel="stylesheet" href="/_astro/Base.xlhMC81Q.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><img src="/assets/img/cactus.svg" alt="" width="45" height="80"><span>饭窝</span></a><nav aria-label="主导航"><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a></nav><div class="header-actions"><a class="icon-button" href="/search/" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg></a><button id="theme-toggle" class="icon-button" type="button" aria-label="深色模式" aria-pressed="false" title="切换明暗主题" hidden><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></div></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2016-10-11">2016-10-11</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">集成友盟分析和推送的一些坑</h1><div class="post-tags"><a href="/tags/Android/">Android</a><a href="/tags/%E5%8F%8B%E7%9B%9F/">友盟</a></div></header><div class="article-layout"><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#集成统计">集成统计</a><a href="#获得-Appkey">获得 Appkey</a><a href="#导入-SDK">导入 SDK</a><a href="#配置项目">配置项目</a><a href="#统计页面访问">统计页面访问</a><a href="#帐号统计">帐号统计</a><a href="#混淆配置">混淆配置</a><a href="#使用集成测试">使用集成测试</a><a href="#推送服务">推送服务</a><a href="#创建应用">创建应用</a><a href="#导入-PushSDK">导入 PushSDK</a><a href="#权限配置">权限配置</a><a href="#注册服务">注册服务</a><a href="#混淆配置-1">混淆配置</a><a href="#集成推送中的一些坑">集成推送中的一些坑</a><a class="toc-sub" href="#UnsatisfiedLinkError">UnsatisfiedLinkError</a><a class="toc-sub" href="#使用-BuildTypes-修改包名的错误">使用 BuildTypes 修改包名的错误</a><a href="#总结">总结</a></nav></details></aside><article class="prose" data-pagefind-body><p>最近公司的项目用到了友盟的统计和推送，在集成的过程中遇到了一点小坑，这里记录一下方便以后查阅。</p>
 <span id="more"></span>
 <h1 id="集成统计">集成统计</h1>
 <h2 id="获得-Appkey">获得 Appkey</h2>
@@ -11,26 +42,26 @@
 <li>使用 Gradle 集成</li>
 </ol>
 <p>在这里建议使用 Android Studio 并且使用 Gradle 集成，非常简单方便，只需要添加如下依赖即可：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E">dependencies {</span></span>
-<span class="line"><span style="color:#24292E">   compile </span><span style="color:#032F62">'com.umeng.analytics:analytics:latest.integration'</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">dependencies {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">   compile </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'com.umeng.analytics:analytics:latest.integration'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <blockquote>
 <p><code>latest.integration</code>代表友盟统计的最新版本，笔者使用时最新版本为<code>6.0.0</code></p>
 </blockquote>
 <h2 id="配置项目">配置项目</h2>
 <p>接下来修改<code>AndroidManifest.xml</code>文件添加权限，填写 <strong>Appkey</strong> 以及填写<strong>渠道 id</strong> ：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">manifest</span><span style="color:#24292E">……></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">uses-permission</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"android.permission.ACCESS_NETWORK_STATE"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">uses-permission</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"android.permission.ACCESS_WIFI_STATE"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">uses-permission</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"android.permission.INTERNET"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">uses-permission</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"android.permission.READ_PHONE_STATE"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;</span><span style="color:#22863A">application</span><span style="color:#24292E"> ……></span></span>
-<span class="line"><span style="color:#24292E">        ……</span></span>
-<span class="line"><span style="color:#24292E">        &#x3C;</span><span style="color:#22863A">activity</span><span style="color:#24292E"> ……/></span></span>
-<span class="line"><span style="color:#24292E">        &#x3C;</span><span style="color:#22863A">meta-data</span><span style="color:#6F42C1"> android:value</span><span style="color:#24292E">=</span><span style="color:#032F62">"YOUR_APP_KEY"</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"UMENG_APPKEY"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">        &#x3C;</span><span style="color:#22863A">meta-data</span><span style="color:#6F42C1"> android:value</span><span style="color:#24292E">=</span><span style="color:#032F62">"Channel ID"</span><span style="color:#6F42C1"> android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"UMENG_CHANNEL"</span><span style="color:#24292E">/></span></span>
-<span class="line"><span style="color:#24292E">    &#x3C;/</span><span style="color:#22863A">application</span><span style="color:#24292E">>    </span></span>
-<span class="line"><span style="color:#24292E">&#x3C;/</span><span style="color:#22863A">manifest</span><span style="color:#24292E">></span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">manifest</span><span style="color:#24292E;--shiki-dark:#E1E4E8">……></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">uses-permission</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"android.permission.ACCESS_NETWORK_STATE"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">uses-permission</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"android.permission.ACCESS_WIFI_STATE"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">uses-permission</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"android.permission.INTERNET"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">uses-permission</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"android.permission.READ_PHONE_STATE"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">application</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ……></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ……</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">activity</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> ……/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">meta-data</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"YOUR_APP_KEY"</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"UMENG_APPKEY"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        &#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">meta-data</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"Channel ID"</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"UMENG_CHANNEL"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    &#x3C;/</span><span style="color:#22863A;--shiki-dark:#85E89D">application</span><span style="color:#24292E;--shiki-dark:#E1E4E8">>    </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;/</span><span style="color:#22863A;--shiki-dark:#85E89D">manifest</span><span style="color:#24292E;--shiki-dark:#E1E4E8">></span></span></code></pre>
 <blockquote>
 <p>以上需要把<code>UMENG_APPKEY</code>替换成自己的应用的 <strong>Appkey</strong>，<code>UMENG_CHANNEL</code>替换成对应渠道的渠道号。多渠道打包可以参考美团的多渠道打包方案。</p>
 </blockquote>
@@ -38,42 +69,42 @@
 <p>我司的应用界面全部由 Fragment 呈现，Activity 只用作管理 Fragment。</p>
 <p>按照文档首先在 Application 类中调用<code>MobclickAgent.openActivityDurationTrack(false)</code> 禁止默认的页面统计方式，这样将不会再自动统计Activity。</p>
 <p>然后封装一下 <strong>BaseActivity</strong> 以统计时长：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> BaseActivity</span><span style="color:#D73A49"> extends</span><span style="color:#6F42C1"> AppCompatActivity</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#D73A49">	public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onResume</span><span style="color:#24292E">() {</span></span>
-<span class="line"><span style="color:#005CC5">        super</span><span style="color:#24292E">.</span><span style="color:#6F42C1">onResume</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#24292E">        MobclickAgent.</span><span style="color:#6F42C1">onResume</span><span style="color:#24292E">(</span><span style="color:#005CC5">this</span><span style="color:#24292E">);       </span><span style="color:#6A737D">//统计时长</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onPause</span><span style="color:#24292E">() {</span></span>
-<span class="line"><span style="color:#005CC5">        super</span><span style="color:#24292E">.</span><span style="color:#6F42C1">onPause</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#24292E">        MobclickAgent.</span><span style="color:#6F42C1">onPause</span><span style="color:#24292E">(</span><span style="color:#005CC5">this</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> BaseActivity</span><span style="color:#D73A49;--shiki-dark:#F97583"> extends</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> AppCompatActivity</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">	public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onResume</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        super</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onResume</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        MobclickAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onResume</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);       </span><span style="color:#6A737D;--shiki-dark:#6A737D">//统计时长</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onPause</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        super</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onPause</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        MobclickAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onPause</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>封装 <strong>BaseFragment</strong> 以统计具体页面：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> BaseFragment</span><span style="color:#D73A49"> extends</span><span style="color:#6F42C1"> Fragment</span><span style="color:#24292E"> {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> BaseFragment</span><span style="color:#D73A49;--shiki-dark:#F97583"> extends</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Fragment</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onResume</span><span style="color:#24292E">() {</span></span>
-<span class="line"><span style="color:#005CC5">        super</span><span style="color:#24292E">.</span><span style="color:#6F42C1">onResume</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#6A737D">        // 统计页面</span></span>
-<span class="line"><span style="color:#24292E">        MobclickAgent.</span><span style="color:#6F42C1">onPageStart</span><span style="color:#24292E">(</span><span style="color:#6F42C1">getPageName</span><span style="color:#24292E">());</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onResume</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        super</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onResume</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">        // 统计页面</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        MobclickAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onPageStart</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getPageName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onPause</span><span style="color:#24292E">() {</span></span>
-<span class="line"><span style="color:#005CC5">        super</span><span style="color:#24292E">.</span><span style="color:#6F42C1">onPause</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#24292E">        MobclickAgent.</span><span style="color:#6F42C1">onPageEnd</span><span style="color:#24292E">(</span><span style="color:#6F42C1">getPageName</span><span style="color:#24292E">()); </span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onPause</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">        super</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onPause</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        MobclickAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">onPageEnd</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getPageName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">()); </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    /**</span></span>
-<span class="line"><span style="color:#6A737D">     * 默认页面名是类名，可以给子类重写</span></span>
-<span class="line"><span style="color:#6A737D">     */</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#24292E"> String </span><span style="color:#6F42C1">getPageName</span><span style="color:#24292E">() {  </span></span>
-<span class="line"><span style="color:#D73A49">        return</span><span style="color:#005CC5"> this</span><span style="color:#24292E">.</span><span style="color:#6F42C1">getClass</span><span style="color:#24292E">().</span><span style="color:#6F42C1">getName</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#24292E">    }  </span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    /**</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">     * 默认页面名是类名，可以给子类重写</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">     */</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String </span><span style="color:#6F42C1;--shiki-dark:#B392F0">getPageName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {  </span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">        return</span><span style="color:#005CC5;--shiki-dark:#79B8FF"> this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getClass</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }  </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h2 id="帐号统计">帐号统计</h2>
 <p>暂时还未使用，之后补充。</p>
 <h2 id="混淆配置">混淆配置</h2>
 <p>按官方文档配置混淆，以免混淆之后的错误</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>-keepclassmembers class * {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>-keepclassmembers class * {</span></span>
 <span class="line"><span>    public &#x3C;init> (org.json.JSONObject);</span></span>
 <span class="line"><span>}</span></span>
 <span class="line"><span></span></span>
@@ -87,7 +118,7 @@
 <span class="line"><span>}</span></span></code></pre>
 <h2 id="使用集成测试">使用集成测试</h2>
 <p>首先在 <strong>Application</strong> 中打开测试模式：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">MobclickAgent.</span><span style="color:#6F42C1">setDebugMode</span><span style="color:#24292E">(BuildConfig.DEBUG);</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">MobclickAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setDebugMode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(BuildConfig.DEBUG);</span></span></code></pre>
 <p>然后<a href="http://mobile.umeng.com/test_devices?ticket=ST-1450072700rPWK4t4q46xw-qpBXzk">添加测试设备</a></p>
 <p>这样所有测试数据不会进入应用正式的统计后台，只能在 <strong>管理--集成测试--实时日志</strong> 里查看，测试数据的数据就不会污染生产环境数据了。</p>
 <h1 id="推送服务">推送服务</h1>
@@ -104,41 +135,41 @@
 </li>
 <li>
 <p>在之前的<code>AndroidManifest.xml</code>的基础上添加</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#24292E">&#x3C;</span><span style="color:#22863A">meta-data</span></span>
-<span class="line"><span style="color:#6F42C1">    android:name</span><span style="color:#24292E">=</span><span style="color:#032F62">"UMENG_MESSAGE_SECRET"</span></span>
-<span class="line"><span style="color:#6F42C1">    android:value</span><span style="color:#24292E">=</span><span style="color:#032F62">"xxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span style="color:#24292E">/></span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="xml"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">&#x3C;</span><span style="color:#22863A;--shiki-dark:#85E89D">meta-data</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    android:name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"UMENG_MESSAGE_SECRET"</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0">    android:value</span><span style="color:#24292E;--shiki-dark:#E1E4E8">=</span><span style="color:#032F62;--shiki-dark:#9ECBFF">"xxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">/></span></span></code></pre>
 </li>
 <li>
 <p>编辑<code>build.gradle</code>添加模块</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E">dependencies {</span></span>
-<span class="line"><span style="color:#6A737D">    // ...</span></span>
-<span class="line"><span style="color:#24292E">    compile project(</span><span style="color:#032F62">':PushSDK'</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">dependencies {</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // ...</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    compile project(</span><span style="color:#032F62;--shiki-dark:#9ECBFF">':PushSDK'</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 </li>
 </ol>
 <h2 id="权限配置">权限配置</h2>
 <p>若主工程的<code>targetSdkVersion</code>为 23 及以上，需要运行时申请<strong>存储权限</strong>（<code>WRITE_EXTERNAL_STORAGE</code>），否则在 Android 6.0 及以上机型可能出现无法选举宿主的情况。</p>
 <h2 id="注册服务">注册服务</h2>
 <p>在工程的 <strong>Application</strong> 类的<code>onCreate()</code> 方法中注册推送服务，无论推送是否开启都需要调用此方法：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">PushAgent mPushAgent </span><span style="color:#D73A49">=</span><span style="color:#24292E"> PushAgent.</span><span style="color:#6F42C1">getInstance</span><span style="color:#24292E">(</span><span style="color:#005CC5">this</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#6A737D">// 注册推送服务，每次调用 register 方法都会回调该接口</span></span>
-<span class="line"><span style="color:#24292E">mPushAgent.</span><span style="color:#6F42C1">register</span><span style="color:#24292E">(</span><span style="color:#D73A49">new</span><span style="color:#6F42C1"> IUmengRegisterCallback</span><span style="color:#24292E">() {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">PushAgent mPushAgent </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PushAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getInstance</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 注册推送服务，每次调用 register 方法都会回调该接口</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">mPushAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">register</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> IUmengRegisterCallback</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Override</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onSuccess</span><span style="color:#24292E">(String </span><span style="color:#E36209">deviceToken</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#6A737D">        // 注册成功会返回 device token</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onSuccess</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">deviceToken</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">        // 注册成功会返回 device token</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Override</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onFailure</span><span style="color:#24292E">(String </span><span style="color:#E36209">s</span><span style="color:#24292E">, String </span><span style="color:#E36209">s1</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onFailure</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, String </span><span style="color:#E36209;--shiki-dark:#FFAB70">s1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">});</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">});</span></span></code></pre>
 <p>在 <strong>BaseActivity</strong> 的<code>onCreate</code>方法中添加如下代码启动<strong>推送统计</strong>：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>PushAgent.getInstance(context).onAppStart();</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>PushAgent.getInstance(context).onAppStart();</span></span></code></pre>
 <h2 id="混淆配置-1">混淆配置</h2>
 <p>按照文档配置混淆</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>-dontwarn com.taobao.**</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>-dontwarn com.taobao.**</span></span>
 <span class="line"><span>-dontwarn anet.channel.**</span></span>
 <span class="line"><span>-dontwarn anetwork.channel.**</span></span>
 <span class="line"><span>-dontwarn org.android.**</span></span>
@@ -162,31 +193,31 @@
 <h2 id="集成推送中的一些坑">集成推送中的一些坑</h2>
 <h3 id="UnsatisfiedLinkError">UnsatisfiedLinkError</h3>
 <p>按照如上设置之后运行项目发现会如下报错</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>java.lang.UnsatisfiedLinkError: dlopen failed: "/data/data/应用包名/files/libtnet-3.1.7bk1.so" is 32-bit instead of 64-bit</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>java.lang.UnsatisfiedLinkError: dlopen failed: "/data/data/应用包名/files/libtnet-3.1.7bk1.so" is 32-bit instead of 64-bit</span></span></code></pre>
 <p>需要在项目根目录的<code>build.gradle</code>中如下设置解决：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E">	defaultConfig {</span></span>
-<span class="line"><span style="color:#6A737D">		// ...</span></span>
-<span class="line"><span style="color:#24292E">        ndk {</span></span>
-<span class="line"><span style="color:#24292E">            abiFilters </span><span style="color:#032F62">"armeabi"</span><span style="color:#24292E">, </span><span style="color:#032F62">"x86"</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">	}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">	defaultConfig {</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">		// ...</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        ndk {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            abiFilters </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"armeabi"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"x86"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">	}</span></span></code></pre>
 <h3 id="使用-BuildTypes-修改包名的错误">使用 BuildTypes 修改包名的错误</h3>
 <p>因为友盟使用 <strong>ApplicationId</strong> 作为包名利用反射获取资源文件，而当 <strong>BuildTypes</strong> 中的 <strong>ApplicationId</strong> 改变了导致应用包名和 Java 包名不一致的时候就会导致错误。此时需要在注册推送服务之前重新设置包名：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">PushAgent mPushAgent </span><span style="color:#D73A49">=</span><span style="color:#24292E"> PushAgent.</span><span style="color:#6F42C1">getInstance</span><span style="color:#24292E">(</span><span style="color:#005CC5">this</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#6A737D">// 首先重新设置包名</span></span>
-<span class="line"><span style="color:#24292E">mPushAgent.</span><span style="color:#6F42C1">setResourcePackageName</span><span style="color:#24292E">(R.class.</span><span style="color:#6F42C1">getPackage</span><span style="color:#24292E">().</span><span style="color:#6F42C1">getName</span><span style="color:#24292E">());</span></span>
-<span class="line"><span style="color:#6A737D">// 注册推送服务，每次调用 register 方法都会回调该接口</span></span>
-<span class="line"><span style="color:#24292E">mPushAgent.</span><span style="color:#6F42C1">register</span><span style="color:#24292E">(</span><span style="color:#D73A49">new</span><span style="color:#6F42C1"> IUmengRegisterCallback</span><span style="color:#24292E">() {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">PushAgent mPushAgent </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> PushAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getInstance</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 首先重新设置包名</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">mPushAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">setResourcePackageName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(R.class.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getPackage</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">getName</span><span style="color:#24292E;--shiki-dark:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 注册推送服务，每次调用 register 方法都会回调该接口</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">mPushAgent.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">register</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#D73A49;--shiki-dark:#F97583">new</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> IUmengRegisterCallback</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Override</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onSuccess</span><span style="color:#24292E">(String </span><span style="color:#E36209">deviceToken</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#6A737D">        // 注册成功会返回 device token</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onSuccess</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">deviceToken</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">        // 注册成功会返回 device token</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Override</span></span>
-<span class="line"><span style="color:#D73A49">    public</span><span style="color:#D73A49"> void</span><span style="color:#6F42C1"> onFailure</span><span style="color:#24292E">(String </span><span style="color:#E36209">s</span><span style="color:#24292E">, String </span><span style="color:#E36209">s1</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Override</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    public</span><span style="color:#D73A49;--shiki-dark:#F97583"> void</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> onFailure</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(String </span><span style="color:#E36209;--shiki-dark:#FFAB70">s</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, String </span><span style="color:#E36209;--shiki-dark:#FFAB70">s1</span><span style="color:#24292E;--shiki-dark:#E1E4E8">) {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">});</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">});</span></span></code></pre>
 <h1 id="总结">总结</h1>
-<p>以上就是实际项目中集成友盟统计和推送的方法了，查阅资料解决了一些官方文档没有提及的东西，希望可以给后来者一个参考。</p></article><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#集成统计">集成统计</a><a href="#获得-Appkey">获得 Appkey</a><a href="#导入-SDK">导入 SDK</a><a href="#配置项目">配置项目</a><a href="#统计页面访问">统计页面访问</a><a href="#帐号统计">帐号统计</a><a href="#混淆配置">混淆配置</a><a href="#使用集成测试">使用集成测试</a><a href="#推送服务">推送服务</a><a href="#创建应用">创建应用</a><a href="#导入-PushSDK">导入 PushSDK</a><a href="#权限配置">权限配置</a><a href="#注册服务">注册服务</a><a href="#混淆配置-1">混淆配置</a><a href="#集成推送中的一些坑">集成推送中的一些坑</a><a class="toc-sub" href="#UnsatisfiedLinkError">UnsatisfiedLinkError</a><a class="toc-sub" href="#使用-BuildTypes-修改包名的错误">使用 BuildTypes 修改包名的错误</a><a href="#总结">总结</a></nav></details></aside></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2016/10/22/yarn-next-generation-node-package-manager/"><span>← 较新一篇</span>Yarn 下一代 Node 包管理器</a></div><div><a href="/2016/09/06/android-best-practice-p2-language/"><span>较早一篇 →</span>Android开发最佳实践——2.使用Kotlin开发Android</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/" data-identifier="2016/10/11/umeng-analitics-and-push-service/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><div><strong>饭窝</strong><span>把折腾过的事情，认真记下来。</span></div><div><a href="https://github.com/loshine">GitHub ↗</a><span>© 2026 Loshine · Built with Astro</span></div></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>
+<p>以上就是实际项目中集成友盟统计和推送的方法了，查阅资料解决了一些官方文档没有提及的东西，希望可以给后来者一个参考。</p></article></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2016/10/22/yarn-next-generation-node-package-manager/"><span>← 较新一篇</span>Yarn 下一代 Node 包管理器</a></div><div><a href="/2016/09/06/android-best-practice-p2-language/"><span>较早一篇 →</span>Android开发最佳实践——2.使用Kotlin开发Android</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2016/10/11/umeng-analitics-and-push-service/" data-identifier="2016/10/11/umeng-analitics-and-push-service/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><span>© 2026 Loshine · 饭窝</span><span>Built with <a href="https://astro.build/">Astro</a> &amp; <a href="https://github.com/chrismwilliams/astro-cactus">Cactus</a></span></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>

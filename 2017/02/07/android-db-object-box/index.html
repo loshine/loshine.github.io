@@ -1,4 +1,35 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#f8f7f4"><link rel="canonical" href="https://loshine.github.io/2017/02/07/android-db-object-box/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="新兴效率数据库——ObjectBox · 饭窝"><meta property="og:description" content="今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2017/02/07/android-db-object-box/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>新兴效率数据库——ObjectBox · 饭窝</title><link rel="stylesheet" href="/_astro/Base.rWQLZOCb.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><span class="brand-mark" aria-hidden="true">饭</span>饭窝<span class="brand-note">Loshine</span></a><nav aria-label="主导航"><a href="/">文章</a><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a><a href="/search/">搜索</a></nav></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2017-02-07">2017-02-07</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">新兴效率数据库——ObjectBox</h1><div class="post-tags"><a href="/tags/Android/">Android</a></div></header><div class="article-layout"><article class="prose" data-pagefind-body><p>今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#fafafa"><script data-theme-script>
+  (() => {
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    let preference;
+    const readPreference = () => {
+      try {
+        const stored = localStorage.getItem('theme');
+        preference = stored === 'dark' || stored === 'light' ? stored : undefined;
+      } catch { /* Storage may be disabled; keep the in-memory choice. */ }
+    };
+    const apply = () => {
+      const theme = preference ?? (system.matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#1d1f21' : '#fafafa';
+      document.getElementById('theme-toggle')?.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+    readPreference();
+    apply();
+    system.addEventListener('change', apply);
+    window.addEventListener('pageshow', () => { readPreference(); apply(); });
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('theme-toggle');
+      button.hidden = false;
+      apply();
+      button.addEventListener('click', () => {
+        preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', preference); } catch { /* The current page can still switch. */ }
+        apply();
+      });
+    }, { once: true });
+  })();
+</script><link rel="canonical" href="https://loshine.github.io/2017/02/07/android-db-object-box/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="新兴效率数据库——ObjectBox · 饭窝"><meta property="og:description" content="今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2017/02/07/android-db-object-box/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>新兴效率数据库——ObjectBox · 饭窝</title><link rel="stylesheet" href="/_astro/Base.xlhMC81Q.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><img src="/assets/img/cactus.svg" alt="" width="45" height="80"><span>饭窝</span></a><nav aria-label="主导航"><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a></nav><div class="header-actions"><a class="icon-button" href="/search/" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg></a><button id="theme-toggle" class="icon-button" type="button" aria-label="深色模式" aria-pressed="false" title="切换明暗主题" hidden><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></div></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2017-02-07">2017-02-07</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">新兴效率数据库——ObjectBox</h1><div class="post-tags"><a href="/tags/Android/">Android</a></div></header><div class="article-layout"><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#特性">特性</a><a href="#使用">使用</a><a href="#安装">安装</a><a href="#初始化">初始化</a><a href="#Entity">Entity</a><a class="toc-sub" href="#ID">ID</a><a class="toc-sub" href="#属性">属性</a><a class="toc-sub" href="#索引">索引</a><a class="toc-sub" href="#关联">关联</a><a href="#Query">Query</a><a class="toc-sub" href="#分页">分页</a><a href="#Insert">Insert</a><a href="#性能对比">性能对比</a><a href="#Insert-1">Insert</a><a href="#Query-1">Query</a><a href="#Delete">Delete</a><a href="#总结">总结</a></nav></details></aside><article class="prose" data-pagefind-body><p>今天看新闻，发现 GreenDao 的东家 greenrobot 出了一个新的 NoSQL 数据库，greenrobot 称它是目前性能最好且易用的 NoSQL 数据库，且优于其它数据库 5~15 倍的性能。</p>
 <span id="more"></span>
 <h1 id="特性">特性</h1>
 <p>首先为什么我们需要这个数据库，<strong>greenrobot</strong> 介绍了它的5个特性：</p>
@@ -12,49 +43,49 @@
 <h1 id="使用">使用</h1>
 <h2 id="安装">安装</h2>
 <p>首先要如下修改 gradle 来添加依赖：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E">buildscript {</span></span>
-<span class="line"><span style="color:#24292E">    repositories {</span></span>
-<span class="line"><span style="color:#24292E">        jcenter()</span></span>
-<span class="line"><span style="color:#24292E">        mavenCentral()</span></span>
-<span class="line"><span style="color:#24292E">        maven {</span></span>
-<span class="line"><span style="color:#24292E">            url </span><span style="color:#032F62">"http://objectbox.net/beta-repo/"</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">    dependencies {</span></span>
-<span class="line"><span style="color:#24292E">        classpath </span><span style="color:#032F62">'io.objectbox:objectbox-gradle-plugin:0.9.6'</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E"> </span></span>
-<span class="line"><span style="color:#24292E">apply </span><span style="color:#005CC5">plugin</span><span style="color:#24292E">: </span><span style="color:#032F62">'com.android.application'</span></span>
-<span class="line"><span style="color:#24292E">apply </span><span style="color:#005CC5">plugin</span><span style="color:#24292E">: </span><span style="color:#032F62">'io.objectbox'</span></span>
-<span class="line"><span style="color:#24292E"> </span></span>
-<span class="line"><span style="color:#24292E">repositories {</span></span>
-<span class="line"><span style="color:#24292E">    jcenter()</span></span>
-<span class="line"><span style="color:#24292E">    mavenCentral()</span></span>
-<span class="line"><span style="color:#24292E">    maven {</span></span>
-<span class="line"><span style="color:#24292E">        url </span><span style="color:#032F62">"http://objectbox.net/beta-repo/"</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E"> </span></span>
-<span class="line"><span style="color:#24292E">dependencies {</span></span>
-<span class="line"><span style="color:#24292E">    compile </span><span style="color:#032F62">'io.objectbox:objectbox-android:0.9.6'</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="gradle"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">buildscript {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    repositories {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        jcenter()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        mavenCentral()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        maven {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">            url </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"http://objectbox.net/beta-repo/"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    dependencies {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        classpath </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'io.objectbox:objectbox-gradle-plugin:0.9.6'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">apply </span><span style="color:#005CC5;--shiki-dark:#79B8FF">plugin</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'com.android.application'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">apply </span><span style="color:#005CC5;--shiki-dark:#79B8FF">plugin</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'io.objectbox'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">repositories {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    jcenter()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    mavenCentral()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    maven {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">        url </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"http://objectbox.net/beta-repo/"</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">dependencies {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    compile </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'io.objectbox:objectbox-android:0.9.6'</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h2 id="初始化">初始化</h2>
 <p>在 Application 中初始化：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#6A737D">// 在 Application 中初始化</span></span>
-<span class="line"><span style="color:#24292E">boxStore </span><span style="color:#D73A49">=</span><span style="color:#24292E"> MyObjectBox.</span><span style="color:#6F42C1">builder</span><span style="color:#24292E">().</span><span style="color:#6F42C1">androidContext</span><span style="color:#24292E">(App.this).</span><span style="color:#6F42C1">build</span><span style="color:#24292E">();</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">// 在 Application 中初始化</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">boxStore </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> MyObjectBox.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">builder</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">androidContext</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(App.this).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span></code></pre>
 <h2 id="Entity">Entity</h2>
 <p>Entity 是需要被持久化保存的类。我们需要用<code>@Entity</code>注解来标注它，属性通常 <strong>private</strong> 修饰，然后会自动生成 <strong>getter</strong>、<strong>setter</strong>。</p>
 <h3 id="ID">ID</h3>
 <p>在 ObjectBox 中，每一个 Entity 都需要有<code>long</code>类型的 ID 属性，我们需要使用<code>@Id</code>来标注它。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> User</span><span style="color:#24292E"> {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> User</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span></span>
-<span class="line"><span style="color:#D73A49">    private</span><span style="color:#D73A49"> long</span><span style="color:#24292E"> id;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> id;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    ...</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ...</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <p>ID 有以下需要注意的点：</p>
 <ul>
 <li>0 代表对象还没被持久化，一个新的需要被持久化的对象的 Id 应为 0</li>
@@ -66,73 +97,73 @@
 <li>需要指定特殊的存储在数据库中时的名称，使用<code>@Property</code>注解</li>
 <li>不需要持久化该属性，使用<code>@Transient</code>注解</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> User</span><span style="color:#24292E"> {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> User</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Property</span><span style="color:#24292E">(</span><span style="color:#005CC5">nameInDb</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "USERNAME"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#D73A49">    private</span><span style="color:#24292E"> String name;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Property</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">nameInDb</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "USERNAME"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String name;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Transient</span></span>
-<span class="line"><span style="color:#D73A49">    private</span><span style="color:#D73A49"> int</span><span style="color:#24292E"> tempUsageCount;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Transient</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#D73A49;--shiki-dark:#F97583"> int</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> tempUsageCount;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    ...</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    ...</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h3 id="索引">索引</h3>
 <p>使用<code>@Index</code>注解可以生成索引，加快查询速度。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> User</span><span style="color:#24292E"> {</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> User</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span></span>
-<span class="line"><span style="color:#D73A49">    private</span><span style="color:#24292E"> Long id;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Long id;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Index</span></span>
-<span class="line"><span style="color:#D73A49">    private</span><span style="color:#24292E"> String name;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Index</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    private</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> String name;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h3 id="关联">关联</h3>
 <p>使用<code>@Relation</code>注解可以标注关联关系。</p>
 <h4 id="一对一">一对一</h4>
 <p>customId 属性会自动生成。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> Order</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span><span style="color:#D73A49"> long</span><span style="color:#24292E"> id;</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Order</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> id;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49">    long</span><span style="color:#24292E"> customerId;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> customerId;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Relation</span></span>
-<span class="line"><span style="color:#24292E">    Customer customer;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Relation</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    Customer customer;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> Customer</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span><span style="color:#D73A49"> long</span><span style="color:#24292E"> id;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Customer</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> id;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h4 id="一对多">一对多</h4>
 <p>一对多的时候，只能修饰 List。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> Customer</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span><span style="color:#D73A49"> long</span><span style="color:#24292E"> id;</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Customer</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> id;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // References the ID property in the *Order* entity</span></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Relation</span><span style="color:#24292E">(</span><span style="color:#005CC5">idProperty</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "customerId"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    List&#x3C;</span><span style="color:#D73A49">Order</span><span style="color:#24292E">> orders;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    // References the ID property in the *Order* entity</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Relation</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">idProperty</span><span style="color:#D73A49;--shiki-dark:#F97583"> =</span><span style="color:#032F62;--shiki-dark:#9ECBFF"> "customerId"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    List&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">Order</span><span style="color:#24292E;--shiki-dark:#E1E4E8">> orders;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">@</span><span style="color:#D73A49">Entity</span></span>
-<span class="line"><span style="color:#D73A49">public</span><span style="color:#D73A49"> class</span><span style="color:#6F42C1"> Order</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Id</span><span style="color:#D73A49"> long</span><span style="color:#24292E"> id;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">@</span><span style="color:#D73A49;--shiki-dark:#F97583">Entity</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">public</span><span style="color:#D73A49;--shiki-dark:#F97583"> class</span><span style="color:#6F42C1;--shiki-dark:#B392F0"> Order</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Id</span><span style="color:#D73A49;--shiki-dark:#F97583"> long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> id;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#D73A49">    long</span><span style="color:#24292E"> customerId;</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">    long</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> customerId;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#24292E">    @</span><span style="color:#D73A49">Relation</span><span style="color:#24292E"> Customer customer;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    @</span><span style="color:#D73A49;--shiki-dark:#F97583">Relation</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Customer customer;</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span></code></pre>
 <h2 id="Query">Query</h2>
 <p>首先要获取 Box 对象，然后通过 QueryBuilder 查询，以下是一个找出 firstName 是 <strong>Joe</strong> 的例子：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">Box&#x3C;</span><span style="color:#D73A49">User</span><span style="color:#24292E">> userBox </span><span style="color:#D73A49">=</span><span style="color:#24292E"> boxStore.</span><span style="color:#6F42C1">boxFor</span><span style="color:#24292E">(User.class);</span></span>
-<span class="line"><span style="color:#24292E">List&#x3C;</span><span style="color:#D73A49">User</span><span style="color:#24292E">> joes </span><span style="color:#D73A49">=</span><span style="color:#24292E"> userBox.</span><span style="color:#6F42C1">query</span><span style="color:#24292E">().</span><span style="color:#6F42C1">equal</span><span style="color:#24292E">(User_.firstName, </span><span style="color:#032F62">"Joe"</span><span style="color:#24292E">).</span><span style="color:#6F42C1">build</span><span style="color:#24292E">().</span><span style="color:#6F42C1">find</span><span style="color:#24292E">();</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Box&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">User</span><span style="color:#24292E;--shiki-dark:#E1E4E8">> userBox </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> boxStore.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">boxFor</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(User.class);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">User</span><span style="color:#24292E;--shiki-dark:#E1E4E8">> joes </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> userBox.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">equal</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(User_.firstName, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"Joe"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">find</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span></code></pre>
 <p>QueryBuilder 还提供了形如<code>greater</code>、<code>startsWith</code>等 API，使用非常方便。</p>
 <h3 id="分页">分页</h3>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E">Query&#x3C;</span><span style="color:#D73A49">User</span><span style="color:#24292E">> query </span><span style="color:#D73A49">=</span><span style="color:#24292E"> userBox.</span><span style="color:#6F42C1">query</span><span style="color:#24292E">().</span><span style="color:#6F42C1">equal</span><span style="color:#24292E">(UserProperties.FirstName, </span><span style="color:#032F62">"Joe"</span><span style="color:#24292E">).</span><span style="color:#6F42C1">build</span><span style="color:#24292E">();</span></span>
-<span class="line"><span style="color:#24292E">List&#x3C;</span><span style="color:#D73A49">User</span><span style="color:#24292E">> joes </span><span style="color:#D73A49">=</span><span style="color:#24292E"> query.</span><span style="color:#6F42C1">find</span><span style="color:#24292E">(</span><span style="color:#005CC5">10</span><span style="color:#6A737D"> /** offset by 10 */</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#6A737D"> /** limit to 5 results */</span><span style="color:#24292E">);</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Query&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">User</span><span style="color:#24292E;--shiki-dark:#E1E4E8">> query </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> userBox.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">query</span><span style="color:#24292E;--shiki-dark:#E1E4E8">().</span><span style="color:#6F42C1;--shiki-dark:#B392F0">equal</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(UserProperties.FirstName, </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"Joe"</span><span style="color:#24292E;--shiki-dark:#E1E4E8">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0">build</span><span style="color:#24292E;--shiki-dark:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">List&#x3C;</span><span style="color:#D73A49;--shiki-dark:#F97583">User</span><span style="color:#24292E;--shiki-dark:#E1E4E8">> joes </span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> query.</span><span style="color:#6F42C1;--shiki-dark:#B392F0">find</span><span style="color:#24292E;--shiki-dark:#E1E4E8">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">10</span><span style="color:#6A737D;--shiki-dark:#6A737D"> /** offset by 10 */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">5</span><span style="color:#6A737D;--shiki-dark:#6A737D"> /** limit to 5 results */</span><span style="color:#24292E;--shiki-dark:#E1E4E8">);</span></span></code></pre>
 <ul>
 <li><code>offset</code>: 查询的第一项的 offset</li>
 <li><code>limit</code>: 查询多少项</li>
@@ -163,4 +194,4 @@
 <p>可以看出 ObjectBox 性能确实比 Realm 优秀。</p>
 <p>更复杂的性能对比后期再测试。</p>
 <h1 id="总结">总结</h1>
-<p>虽然现在还未到 1.0 正式版，但 ObjectBox 确实是值得期待的优秀数据库。有高性能要求的 APP 建议使用。</p></article><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#特性">特性</a><a href="#使用">使用</a><a href="#安装">安装</a><a href="#初始化">初始化</a><a href="#Entity">Entity</a><a class="toc-sub" href="#ID">ID</a><a class="toc-sub" href="#属性">属性</a><a class="toc-sub" href="#索引">索引</a><a class="toc-sub" href="#关联">关联</a><a href="#Query">Query</a><a class="toc-sub" href="#分页">分页</a><a href="#Insert">Insert</a><a href="#性能对比">性能对比</a><a href="#Insert-1">Insert</a><a href="#Query-1">Query</a><a href="#Delete">Delete</a><a href="#总结">总结</a></nav></details></aside></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2017/11/26/build-lede-ssr/"><span>← 较新一篇</span>记一次升级LEDE后的坑——从0开始编译ssr</a></div><div><a href="/2017/01/21/android-best-practice-p4-repository/"><span>较早一篇 →</span>Android开发最佳实践——4.Repository 层实现</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2017/02/07/android-db-object-box/" data-identifier="2017/02/07/android-db-object-box/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><div><strong>饭窝</strong><span>把折腾过的事情，认真记下来。</span></div><div><a href="https://github.com/loshine">GitHub ↗</a><span>© 2026 Loshine · Built with Astro</span></div></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>
+<p>虽然现在还未到 1.0 正式版，但 ObjectBox 确实是值得期待的优秀数据库。有高性能要求的 APP 建议使用。</p></article></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2017/11/26/build-lede-ssr/"><span>← 较新一篇</span>记一次升级LEDE后的坑——从0开始编译ssr</a></div><div><a href="/2017/01/21/android-best-practice-p4-repository/"><span>较早一篇 →</span>Android开发最佳实践——4.Repository 层实现</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2017/02/07/android-db-object-box/" data-identifier="2017/02/07/android-db-object-box/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><span>© 2026 Loshine · 饭窝</span><span>Built with <a href="https://astro.build/">Astro</a> &amp; <a href="https://github.com/chrismwilliams/astro-cactus">Cactus</a></span></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>

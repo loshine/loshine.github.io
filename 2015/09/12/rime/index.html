@@ -1,4 +1,35 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="很久之前就发现了RIME这个输入法，但因为在windows下的种种不便，把玩了一段时间后终于还是将之打入箱底。近期由于换上了mac作为主力开发机，于是又将其从箱底翻出，仔细把玩打磨一段时间之后已经十分跟手了，于是乎在这里记录一下打磨过程。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#f8f7f4"><link rel="canonical" href="https://loshine.github.io/2015/09/12/rime/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="打磨真正属于自己的输入法-RIME · 饭窝"><meta property="og:description" content="很久之前就发现了RIME这个输入法，但因为在windows下的种种不便，把玩了一段时间后终于还是将之打入箱底。近期由于换上了mac作为主力开发机，于是又将其从箱底翻出，仔细把玩打磨一段时间之后已经十分跟手了，于是乎在这里记录一下打磨过程。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2015/09/12/rime/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>打磨真正属于自己的输入法-RIME · 饭窝</title><link rel="stylesheet" href="/_astro/Base.rWQLZOCb.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><span class="brand-mark" aria-hidden="true">饭</span>饭窝<span class="brand-note">Loshine</span></a><nav aria-label="主导航"><a href="/">文章</a><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a><a href="/search/">搜索</a></nav></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2015-09-12">2015-09-12</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">打磨真正属于自己的输入法-RIME</h1><div class="post-tags"><a href="/tags/RIME/">RIME</a></div></header><div class="article-layout"><article class="prose" data-pagefind-body><blockquote>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="很久之前就发现了RIME这个输入法，但因为在windows下的种种不便，把玩了一段时间后终于还是将之打入箱底。近期由于换上了mac作为主力开发机，于是又将其从箱底翻出，仔细把玩打磨一段时间之后已经十分跟手了，于是乎在这里记录一下打磨过程。"><meta name="generator" content="Astro v7.4.2"><meta name="theme-color" content="#fafafa"><script data-theme-script>
+  (() => {
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    let preference;
+    const readPreference = () => {
+      try {
+        const stored = localStorage.getItem('theme');
+        preference = stored === 'dark' || stored === 'light' ? stored : undefined;
+      } catch { /* Storage may be disabled; keep the in-memory choice. */ }
+    };
+    const apply = () => {
+      const theme = preference ?? (system.matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#1d1f21' : '#fafafa';
+      document.getElementById('theme-toggle')?.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+    readPreference();
+    apply();
+    system.addEventListener('change', apply);
+    window.addEventListener('pageshow', () => { readPreference(); apply(); });
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('theme-toggle');
+      button.hidden = false;
+      apply();
+      button.addEventListener('click', () => {
+        preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', preference); } catch { /* The current page can still switch. */ }
+        apply();
+      });
+    }, { once: true });
+  })();
+</script><link rel="canonical" href="https://loshine.github.io/2015/09/12/rime/"><link rel="icon" type="image/png" href="/assets/img/favicon.png"><meta property="og:title" content="打磨真正属于自己的输入法-RIME · 饭窝"><meta property="og:description" content="很久之前就发现了RIME这个输入法，但因为在windows下的种种不便，把玩了一段时间后终于还是将之打入箱底。近期由于换上了mac作为主力开发机，于是又将其从箱底翻出，仔细把玩打磨一段时间之后已经十分跟手了，于是乎在这里记录一下打磨过程。"><meta property="og:type" content="article"><meta property="og:url" content="https://loshine.github.io/2015/09/12/rime/"><meta property="og:site_name" content="饭窝"><meta property="og:image" content="https://loshine.github.io/assets/img/avatar.png"><title>打磨真正属于自己的输入法-RIME · 饭窝</title><link rel="stylesheet" href="/_astro/Base.xlhMC81Q.css"></head><body><a class="skip-link" href="#main">跳到正文</a><header class="site-header shell"><a class="brand" href="/" aria-label="饭窝首页"><img src="/assets/img/cactus.svg" alt="" width="45" height="80"><span>饭窝</span></a><nav aria-label="主导航"><a href="/archives/">归档</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/about/">关于</a></nav><div class="header-actions"><a class="icon-button" href="/search/" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg></a><button id="theme-toggle" class="icon-button" type="button" aria-label="深色模式" aria-pressed="false" title="切换明暗主题" hidden><svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></div></header><main id="main" class="shell"><header class="article-heading"><a class="text-link" href="/archives/">← 所有文章</a><div class="article-meta"><time datetime="2015-09-12">2015-09-12</time><span>·</span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div><h1 data-pagefind-meta="title">打磨真正属于自己的输入法-RIME</h1><div class="post-tags"><a href="/tags/RIME/">RIME</a></div></header><div class="article-layout"><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#简介">简介</a><a href="#安装">安装</a><a href="#使用">使用</a><a href="#自定义">自定义</a><a href="#输入方案">输入方案</a><a href="#外观">外观</a><a href="#主题">主题</a><a href="#生僻字乱码">生僻字乱码</a><a href="#根据程序切换中英文">根据程序切换中英文</a><a href="#emoji表情以及特殊符号">emoji表情以及特殊符号</a><a href="#同步">同步</a><a class="toc-sub" href="#1-设定同步位置">1. 设定同步位置</a><a class="toc-sub" href="#2-同步标识">2. 同步标识</a><a href="#我的成品">我的成品</a></nav></details></aside><article class="prose" data-pagefind-body><blockquote>
 <p>很久之前就发现了 RIME 这个输入法，但因为在 windows 下的种种不便，把玩了一段时间后终于还是将之打入箱底。近期由于换上了 mac 作为主力开发机，于是又将其从箱底翻出，仔细把玩打磨一段时间之后已经十分跟手了，于是乎在这里记录一下打磨过程。</p>
 </blockquote>
 <h1 id="简介">简介</h1>
@@ -58,80 +89,80 @@
 <p>点击右上角输入法按钮，选择用户设定，可以看到所有鼠须管的<strong>配置文件</strong>。鼠须管的配置文件都是<code>yaml</code>格式的，我们如果想要自定义，可以新建一个<code>*.custom.yaml</code>对其进行修改，这样可以防止更新程序的时候修改内容被覆盖，也方便同步。</p>
 <h2 id="输入方案">输入方案</h2>
 <p>新建一个<code>default.custom.yaml</code>文件，将如下内容复制进去，然后根据自己的需求注释或者去掉注释即可。在完成之后，不要忘记<strong>重新部署</strong>一下，之后就可以使用<code>Ctrl + `</code>切换输入方案了。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">  schema_list</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">luna_pinyin</span><span style="color:#6A737D">          # 朙月拼音</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">luna_pinyin_fluency</span><span style="color:#6A737D">  # 朙月拼音 语句流</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">terra_pinyin</span><span style="color:#6A737D">         # 地球拼音 dì qiú pīn yīn</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: bopomofo             # 注音</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: bopomofo_tw          # 注音 臺灣正體模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: jyutping             # 粵拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: cangjie5             # 倉頡五代</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: cangjie5_express     # 倉頡 快打模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: quick5               # 速成</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wubi86               # 五笔86</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">wubi_pinyin</span><span style="color:#6A737D">          # 五笔拼音混合輸入</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin        # 自然碼雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_mspy   # 微軟雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_abc    # 智能ABC雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_flypy  # 小鶴雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wugniu        # 吳語上海話（新派）</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wugniu_lopha  # 吳語上海話（老派）</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: sampheng      # 中古漢語三拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: zyenpheng     # 中古漢語全拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: ipa_xsampa    # X-SAMPA 國際音標</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">emoji</span><span style="color:#6A737D">         # emoji表情</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  schema_list</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">luna_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">          # 朙月拼音</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">luna_pinyin_fluency</span><span style="color:#6A737D;--shiki-dark:#6A737D">  # 朙月拼音 语句流</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">terra_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">         # 地球拼音 dì qiú pīn yīn</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: bopomofo             # 注音</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: bopomofo_tw          # 注音 臺灣正體模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: jyutping             # 粵拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: cangjie5             # 倉頡五代</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: cangjie5_express     # 倉頡 快打模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: quick5               # 速成</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wubi86               # 五笔86</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">wubi_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">          # 五笔拼音混合輸入</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin        # 自然碼雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_mspy   # 微軟雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_abc    # 智能ABC雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_flypy  # 小鶴雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wugniu        # 吳語上海話（新派）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wugniu_lopha  # 吳語上海話（老派）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: sampheng      # 中古漢語三拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: zyenpheng     # 中古漢語全拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: ipa_xsampa    # X-SAMPA 國際音標</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span><span style="color:#6A737D;--shiki-dark:#6A737D">         # emoji表情</span></span></code></pre>
 <h2 id="外观">外观</h2>
 <p>新建一个<code>squirrel.custom.yaml</code>文件，向其中写入如下内容，然后根据自己的需求修改。</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># 適用於【鼠鬚管】0.9.13+</span></span>
-<span class="line"><span style="color:#6A737D"># 位置：~/Library/Rime/squirrel.custom.yaml</span></span>
-<span class="line"><span style="color:#6A737D"># 用法：想要哪項生效，就刪去該行行首的#字符，但注意保留用於縮進的空格</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 適用於【鼠鬚管】0.9.13+</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 位置：~/Library/Rime/squirrel.custom.yaml</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 用法：想要哪項生效，就刪去該行行首的#字符，但注意保留用於縮進的空格</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#6A737D">#  us_keyboard_layout: true      # 鍵盤選項：應用美式鍵盤佈局</span></span>
-<span class="line"><span style="color:#6A737D">#  show_notifications_when: growl_is_running  # 狀態通知，默認裝有Growl時顯示，也可設爲全開（always）全關（never）</span></span>
-<span class="line"><span style="color:#6A737D">#  style/horizontal: true        # 候選窗横向顯示</span></span>
-<span class="line"><span style="color:#6A737D">#  style/inline_preedit: false   # 非內嵌編碼行</span></span>
-<span class="line"><span style="color:#6A737D">#  style/font_face: "儷黑 Pro"    # 我喜歡的字體名稱</span></span>
-<span class="line"><span style="color:#6A737D">#  style/font_point: 21          # 字號</span></span>
-<span class="line"><span style="color:#6A737D">#  style/corner_radius: 10       # 窗口圓角半徑</span></span>
-<span class="line"><span style="color:#6A737D">#  style/border_height: 0        # 窗口邊界高度，大於圓角半徑才有效果</span></span>
-<span class="line"><span style="color:#6A737D">#  style/border_width: 0         # 窗口邊界寬度，大於圓角半徑才有效果</span></span>
-<span class="line"><span style="color:#6A737D">#  style/color_scheme: luna      # 選擇配色方案</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  us_keyboard_layout: true      # 鍵盤選項：應用美式鍵盤佈局</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  show_notifications_when: growl_is_running  # 狀態通知，默認裝有Growl時顯示，也可設爲全開（always）全關（never）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/horizontal: true        # 候選窗横向顯示</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/inline_preedit: false   # 非內嵌編碼行</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/font_face: "儷黑 Pro"    # 我喜歡的字體名稱</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/font_point: 21          # 字號</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/corner_radius: 10       # 窗口圓角半徑</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/border_height: 0        # 窗口邊界高度，大於圓角半徑才有效果</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/border_width: 0         # 窗口邊界寬度，大於圓角半徑才有效果</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/color_scheme: luna      # 選擇配色方案</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 註：預設的配色方案及代碼（指定爲 style/color_scheme ）</span></span>
-<span class="line"><span style="color:#6A737D">#   碧水 - aqua</span></span>
-<span class="line"><span style="color:#6A737D">#   青天 - azure</span></span>
-<span class="line"><span style="color:#6A737D">#   明月 - luna</span></span>
-<span class="line"><span style="color:#6A737D">#   墨池 - ink</span></span>
-<span class="line"><span style="color:#6A737D">#   孤寺 - lost_temple</span></span>
-<span class="line"><span style="color:#6A737D">#   暗堂 - dark_temple</span></span>
-<span class="line"><span style="color:#6A737D">#   星際我爭霸 - starcraft</span></span>
-<span class="line"><span style="color:#6A737D">#   谷歌 - google</span></span></code></pre>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 註：預設的配色方案及代碼（指定爲 style/color_scheme ）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   碧水 - aqua</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   青天 - azure</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   明月 - luna</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   墨池 - ink</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   孤寺 - lost_temple</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   暗堂 - dark_temple</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   星際我爭霸 - starcraft</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   谷歌 - google</span></span></code></pre>
 <h2 id="主题">主题</h2>
 <p>如上一部分，只能设置默认的主题。虽然默认的主题也挺不错的，但是我们也可以定制自定义的主题。</p>
 <p>还是在<code>squirrel.custom.yaml</code>中，在刚刚加入的内容后面加入如下内容</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">  preset_color_schemes/textflow</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    author</span><span style="color:#24292E">: </span><span style="color:#032F62">"name &#x3C;name@gmail.com>"</span></span>
-<span class="line"><span style="color:#22863A">    back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFFFFFF</span><span style="color:#6A737D"> #背景</span></span>
-<span class="line"><span style="color:#22863A">    border_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xE0B693</span><span style="color:#6A737D"> #边框</span></span>
-<span class="line"><span style="color:#22863A">    candidate_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0x000000</span><span style="color:#6A737D"> #非第一候选项</span></span>
-<span class="line"><span style="color:#22863A">    hilited_back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xEBECED</span><span style="color:#6A737D"> #拼音串高亮背景</span></span>
-<span class="line"><span style="color:#22863A">    hilited_candidate_back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFFFFFF</span><span style="color:#6A737D"> #第一候选项背景</span></span>
-<span class="line"><span style="color:#22863A">    hilited_candidate_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xF57C75</span><span style="color:#6A737D"> #第一候选项</span></span>
-<span class="line"><span style="color:#22863A">    hilited_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFF6666</span><span style="color:#6A737D"> #拼音串高亮</span></span>
-<span class="line"><span style="color:#22863A">    name</span><span style="color:#24292E">: </span><span style="color:#032F62">Textflow</span></span>
-<span class="line"><span style="color:#22863A">    text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0x000000</span><span style="color:#6A737D"> #拼音串</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  preset_color_schemes/textflow</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    author</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"name &#x3C;name@gmail.com>"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFFFFFF</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    border_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xE0B693</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #边框</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    candidate_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0x000000</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #非第一候选项</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xEBECED</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串高亮背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_candidate_back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFFFFFF</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #第一候选项背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_candidate_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xF57C75</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #第一候选项</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFF6666</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串高亮</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">Textflow</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0x000000</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串</span></span></code></pre>
 <p>然后启用这个主题就可以了</p>
 <p>如果你想要更多的配色，可以参照<a href="http://tieba.baidu.com/p/2445582839">RIME吧：配色方案专帖</a></p>
 <h2 id="生僻字乱码">生僻字乱码</h2>
 <p>生僻字乱码是因为默认字库中不含生僻字所导致的，解决方案就是为其设置字库齐全的备用字体。</p>
 <p>一般的选择是「<a href="http://fonts.jp/hanazono/">花园明朝</a>」，下载下来安装好之后，将 <a href="#show">外观</a> 这一步中的</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">  style/font_face</span><span style="color:#24292E">: </span><span style="color:#032F62">"儷黑 Pro"</span><span style="color:#6A737D">    # 我喜歡的字體名稱</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/font_face</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"儷黑 Pro"</span><span style="color:#6A737D;--shiki-dark:#6A737D">    # 我喜歡的字體名稱</span></span></code></pre>
 <p>改为</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">  style/font_face</span><span style="color:#24292E">: </span><span style="color:#032F62">"PingFang SC,HanaMinA"</span><span style="color:#6A737D">    # 我喜歡的字體名稱</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/font_face</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"PingFang SC,HanaMinA"</span><span style="color:#6A737D;--shiki-dark:#6A737D">    # 我喜歡的字體名稱</span></span></code></pre>
 <p>然后重新部署即可</p>
 <h2 id="根据程序切换中英文">根据程序切换中英文</h2>
 <p>鼠须管 0.9.9 之后开始支持在指定的应用程序中设定输入法的初始状态。</p>
@@ -144,45 +175,45 @@
 <p>中我们很少会用到中文，于是我们可能设置鼠须管在这种程序中默认英文输入</p>
 <p>如果想要设置应用中输入法的初始状态，我们首先要查看应用的<code>Info.plist</code>文件得到该应用的<code>Bundle Identifier</code>，通常是形如<code>com.apple.Xcode</code>的字符串</p>
 <p>例如，要在<code>Xcode</code>中默认英文输入，又要在<code>Alfred</code>中恢复中文输入，可如下设定：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># example squirrel.custom.yaml</span></span>
-<span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.apple.Xcode</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    ascii_mode</span><span style="color:#24292E">: </span><span style="color:#005CC5">true</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.alfredapp.Alfred</span><span style="color:#24292E">: {}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># example squirrel.custom.yaml</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.apple.Xcode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    ascii_mode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.alfredapp.Alfred</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: {}</span></span></code></pre>
 <h2 id="emoji表情以及特殊符号">emoji表情以及特殊符号</h2>
 <p>有时候我们会有输入<code>emoji</code>表情的需求，但仅仅只是开启了<code>emoji</code>输入方案的话，我们每次都要切换输入方案才可以输入<code>emoji</code>表情，还是很不方便的。如果可以直接在一种输入方案中加入<code>emoji</code>表情输入就更好了</p>
 <p>其实可以做到，你只需要这样</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># luna_pinyin.custom.yaml</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 在【朙月拼音】裏使用Emoji表情</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 保存到Rime用戶文件夾後，重新部署生效</span></span>
-<span class="line"><span style="color:#6A737D"># ~/.config/ibus/rime  (linux)</span></span>
-<span class="line"><span style="color:#6A737D"># ~/Library/Rime       (macos)</span></span>
-<span class="line"><span style="color:#6A737D"># %APPDATA%\Rime       (windows)</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 如果目標文件已經包含其他修改內容，只需按照縮進合併 patch: 以下的部分</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># luna_pinyin.custom.yaml</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 在【朙月拼音】裏使用Emoji表情</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 保存到Rime用戶文件夾後，重新部署生效</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># ~/.config/ibus/rime  (linux)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># ~/Library/Rime       (macos)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># %APPDATA%\Rime       (windows)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 如果目標文件已經包含其他修改內容，只需按照縮進合併 patch: 以下的部分</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">  schema/dependencies</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#032F62">emoji</span></span>
-<span class="line"><span style="color:#22863A">  reverse_lookup</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    dictionary</span><span style="color:#24292E">: </span><span style="color:#032F62">emoji</span></span>
-<span class="line"><span style="color:#22863A">    enable_completion</span><span style="color:#24292E">: </span><span style="color:#005CC5">false</span></span>
-<span class="line"><span style="color:#22863A">    prefix</span><span style="color:#24292E">: </span><span style="color:#032F62">"`"</span></span>
-<span class="line"><span style="color:#22863A">    tips</span><span style="color:#24292E">: </span><span style="color:#032F62">〔表情〕</span></span></code></pre>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  schema/dependencies</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  reverse_lookup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    dictionary</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    enable_completion</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    prefix</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"`"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    tips</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">〔表情〕</span></span></code></pre>
 <p>以上我们就完成了<code>emoji</code>表情输入的设置，现在输入一个<code>`</code>加随意一些字母来看看效果吧</p>
 <p>但是仅仅表情还不够，我们有时候需要输入形如<code>ⅺ</code>、<code>⑴</code>、<code>☁</code>之类的特殊符号，查看<code>symbols.yaml</code>我们可以发现及其丰富的特殊符号，但是如何才能使用它们呢？</p>
 <p>只需要在我们上面已经添加了<code>emoji</code>表情相关的配置文件末尾再加上如下配置即可</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">  punctuator</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    import_preset</span><span style="color:#24292E">: </span><span style="color:#032F62">symbols</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  punctuator</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    import_preset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">symbols</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">  recognizer</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    import_preset</span><span style="color:#24292E">: </span><span style="color:#032F62">default</span></span>
-<span class="line"><span style="color:#22863A">    patterns</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">      reverse_lookup</span><span style="color:#24292E">: </span><span style="color:#032F62">"`[a-z]*'?$"</span></span>
-<span class="line"><span style="color:#22863A">      punct</span><span style="color:#24292E">: </span><span style="color:#032F62">"^/([a-z]+|[0-9]0?)$"</span></span></code></pre>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  recognizer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    import_preset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">default</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    patterns</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">      reverse_lookup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"`[a-z]*'?$"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">      punct</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"^/([a-z]+|[0-9]0?)$"</span></span></code></pre>
 <p>大功告成，重新部署之后使用<code>/lm</code>看看吧，更多符号输入方式请查看<code>symbols.yaml</code></p>
 <h2 id="同步">同步</h2>
 <p>做了这么多的个性化设置之后，其实输入法应该已经很符合自己的心意了。但是如果我们更换了一台设备或者需要在其它设备上保持同样的习惯的话怎么办呢？我们使用这么久已经养成了的个人词库可以在其它设备上使用么？</p>
@@ -192,15 +223,15 @@
 <h3 id="1-设定同步位置">1. 设定同步位置</h3>
 <p>默认情况下，个人词库和配置都将备份到<code>RIME用户文件夹\sync\UUID</code>这里。如果使用网盘或者U盘在不同机器、系统之间同步，则需要设定同步的目标文件夹，此时这些文件都会备份到设定好的目录。</p>
 <p>直接編輯用戶文件夾下的<code>installation.yaml</code>，添加：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">sync_dir</span><span style="color:#24292E">: </span><span style="color:#032F62">'D:\Dropbox\RimeSync'</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">sync_dir</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'D:\Dropbox\RimeSync'</span></span></code></pre>
 <p>又如 Mac 上添加：</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">sync_dir</span><span style="color:#24292E">: </span><span style="color:#032F62">'/Users/fred/Dropbox/RimeSync'</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">sync_dir</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'/Users/fred/Dropbox/RimeSync'</span></span></code></pre>
 <p>又如使用 USB 存儲來同步：（真實案例）</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">sync_dir</span><span style="color:#24292E">: </span><span style="color:#032F62">'/Volumes/USBDRIVE/RimeSync'</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">sync_dir</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'/Volumes/USBDRIVE/RimeSync'</span></span></code></pre>
 <h3 id="2-同步标识">2. 同步标识</h3>
 <p>默认情况下，<code>RIME</code>会为随机生成每一个<code>UUID</code>作为标识。这个<code>UUID</code>会被用来区分來自不同机器/系统的个人词库和设置。</p>
 <p>如果你想要让其更加便于管理，那么你可以设置一个有意义的ID用于区分，直接编辑<code>installation.yaml</code>中如下所示的内容即可</p>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">installation_id</span><span style="color:#24292E">: </span><span style="color:#032F62">'loshine-macbook'</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">installation_id</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'loshine-macbook'</span></span></code></pre>
 <p><strong>注意</strong>：此ID不能使用非法字符，建议只用小写字母、数字、横线和下划线</p>
 <h2 id="我的成品">我的成品</h2>
 <p>成品效果演示</p>
@@ -209,124 +240,124 @@
 <ul>
 <li>squirrel.custom.yaml</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># 適用於【鼠鬚管】0.9.13+</span></span>
-<span class="line"><span style="color:#6A737D"># 位置：~/Library/Rime/squirrel.custom.yaml</span></span>
-<span class="line"><span style="color:#6A737D"># 用法：想要哪項生效，就刪去該行行首的#字符，但注意保留用於縮進的空格</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 適用於【鼠鬚管】0.9.13+</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 位置：~/Library/Rime/squirrel.custom.yaml</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 用法：想要哪項生效，就刪去該行行首的#字符，但注意保留用於縮進的空格</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#6A737D">#  us_keyboard_layout: true                   # 鍵盤選項：應用美式鍵盤佈局</span></span>
-<span class="line"><span style="color:#22863A">  show_notifications_when</span><span style="color:#24292E">: </span><span style="color:#032F62">appropriate</span><span style="color:#6A737D">        # 狀態通知，默認裝有Growl時顯示，也可設爲全開（always）全關（never）</span></span>
-<span class="line"><span style="color:#6A737D">#  style/horizontal: true                     # 候選窗横向顯示</span></span>
-<span class="line"><span style="color:#6A737D">#  style/inline_preedit: false                # 非內嵌編碼行</span></span>
-<span class="line"><span style="color:#6A737D">#  style/font_face: "PingFang SC,HanaMinA"     # 我喜歡的字體名稱</span></span>
-<span class="line"><span style="color:#22863A">  style/font_point</span><span style="color:#24292E">: </span><span style="color:#005CC5">18</span><span style="color:#6A737D">                        # 字號</span></span>
-<span class="line"><span style="color:#22863A">  style/corner_radius</span><span style="color:#24292E">: </span><span style="color:#005CC5">2</span><span style="color:#6A737D">                      # 窗口圓角半徑</span></span>
-<span class="line"><span style="color:#22863A">  style/border_height</span><span style="color:#24292E">: </span><span style="color:#005CC5">7</span><span style="color:#6A737D">                      # 窗口邊界高度，大於圓角半徑才有效果</span></span>
-<span class="line"><span style="color:#22863A">  style/border_width</span><span style="color:#24292E">: </span><span style="color:#005CC5">7</span><span style="color:#6A737D">                       # 窗口邊界寬度，大於圓角半徑才有效果</span></span>
-<span class="line"><span style="color:#22863A">  style/color_scheme</span><span style="color:#24292E">: </span><span style="color:#032F62">luna</span><span style="color:#6A737D">                    # 選擇配色方案</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  us_keyboard_layout: true                   # 鍵盤選項：應用美式鍵盤佈局</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  show_notifications_when</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">appropriate</span><span style="color:#6A737D;--shiki-dark:#6A737D">        # 狀態通知，默認裝有Growl時顯示，也可設爲全開（always）全關（never）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/horizontal: true                     # 候選窗横向顯示</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/inline_preedit: false                # 非內嵌編碼行</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  style/font_face: "PingFang SC,HanaMinA"     # 我喜歡的字體名稱</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/font_point</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">18</span><span style="color:#6A737D;--shiki-dark:#6A737D">                        # 字號</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/corner_radius</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">2</span><span style="color:#6A737D;--shiki-dark:#6A737D">                      # 窗口圓角半徑</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/border_height</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#6A737D;--shiki-dark:#6A737D">                      # 窗口邊界高度，大於圓角半徑才有效果</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/border_width</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">7</span><span style="color:#6A737D;--shiki-dark:#6A737D">                       # 窗口邊界寬度，大於圓角半徑才有效果</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  style/color_scheme</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">luna</span><span style="color:#6A737D;--shiki-dark:#6A737D">                    # 選擇配色方案</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 註：預設的配色方案及代碼（指定爲 style/color_scheme ）</span></span>
-<span class="line"><span style="color:#6A737D">#   碧水 - aqua</span></span>
-<span class="line"><span style="color:#6A737D">#   青天 - azure</span></span>
-<span class="line"><span style="color:#6A737D">#   明月 - luna</span></span>
-<span class="line"><span style="color:#6A737D">#   墨池 - ink</span></span>
-<span class="line"><span style="color:#6A737D">#   孤寺 - lost_temple</span></span>
-<span class="line"><span style="color:#6A737D">#   暗堂 - dark_temple</span></span>
-<span class="line"><span style="color:#6A737D">#   星際我爭霸 - starcraft</span></span>
-<span class="line"><span style="color:#6A737D">#   谷歌 - google</span></span>
-<span class="line"><span style="color:#22863A">  preset_color_schemes/textflow</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    author</span><span style="color:#24292E">: </span><span style="color:#032F62">"name &#x3C;name@gmail.com>"</span></span>
-<span class="line"><span style="color:#22863A">    back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFFFFFF</span><span style="color:#6A737D"> #背景</span></span>
-<span class="line"><span style="color:#22863A">    border_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xE0B693</span><span style="color:#6A737D"> #边框</span></span>
-<span class="line"><span style="color:#22863A">    candidate_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0x000000</span><span style="color:#6A737D"> #非第一候选项</span></span>
-<span class="line"><span style="color:#22863A">    hilited_back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xEBECED</span><span style="color:#6A737D"> #拼音串高亮背景</span></span>
-<span class="line"><span style="color:#22863A">    hilited_candidate_back_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFFFFFF</span><span style="color:#6A737D"> #第一候选项背景</span></span>
-<span class="line"><span style="color:#22863A">    hilited_candidate_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xF57C75</span><span style="color:#6A737D"> #第一候选项</span></span>
-<span class="line"><span style="color:#22863A">    hilited_text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0xFF6666</span><span style="color:#6A737D"> #拼音串高亮</span></span>
-<span class="line"><span style="color:#22863A">    name</span><span style="color:#24292E">: </span><span style="color:#032F62">Textflow</span></span>
-<span class="line"><span style="color:#22863A">    text_color</span><span style="color:#24292E">: </span><span style="color:#005CC5">0x000000</span><span style="color:#6A737D"> #拼音串</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 註：預設的配色方案及代碼（指定爲 style/color_scheme ）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   碧水 - aqua</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   青天 - azure</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   明月 - luna</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   墨池 - ink</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   孤寺 - lost_temple</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   暗堂 - dark_temple</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   星際我爭霸 - starcraft</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#   谷歌 - google</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  preset_color_schemes/textflow</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    author</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"name &#x3C;name@gmail.com>"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFFFFFF</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    border_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xE0B693</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #边框</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    candidate_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0x000000</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #非第一候选项</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xEBECED</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串高亮背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_candidate_back_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFFFFFF</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #第一候选项背景</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_candidate_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xF57C75</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #第一候选项</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    hilited_text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0xFF6666</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串高亮</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">Textflow</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    text_color</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0x000000</span><span style="color:#6A737D;--shiki-dark:#6A737D"> #拼音串</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Xcode</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.apple.Xcode</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    ascii_mode</span><span style="color:#24292E">: </span><span style="color:#005CC5">true</span></span>
-<span class="line"><span style="color:#6A737D"># alfred</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.alfredapp.Alfred</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    ascii_mode</span><span style="color:#24292E">: </span><span style="color:#005CC5">true</span></span>
-<span class="line"><span style="color:#6A737D"># Android Studio</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.google.android.studio</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    ascii_mode</span><span style="color:#24292E">: </span><span style="color:#005CC5">true</span></span>
-<span class="line"><span style="color:#6A737D"># atom</span></span>
-<span class="line"><span style="color:#22863A">  app_options/com.github.atom</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    ascii_mode</span><span style="color:#24292E">: </span><span style="color:#005CC5">true</span></span></code></pre>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Xcode</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.apple.Xcode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    ascii_mode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># alfred</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.alfredapp.Alfred</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    ascii_mode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Android Studio</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.google.android.studio</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    ascii_mode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># atom</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  app_options/com.github.atom</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    ascii_mode</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">true</span></span></code></pre>
 <ul>
 <li>default.custom.yaml</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">  schema_list</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">luna_pinyin</span><span style="color:#6A737D">          # 朙月拼音</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">luna_pinyin_fluency</span><span style="color:#6A737D">  # 朙月拼音 语句流</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">terra_pinyin</span><span style="color:#6A737D">         # 地球拼音 dì qiú pīn yīn</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: bopomofo             # 注音</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: bopomofo_tw          # 注音 臺灣正體模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: jyutping             # 粵拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: cangjie5             # 倉頡五代</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: cangjie5_express     # 倉頡 快打模式</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: quick5               # 速成</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wubi86               # 五笔86</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">wubi_pinyin</span><span style="color:#6A737D">          # 五笔拼音混合輸入</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin        # 自然碼雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_mspy   # 微軟雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_abc    # 智能ABC雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: double_pinyin_flypy  # 小鶴雙拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wugniu        # 吳語上海話（新派）</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: wugniu_lopha  # 吳語上海話（老派）</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: sampheng      # 中古漢語三拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: zyenpheng     # 中古漢語全拼</span></span>
-<span class="line"><span style="color:#6A737D">#    - schema: ipa_xsampa    # X-SAMPA 國際音標</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#22863A">schema</span><span style="color:#24292E">: </span><span style="color:#032F62">emoji</span><span style="color:#6A737D">         # emoji表情</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  schema_list</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">luna_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">          # 朙月拼音</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">luna_pinyin_fluency</span><span style="color:#6A737D;--shiki-dark:#6A737D">  # 朙月拼音 语句流</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: luna_pinyin_simp     # 朙月拼音 简化字模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: luna_pinyin_tw       # 朙月拼音 臺灣正體模式</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">terra_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">         # 地球拼音 dì qiú pīn yīn</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: bopomofo             # 注音</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: bopomofo_tw          # 注音 臺灣正體模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: jyutping             # 粵拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: cangjie5             # 倉頡五代</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: cangjie5_express     # 倉頡 快打模式</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: quick5               # 速成</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wubi86               # 五笔86</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">wubi_pinyin</span><span style="color:#6A737D;--shiki-dark:#6A737D">          # 五笔拼音混合輸入</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin        # 自然碼雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_mspy   # 微軟雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_abc    # 智能ABC雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: double_pinyin_flypy  # 小鶴雙拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wugniu        # 吳語上海話（新派）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: wugniu_lopha  # 吳語上海話（老派）</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: sampheng      # 中古漢語三拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: zyenpheng     # 中古漢語全拼</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - schema: ipa_xsampa    # X-SAMPA 國際音標</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#22863A;--shiki-dark:#85E89D">schema</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span><span style="color:#6A737D;--shiki-dark:#6A737D">         # emoji表情</span></span></code></pre>
 <ul>
 <li>terra_pinyin.custom.yaml</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D"># luna_pinyin.custom.yaml</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 在【地球拼音】裏使用Emoji表情</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 保存到Rime用戶文件夾後，重新部署生效</span></span>
-<span class="line"><span style="color:#6A737D"># ~/.config/ibus/rime  (linux)</span></span>
-<span class="line"><span style="color:#6A737D"># ~/Library/Rime       (macos)</span></span>
-<span class="line"><span style="color:#6A737D"># %APPDATA%\Rime       (windows)</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
-<span class="line"><span style="color:#6A737D"># 如果目標文件已經包含其他修改內容，只需按照縮進合併 patch: 以下的部分</span></span>
-<span class="line"><span style="color:#6A737D">#</span></span>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># luna_pinyin.custom.yaml</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 在【地球拼音】裏使用Emoji表情</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 保存到Rime用戶文件夾後，重新部署生效</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># ~/.config/ibus/rime  (linux)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># ~/Library/Rime       (macos)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># %APPDATA%\Rime       (windows)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># 如果目標文件已經包含其他修改內容，只需按照縮進合併 patch: 以下的部分</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">patch</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">  schema/dependencies</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    - </span><span style="color:#032F62">emoji</span></span>
-<span class="line"><span style="color:#6A737D">#  abc_segmentor/extra_tags:</span></span>
-<span class="line"><span style="color:#6A737D">#    - reverse_lookup</span></span>
-<span class="line"><span style="color:#22863A">  reverse_lookup</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    dictionary</span><span style="color:#24292E">: </span><span style="color:#032F62">emoji</span></span>
-<span class="line"><span style="color:#22863A">    enable_completion</span><span style="color:#24292E">: </span><span style="color:#005CC5">false</span></span>
-<span class="line"><span style="color:#22863A">    prefix</span><span style="color:#24292E">: </span><span style="color:#032F62">"`"</span></span>
-<span class="line"><span style="color:#22863A">    tips</span><span style="color:#24292E">: </span><span style="color:#032F62">〔表情〕</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">patch</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  schema/dependencies</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    - </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#  abc_segmentor/extra_tags:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#    - reverse_lookup</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  reverse_lookup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    dictionary</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">emoji</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    enable_completion</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">false</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    prefix</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"`"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    tips</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">〔表情〕</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">  punctuator</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    import_preset</span><span style="color:#24292E">: </span><span style="color:#032F62">symbols</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  punctuator</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    import_preset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">symbols</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#22863A">  recognizer</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">    import_preset</span><span style="color:#24292E">: </span><span style="color:#032F62">default</span></span>
-<span class="line"><span style="color:#22863A">    patterns</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#22863A">      reverse_lookup</span><span style="color:#24292E">: </span><span style="color:#032F62">"`[a-z]*'?$"</span></span>
-<span class="line"><span style="color:#22863A">      punct</span><span style="color:#24292E">: </span><span style="color:#032F62">"^/([a-z]+|[0-9]0?)$"</span></span></code></pre>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">  recognizer</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    import_preset</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">default</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">    patterns</span><span style="color:#24292E;--shiki-dark:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">      reverse_lookup</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"`[a-z]*'?$"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">      punct</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"^/([a-z]+|[0-9]0?)$"</span></span></code></pre>
 <ul>
 <li>installation.yaml</li>
 </ul>
-<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A">distribution_code_name</span><span style="color:#24292E">: </span><span style="color:#032F62">Squirrel</span></span>
-<span class="line"><span style="color:#22863A">distribution_name</span><span style="color:#24292E">: </span><span style="color:#032F62">"鼠鬚管"</span></span>
-<span class="line"><span style="color:#22863A">distribution_version</span><span style="color:#24292E">: </span><span style="color:#005CC5">0.9.26.1</span></span>
-<span class="line"><span style="color:#22863A">install_time</span><span style="color:#24292E">: </span><span style="color:#032F62">"Mon Aug  3 15:24:12 2015"</span></span>
-<span class="line"><span style="color:#22863A">installation_id</span><span style="color:#24292E">: </span><span style="color:#032F62">"loshine-macbook"</span></span>
-<span class="line"><span style="color:#22863A">rime_version</span><span style="color:#24292E">: </span><span style="color:#005CC5">1.2.9</span></span>
-<span class="line"><span style="color:#22863A">sync_dir</span><span style="color:#24292E">: </span><span style="color:#032F62">'/Users/Loshine/我的坚果云/RimeSync'</span></span></code></pre></article><aside class="toc" aria-label="文章目录"><details open><summary>本篇目录</summary><nav><a href="#简介">简介</a><a href="#安装">安装</a><a href="#使用">使用</a><a href="#自定义">自定义</a><a href="#输入方案">输入方案</a><a href="#外观">外观</a><a href="#主题">主题</a><a href="#生僻字乱码">生僻字乱码</a><a href="#根据程序切换中英文">根据程序切换中英文</a><a href="#emoji表情以及特殊符号">emoji表情以及特殊符号</a><a href="#同步">同步</a><a class="toc-sub" href="#1-设定同步位置">1. 设定同步位置</a><a class="toc-sub" href="#2-同步标识">2. 同步标识</a><a href="#我的成品">我的成品</a></nav></details></aside></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2015/10/17/implements-parcelable-in-kotlin/"><span>← 较新一篇</span>Kotlin中实现Parcelable</a></div><div><a href="/2015/08/27/volley/"><span>较早一篇 →</span>Android网络通信框架Volley</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2015/09/12/rime/" data-identifier="2015/09/12/rime/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><div><strong>饭窝</strong><span>把折腾过的事情，认真记下来。</span></div><div><a href="https://github.com/loshine">GitHub ↗</a><span>© 2026 Loshine · Built with Astro</span></div></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>
+<pre class="astro-code astro-code-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">distribution_code_name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">Squirrel</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">distribution_name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"鼠鬚管"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">distribution_version</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">0.9.26.1</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">install_time</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"Mon Aug  3 15:24:12 2015"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">installation_id</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">"loshine-macbook"</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">rime_version</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">1.2.9</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#85E89D">sync_dir</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#032F62;--shiki-dark:#9ECBFF">'/Users/Loshine/我的坚果云/RimeSync'</span></span></code></pre></article></div><div class="article-end"><p class="license">作者 Loshine · 本文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可协议。</p><nav class="adjacent-posts" aria-label="相邻文章"><div><a href="/2015/10/17/implements-parcelable-in-kotlin/"><span>← 较新一篇</span>Kotlin中实现Parcelable</a></div><div><a href="/2015/08/27/volley/"><span>较早一篇 →</span>Android网络通信框架Volley</a></div></nav><section class="comments" aria-labelledby="comments-title" data-pagefind-ignore><h2 id="comments-title">聊一聊</h2><p>想法、问题，或不同的解法，都欢迎留下来。</p><button id="load-comments" data-url="https://loshine.github.io/2015/09/12/rime/" data-identifier="2015/09/12/rime/">加载 Disqus 评论</button><p id="comments-status" role="status"></p><div id="disqus_thread"></div><noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript></section><script type="module">var e=document.querySelector(`#load-comments`);e?.addEventListener(`click`,()=>{let t=document.querySelector(`#comments-status`),n={page:{url:e.dataset.url,identifier:e.dataset.identifier}};window.disqus_config=function(){this.page.url=n.page.url,this.page.identifier=n.page.identifier},e.disabled=!0,t.textContent=`正在连接 Disqus…`;let r=document.createElement(`script`);r.src=`https://loshine.disqus.com/embed.js`,r.onload=()=>{e.hidden=!0,t.textContent=``},r.onerror=()=>{r.remove(),e.disabled=!1,t.textContent=`Disqus 暂时无法连接，请稍后重试。`},document.body.appendChild(r)});</script></div></main><footer class="site-footer shell"><span>© 2026 Loshine · 饭窝</span><span>Built with <a href="https://astro.build/">Astro</a> &amp; <a href="https://github.com/chrismwilliams/astro-cactus">Cactus</a></span></footer></body></html><script type="module">document.querySelectorAll(`.prose pre`).forEach(e=>{let t=document.createElement(`button`);t.className=`copy-code`,t.textContent=`复制`,t.setAttribute(`aria-label`,`复制代码`),t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(e.querySelector(`code`)?.textContent??``),t.textContent=`已复制`}catch{t.textContent=`复制失败，请手动选择`}setTimeout(()=>{t.textContent=`复制`},2e3)}),e.before(t)});</script>
