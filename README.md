@@ -2,6 +2,12 @@
 
 Loshine 的个人博客。Astro 静态生成，Markdown 内容集合，Shiki 代码高亮，Pagefind 中文全文搜索，Disqus 评论。
 
+## 主题
+
+基于 [Astro Cactus](https://github.com/chrismwilliams/astro-cactus) 8.3.0（`728f1f4`）的布局、仙人掌标识与配色做中文适配：窄栏、日期文章列表、明暗切换，正文使用中文系统字体。沿用当前 Astro 内容层和原生 CSS，不引入示例文章、Notes、Tailwind 或主题的其他可选服务。主题 MIT 许可保存在 `public/astro-cactus-LICENSE.txt`，随静态站点发布。
+
+主题默认跟随系统，手动切换后在本地浏览器保存选择；禁用本地存储时仍可切换当前页面。
+
 ## 本地预览
 
 需要 Node.js 22.23.4+（建议 Node.js 24 LTS）和 pnpm 10.15.0。

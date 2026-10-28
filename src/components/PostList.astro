@@ -1,5 +1,5 @@
 ---
-import { dateLabel, postPath, summary, taxonomyPath, type Post } from '../lib/posts';
+import { dateLabel, postPath, type Post } from '../lib/posts';
 interface Props { posts: Post[]; }
 const { posts } = Astro.props;
 ---
@@ -8,9 +8,6 @@ const { posts } = Astro.props;
     <time class="post-date" datetime={dateLabel(post)}>{dateLabel(post)}</time>
     <div class="post-info">
       <h2><a href={postPath(post)}>{post.data.title}</a></h2>
-      <p class="excerpt">{summary(post)}</p>
-      <div class="post-tags">{post.data.tags.map((tag) => <a href={taxonomyPath('tags', tag)}>{tag}</a>)}</div>
     </div>
-    <a class="post-arrow" href={postPath(post)} aria-label={`阅读：${post.data.title}`}>↗</a>
   </article>)}
 </div>

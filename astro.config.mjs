@@ -7,7 +7,7 @@ export default defineConfig({
   trailingSlash: 'always',
   output: 'static',
   markdown: {
-    shikiConfig: { theme: 'github-light', langAlias: { gradle: 'groovy' } },
+    shikiConfig: { themes: { light: 'github-light', dark: 'github-dark' }, langAlias: { gradle: 'groovy' } },
     processor: unified({
       smartypants: false,
       rehypePlugins: [legacyMarkdown],
