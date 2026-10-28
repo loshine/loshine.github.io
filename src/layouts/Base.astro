@@ -19,6 +19,7 @@ const links = [['/archives/', '归档'], ['/categories/', '分类'], ['/tags/', 
     <meta name="theme-color" content="#fafafa" />
     <Theme />
     <link rel="canonical" href={canonical} />
+    {article && <meta name="giscus:backlink" content={canonical.href} />}
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />

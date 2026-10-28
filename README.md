@@ -1,6 +1,6 @@
 # 饭窝
 
-Loshine 的个人博客。Astro 静态生成，Markdown 内容集合，Shiki 代码高亮，Pagefind 中文全文搜索，Disqus 评论。
+Loshine 的个人博客。Astro 静态生成，Markdown 内容集合，Shiki 代码高亮，Pagefind 中文全文搜索，giscus 评论（GitHub Discussions）。
 
 ## 主题
 
@@ -29,7 +29,9 @@ pnpm preview --host 127.0.0.1
 - 文章继续保存在 `source/_posts/*.md`，图片放在 `public/assets/`，关于页面位于 `source/about/index.md`。
 - 文章 URL 使用 front matter 的 `date` 和文件名去掉日期前缀后的部分：`/年/月/日/标题/`。日期按 UTC 日历值读取，避免构建机器时区改变地址。
 - 保留 Hexo 的 `category` / `categories`、`tags`、`toc`、`comments` 字段以及大小写敏感的标签地址和标题锚点。
-- Disqus 沿用 `loshine`，identifier 为不带开头 `/` 的文章路径，URL 为正式站点地址。点击加载后才访问 Disqus。
+- giscus 使用 `loshine/loshine.github.io` 的 Announcements 分类。按完整文章路径（含开头和结尾 `/`）严格匹配讨论，不受标题或预览域名变化影响；讨论反向链接固定为正式站点地址。点击加载后才访问 giscus，评论主题跟随博客明暗切换。
+- 启用前需安装 giscus GitHub App，安装范围仅选择博客仓库，并保持 Discussions 开启。仓库 ID 与分类 ID 配置在 `src/components/Comments.astro`；重新创建分类后需更新 ID。
+- 本次只更换评论组件，旧 Disqus 数据未删除，也不会自动出现在 giscus 中。
 - 旧图床 URL 保留，迁移没有下载或重新托管外部图片。
 
 新文章示例：
@@ -53,6 +55,6 @@ toc: true
 
 ## 兼容性检查
 
-`tests/fixtures/legacy-site.json` 从迁移前 `main` 提交 `2854fcd14028a29b8808a973e425bd6c16114701` 的已发布 HTML 提取，记录 129 个页面地址、52 篇文章的标题锚点及评论标识。`pnpm test` 在构建后检查这些地址、锚点、评论关联、站内导航和搜索资源。
+`tests/fixtures/legacy-site.json` 从迁移前 `main` 提交 `2854fcd14028a29b8808a973e425bd6c16114701` 的已发布 HTML 提取，记录 129 个页面地址、52 篇文章的标题锚点及评论标识。`pnpm test` 在构建后检查这些地址、锚点、giscus 文章路径映射、站内导航和搜索资源。原 Disqus 标识保留在历史基线中，方便未来迁移旧评论。
 
 移除了 Hexo / Icarus 的配置、兼容补丁与依赖；正文只修复了 RIME 文章残留的模板代码围栏，关于页面补齐标准 front matter 并移除图标字体依赖。

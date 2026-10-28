@@ -25,14 +25,21 @@ test('every published Hexo page still exists at its original URL', () => {
   for (const route of baseline.routes) assert.ok(existsSync(join('dist', route)), `Missing old URL: ${route}`);
 });
 
-test('all 52 articles retain canonical URLs, heading anchors, and Disqus identity', () => {
+test('all 52 articles retain canonical URLs, heading anchors, and stable giscus mapping', () => {
   for (const [path, post] of Object.entries(baseline.posts)) {
     const document = readPage(`${path}index.html`);
     assert.equal(document.querySelector('link[rel="canonical"]').getAttribute('href'), new URL(path, 'https://loshine.github.io').href);
     const ids = new Set([...document.querySelectorAll('[id]')].map((node) => node.id));
     for (const heading of post.headings) assert.ok(ids.has(heading), `${path}: missing #${heading}`);
-    assert.equal(document.querySelector('#load-comments').getAttribute('data-identifier'), post.identifier);
-    assert.equal(document.querySelector('#load-comments').getAttribute('data-url'), new URL(path, 'https://loshine.github.io').href);
+    const comments = document.querySelector('.giscus');
+    assert.equal(comments.getAttribute('data-repo'), 'loshine/loshine.github.io');
+    assert.equal(comments.getAttribute('data-mapping'), 'specific');
+    assert.equal(comments.getAttribute('data-term'), path);
+    assert.equal(comments.getAttribute('data-strict'), '1');
+    assert.ok(comments.getAttribute('data-category-id'), `${path}: missing giscus category`);
+    assert.equal(document.querySelector('meta[name="giscus:backlink"]').getAttribute('content'), new URL(path, 'https://loshine.github.io').href);
+    assert.equal(document.querySelector('script[src*="disqus.com"]'), null);
+    assert.equal(document.querySelector('#disqus_thread'), null);
     assert.ok(document.querySelector('[data-pagefind-body]'), `${path}: missing search body`);
   }
 });
