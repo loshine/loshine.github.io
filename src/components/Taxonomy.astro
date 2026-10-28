@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { categories, getPosts, taxonomyPath } from '../lib/posts';
+interface Props { kind: 'tags' | 'categories'; }
+const { kind } = Astro.props;
+const posts = await getPosts();
+const counts = new Map<string, number>();
+for (const post of posts) {
+  for (const name of kind === 'tags' ? post.data.tags : categories(post)) counts.set(name, (counts.get(name) ?? 0) + 1);
+}
+const entries = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'zh-CN'));
+const title = kind === 'tags' ? '标签' : '分类';
+---
+<Base title={title}>
+  <header class="page-heading"><p class="eyebrow">EXPLORE THE NOTEBOOK</p><h1>{title}</h1><p>从感兴趣的话题开始阅读。</p></header>
+  <div class="taxonomy-grid">{entries.map(([name, count]) => <a href={taxonomyPath(kind, name)}><span>{name}</span><span>{count} 篇 ↗</span></a>)}</div>
+</Base>

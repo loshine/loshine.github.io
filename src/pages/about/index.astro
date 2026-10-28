@@ -1,0 +1,10 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+const [about] = await getCollection('about');
+const { Content } = await render(about);
+---
+<Base title="关于">
+  <header class="page-heading"><p class="eyebrow">BEHIND THE NOTEBOOK</p><h1>你好，我是 Loshine。</h1></header>
+  <div class="prose about"><Content /></div>
+</Base>

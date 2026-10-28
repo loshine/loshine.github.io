@@ -1,4 +1,5 @@
-title:
+---
+title: 关于
 toc: true
 comment: false
 ---
@@ -9,6 +10,6 @@ comment: false
 
 ## 联系方式
 
-<i class="fab fa-github"></i> [@loshine](https://github.com/loshine)
+[@loshine](https://github.com/loshine)
 
-<i class="fas fa-envelope"></i> [loshine1992@gmail.com](mailto:loshine1992@gmail.com)
+[loshine1992@gmail.com](mailto:loshine1992@gmail.com)

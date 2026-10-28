@@ -1,0 +1,43 @@
+---
+import { siteTitle, siteDescription } from '../lib/posts';
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; article?: boolean; }
+const { title, description = siteDescription, article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = title ? `${title} · ${siteTitle}` : `${siteTitle} · Loshine 的技术笔记`;
+const links = [['/', '文章'], ['/archives/', '归档'], ['/categories/', '分类'], ['/tags/', '标签'], ['/about/', '关于'], ['/search/', '搜索']];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f8f7f4" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:image" content={new URL('/assets/img/avatar.png', Astro.site)} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header shell">
+      <a class="brand" href="/" aria-label="饭窝首页"><span class="brand-mark" aria-hidden="true">饭</span>饭窝<span class="brand-note">Loshine</span></a>
+      <nav aria-label="主导航">
+        {links.map(([href, label]) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>)}
+      </nav>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="site-footer shell">
+      <div><strong>饭窝</strong><span>把折腾过的事情，认真记下来。</span></div>
+      <div><a href="https://github.com/loshine">GitHub ↗</a><span>© {new Date().getFullYear()} Loshine · Built with Astro</span></div>
+    </footer>
+  </body>
+</html>

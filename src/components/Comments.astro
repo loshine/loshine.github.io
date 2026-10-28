@@ -1,0 +1,32 @@
+---
+interface Props { path: string; }
+const { path } = Astro.props;
+const url = new URL(path, Astro.site).href;
+const identifier = path.slice(1);
+---
+<section class="comments" aria-labelledby="comments-title" data-pagefind-ignore>
+  <h2 id="comments-title">聊一聊</h2>
+  <p>想法、问题，或不同的解法，都欢迎留下来。</p>
+  <button id="load-comments" data-url={url} data-identifier={identifier}>加载 Disqus 评论</button>
+  <p id="comments-status" role="status"></p>
+  <div id="disqus_thread"></div>
+  <noscript><a href="https://loshine.disqus.com/">前往 Disqus 查看评论</a></noscript>
+</section>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('#load-comments');
+  button?.addEventListener('click', () => {
+    const status = document.querySelector<HTMLElement>('#comments-status')!;
+    const config = { page: { url: button.dataset.url, identifier: button.dataset.identifier } };
+    (window as Window & { disqus_config?: (this: typeof config) => void }).disqus_config = function () {
+      this.page.url = config.page.url;
+      this.page.identifier = config.page.identifier;
+    };
+    button.disabled = true;
+    status.textContent = '正在连接 Disqus…';
+    const script = document.createElement('script');
+    script.src = 'https://loshine.disqus.com/embed.js';
+    script.onload = () => { button.hidden = true; status.textContent = ''; };
+    script.onerror = () => { script.remove(); button.disabled = false; status.textContent = 'Disqus 暂时无法连接，请稍后重试。'; };
+    document.body.appendChild(script);
+  });
+</script>

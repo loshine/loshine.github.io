@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="搜索">
+  <header class="page-heading"><p class="eyebrow">FIND A NOTE</p><h1>搜索文章</h1><p>输入主题、技术名词，或记忆中的一句话。</p></header>
+  <link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
+  <div id="search">
+    <pagefind-config lang="zh-cn"></pagefind-config>
+    <pagefind-input placeholder="搜索文章…"></pagefind-input>
+    <pagefind-summary></pagefind-summary>
+    <pagefind-results></pagefind-results>
+  </div>
+  <p id="search-status" role="status">正在加载搜索…</p>
+  <noscript>全文搜索需要启用 JavaScript，也可以浏览<a href="/archives/">文章归档</a>。</noscript>
+  <script is:inline>
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = '/pagefind/pagefind-component-ui.js';
+    script.onload = () => {
+      document.getElementById('search-status').remove();
+    };
+    script.onerror = () => {
+      document.getElementById('search-status').textContent = '搜索暂时无法加载，请刷新重试，或浏览文章归档。';
+    };
+    document.head.appendChild(script);
+  </script>
+</Base>
